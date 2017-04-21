@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.rx.rmip.corebiz.service.modules.freq.allocation.dao.FRBTVersionMapper" >
+  <resultMap id="BaseResultMap" type="com.rx.rmip.corebiz.service.modules.freq.allocation.model.FRBTVersion" >
+    <id column="VER_CODE" property="verCode" jdbcType="VARCHAR" />
+    <result column="VER_NAME" property="verName" jdbcType="VARCHAR" />
+    <result column="START_DATE" property="startDate" jdbcType="DATE" />
+    <result column="DATA_STATUS" property="dataStatus" jdbcType="VARCHAR" />
+    <result column="MEMO" property="memo" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    VER_CODE, VER_NAME, START_DATE, DATA_STATUS, MEMO
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from FRBT_VERSION
+    where VER_CODE = #{verCode,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from FRBT_VERSION
+    where VER_CODE = #{verCode,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.rx.rmip.corebiz.service.modules.freq.allocation.model.FRBTVersion" >
+    insert into FRBT_VERSION (VER_CODE, VER_NAME, START_DATE, 
+      DATA_STATUS, MEMO)
+    values (#{verCode,jdbcType=VARCHAR}, #{verName,jdbcType=VARCHAR}, #{startDate,jdbcType=DATE}, 
+      #{dataStatus,jdbcType=VARCHAR}, #{memo,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.rx.rmip.corebiz.service.modules.freq.allocation.model.FRBTVersion" >
+    insert into FRBT_VERSION
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="verCode != null" >
+        VER_CODE,
+      </if>
+      <if test="verName != null" >
+        VER_NAME,
+      </if>
+      <if test="startDate != null" >
+        START_DATE,
+      </if>
+      <if test="dataStatus != null" >
+        DATA_STATUS,
+      </if>
+      <if test="memo != null" >
+        MEMO,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="verCode != null" >
+        #{verCode,jdbcType=VARCHAR},
+      </if>
+      <if test="verName != null" >
+        #{verName,jdbcType=VARCHAR},
+      </if>
+      <if test="startDate != null" >
+        #{startDate,jdbcType=DATE},
+      </if>
+      <if test="dataStatus != null" >
+        #{dataStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="memo != null" >
+        #{memo,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.rx.rmip.corebiz.service.modules.freq.allocation.model.FRBTVersion" >
+    update FRBT_VERSION
+    <set >
+      <if test="verName != null" >
+        VER_NAME = #{verName,jdbcType=VARCHAR},
+      </if>
+      <if test="startDate != null" >
+        START_DATE = #{startDate,jdbcType=DATE},
+      </if>
+      <if test="dataStatus != null" >
+        DATA_STATUS = #{dataStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="memo != null" >
+        MEMO = #{memo,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where VER_CODE = #{verCode,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.rx.rmip.corebiz.service.modules.freq.allocation.model.FRBTVersion" >
+    update FRBT_VERSION
+    set VER_NAME = #{verName,jdbcType=VARCHAR},
+      START_DATE = #{startDate,jdbcType=DATE},
+      DATA_STATUS = #{dataStatus,jdbcType=VARCHAR},
+      MEMO = #{memo,jdbcType=VARCHAR}
+    where VER_CODE = #{verCode,jdbcType=VARCHAR}
+  </update>
+</mapper>

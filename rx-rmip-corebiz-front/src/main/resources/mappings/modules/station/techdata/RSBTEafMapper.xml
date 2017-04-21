@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.rx.rmip.corebiz.service.modules.station.techdata.dao.RSBTEafMapper" >
+  <resultMap id="BaseResultMap" type="com.rx.rmip.corebiz.service.modules.station.techdata.model.RSBTEaf" >
+    <id column="GUID" property="guid" jdbcType="VARCHAR" />
+    <result column="STATION_GUID" property="stationGuid" jdbcType="VARCHAR" />
+    <result column="EQU_GUID" property="equGuid" jdbcType="VARCHAR" />
+    <result column="ANT_GUID" property="antGuid" jdbcType="VARCHAR" />
+    <result column="FREQ_GUID" property="freqGuid" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    GUID, STATION_GUID, EQU_GUID, ANT_GUID, FREQ_GUID
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from RSBT_EAF
+    where GUID = #{guid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from RSBT_EAF
+    where GUID = #{guid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.rx.rmip.corebiz.service.modules.station.techdata.model.RSBTEaf" >
+    <!-- 自动生成guid并赋值给 #{guid}-->
+  		<selectKey keyProperty="guid" resultType="String" order="BEFORE">  
+            select sys_guid() from dual  
+        </selectKey> 
+    insert into RSBT_EAF (GUID, STATION_GUID, EQU_GUID, 
+      ANT_GUID, FREQ_GUID)
+    values (#{guid,jdbcType=VARCHAR}, #{stationGuid,jdbcType=VARCHAR}, #{equGuid,jdbcType=VARCHAR}, 
+      #{antGuid,jdbcType=VARCHAR}, #{freqGuid,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.rx.rmip.corebiz.service.modules.station.techdata.model.RSBTEaf" >
+    insert into RSBT_EAF
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="guid != null" >
+        GUID,
+      </if>
+      <if test="stationGuid != null" >
+        STATION_GUID,
+      </if>
+      <if test="equGuid != null" >
+        EQU_GUID,
+      </if>
+      <if test="antGuid != null" >
+        ANT_GUID,
+      </if>
+      <if test="freqGuid != null" >
+        FREQ_GUID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="guid != null" >
+        #{guid,jdbcType=VARCHAR},
+      </if>
+      <if test="stationGuid != null" >
+        #{stationGuid,jdbcType=VARCHAR},
+      </if>
+      <if test="equGuid != null" >
+        #{equGuid,jdbcType=VARCHAR},
+      </if>
+      <if test="antGuid != null" >
+        #{antGuid,jdbcType=VARCHAR},
+      </if>
+      <if test="freqGuid != null" >
+        #{freqGuid,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.rx.rmip.corebiz.service.modules.station.techdata.model.RSBTEaf" >
+    update RSBT_EAF
+    <set >
+      <if test="stationGuid != null" >
+        STATION_GUID = #{stationGuid,jdbcType=VARCHAR},
+      </if>
+      <if test="equGuid != null" >
+        EQU_GUID = #{equGuid,jdbcType=VARCHAR},
+      </if>
+      <if test="antGuid != null" >
+        ANT_GUID = #{antGuid,jdbcType=VARCHAR},
+      </if>
+      <if test="freqGuid != null" >
+        FREQ_GUID = #{freqGuid,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where GUID = #{guid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.rx.rmip.corebiz.service.modules.station.techdata.model.RSBTEaf" >
+    update RSBT_EAF
+    set STATION_GUID = #{stationGuid,jdbcType=VARCHAR},
+      EQU_GUID = #{equGuid,jdbcType=VARCHAR},
+      ANT_GUID = #{antGuid,jdbcType=VARCHAR},
+      FREQ_GUID = #{freqGuid,jdbcType=VARCHAR}
+    where GUID = #{guid,jdbcType=VARCHAR}
+  </update>
+</mapper>

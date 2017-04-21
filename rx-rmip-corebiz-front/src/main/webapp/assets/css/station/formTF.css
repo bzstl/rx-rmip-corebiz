@@ -1,0 +1,444 @@
+﻿Normal {
+	margin-bottom: .0001pt;
+	text-align: center;
+	font-size: 10.5pt;
+	font-family: "TimesNewRoman", "serif";
+	margin-left: 0cm;
+	margin-right: 0cm;
+	margin-top: 0cm;
+}
+
+table {
+	font-size: 10.5pt;
+	font-family: "Calibri", "sans-serif";
+}
+
+td {
+	vertical-align: middle;
+	white-space: nowrap;
+}
+
+#MenuDiv {
+	color: #B46F3C;
+	background-color: #D8AA88;
+	border: 1px solid #B46F3C;
+	font-size: 9pt;
+	font-family: 宋体;
+	font-weight: bold;
+	position: absolute;
+	top: 10px;
+	left: 85%;
+	width: 95px;
+	height: 125px;
+}
+
+li {
+	list-style-type: none;
+}
+
+ul {
+	padding: 0px;
+}
+
+#MenuDiv>li>ul>a:link {
+	font-size: 9pt;
+	font-family: 宋体;
+	font-weight: bold;
+	color: #FFFFFF;
+}
+
+#MenuDiv>li>ul>a:visited {
+	font-size: 9pt;
+	font-family: 宋体;
+	font-weight: bold;
+	color: #FFFFFF;
+}
+
+#MenuDiv>li>ul>a:hover {
+	font-size: 9pt;
+	font-family: 宋体;
+	font-weight: bold;
+	color: #CCCCCC;
+}
+
+#MenuDiv>li>ul>a:active {
+	font-size: 9pt;
+	font-family: 宋体;
+	font-weight: normal;
+	color: #B46F3C;
+}
+
+input[type="checkbox"] {
+	visibility: hidden;
+	width: 0;
+	height: 0;
+	margin: 0;
+	padding: 0;
+}
+
+input[type="checkbox"]+label {
+	background: url(../../images/station/checkbox.png) no-repeat;
+	padding-left: 18px;
+	color: #B46F3C;
+	height: 15px;
+	font-size:10.0pt;
+	display:inline;
+}
+
+input[type="checkbox"]+label:hover {
+	color: #B46F3C;
+	background-position: 0 -16px;
+}
+
+.checkboxchecked {
+	color: #B46F3C;
+	background-position: 0 -16px;
+}
+
+.checkboxfocus {
+	color: #B46F3C;
+	background-position: 0 -16px;
+}
+
+input[type="radio"] {
+	visibility: hidden;
+	width: 0;
+	height: 0;
+	margin: 0;
+	padding: 0;
+}
+
+input[type="radio"]+label {
+	background: url(../../images/station/checkbox.png) no-repeat 0 0;
+	padding-left: 18px;
+	color: #B46F3C;
+	cursor: pointer;
+	height: 15px;
+	font-size:10.0pt;
+	display:inline;
+}
+
+input[type="radio"]+label:hover {
+	color: #B46F3C;
+	background-position: 0 -16px;
+}
+
+.radiochecked {
+	color: #B46F3C;
+	background-position: 0 -16px;
+}
+
+.radiofocus {
+	color: #B46F3C;
+	background-position: 0 -16px;
+}
+
+.txtDefault, 
+input.txtDefault
+{
+	border-style: none;
+	border-color: inherit;
+	border-width: 0px;
+	width: 98%;
+	height: 16px;
+	margin-top: 3px;
+	color: Black;
+	vertical-align: bottom;
+	margin-left: 0px;
+	padding:0;
+}
+
+.txtNumber,
+input.txtNumber
+{
+	width: 50px;
+	height: 16px;
+	margin-top: 3px;
+	border: 0px;
+	color: Black;
+	vertical-align: bottom;
+	text-align: left;
+	margin-left: 0px;
+	padding:0;
+}
+
+.txtNumberLong,
+input.txtNumberLong
+ {
+	width: 180px;
+	height: 16px;
+	border: 0px;
+	color: Black;
+	vertical-align: bottom;
+	text-align: left;
+	margin-left: 0px;
+	padding:0;
+}
+
+.txtLine,
+input.txtLine {
+	width: 80px;
+	height: 100%;
+	color: Black;
+	vertical-align: middle;
+	border-top: 0pt;
+	border-left: 0pt;
+	border-right: 0pt;
+	border-bottom: solid #B46F3C 1.0pt;
+}
+
+.txtStatStauts, input.txtStatStauts {
+	border-style: none;
+	border-color: inherit;
+	border-width: 0px;
+	width: 78%;
+	height: 60%;
+	color: red;
+	vertical-align: bottom;
+	margin-left: 0px;
+	background: #D8AA88 !important;
+}
+
+table .tdTitleTop {
+	border: solid #B46F3C 1.5pt;
+	background: #D8AA88;
+	padding: 0cm 5.4pt 0cm 5.4pt;
+	height: 18.45pt;
+}
+
+table .tdTitleTopLeft {
+	border-top: solid #B46F3C 1.5pt;
+	border-left: solid #B46F3C 1.5pt;
+	border-bottom: solid #B46F3C 1.5pt;
+	border-right: none;
+	background: #D8AA88;
+	padding: 0cm 5.4pt 0cm 5.4pt;
+	height: 18.45pt;
+}
+
+table .tdTitleTopRight {
+	border-top: solid #B46F3C 1.5pt;
+	border-left: none;
+	border-bottom: solid #B46F3C 1.5pt;
+	border-right: solid #B46F3C 1.5pt;
+	background: #D8AA88;
+	padding: 0cm 5.4pt 0cm 5.4pt;
+	height: 18.45pt;
+}
+
+table .tdTitleLeft {
+	border-top: none;
+	border-left: solid #B46F3C 1.5pt;
+	border-bottom: solid #B46F3C 1.5pt;
+	border-right: solid #B46F3C 1.5pt;
+	background: #D8AA88;
+	padding: 0cm 5.4pt 0cm 5.4pt;
+	height: 18.45pt;
+}
+
+table .tdTitleRight {
+	border-top: none;
+	border-left: none;
+	border-bottom: solid #B46F3C 1.5pt;
+	border-right: solid #B46F3C 1.5pt;
+	background: #D8AA88;
+	padding: 0cm 5.4pt 0cm 5.4pt;
+	height: 18.45pt;
+}
+
+table .tdTitleBottom {
+	border: solid #B46F3C 1.5pt;
+	background: #D8AA88;
+	padding: 0cm 5.4pt 0cm 5.4pt;
+	height: 18.45pt;
+}
+
+table .tdContentTitle {
+	border-top: none;
+	border-left: none;
+	border-bottom: solid #B46F3C 1.0pt;
+	border-right: solid #B46F3C 1.0pt;
+	padding: 0cm 5.4pt 0cm 5.4pt;
+	height: 18.45pt;
+}
+
+table .tdContent {
+	border-top: none;
+	border-left: none;
+	border-bottom: solid #B46F3C 1.0pt;
+	border-right: solid #B46F3C 1.0pt;
+	padding: 0cm 5.4pt 0cm 5.4pt;
+	height: 18.45pt;
+}
+
+table .tdBorderLeft {
+	border-top: none;
+	border-left: solid #B46F3C 1.5pt;
+	border-bottom: solid #B46F3C 1.0pt;
+	border-right: solid #B46F3C 1.0pt;
+	padding: 0cm 5.4pt 0cm 5.4pt;
+	height: 18.45pt;
+}
+
+table .tdBorderRight {
+	border-top: none;
+	border-left: none;
+	border-bottom: solid #B46F3C 1.0pt;
+	border-right: solid #B46F3C 1.5pt;
+	padding: 0cm 5.4pt 0cm 5.4pt;
+	height: 18.45pt;
+}
+
+table .tdDbBorderRight {
+	border-top: none;
+	border-left: none;
+	border-bottom: solid #B46F3C 1.0pt;
+	border-right: double #B46F3C 4.5pt;
+	padding: 0cm 5.4pt 0cm 5.4pt;
+	height: 18.45pt;
+}
+
+table .tdBorderBottom {
+	border-top: none;
+	border-left: none;
+	border-bottom: solid #B46F3C 1.5pt;
+	border-right: solid #B46F3C 1.0pt;
+	padding: 0cm 5.4pt 0cm 5.4pt;
+	height: 18.45pt;
+}
+
+table .tdBorderLeftCorner {
+	border-top: none;
+	border-left: solid #B46F3C 1.5pt;
+	border-bottom: solid #B46F3C 1.5pt;
+	border-right: solid #B46F3C 1.0pt;
+	padding: 0cm 5.4pt 0cm 5.4pt;
+	height: 18.45pt;
+}
+
+table .tdBorderRightCorner {
+	border-top: none;
+	border-left: none;
+	border-bottom: solid #B46F3C 1.5pt;
+	border-right: solid #B46F3C 1.5pt;
+	padding: 0cm 5.4pt 0cm 5.4pt;
+	height: 18.45pt;
+}
+
+table .tdDbBorderRightCorner {
+	border-top: none;
+	border-left: none;
+	border-bottom: solid #B46F3C 1.5pt;
+	border-right: double #B46F3C 4.5pt;
+	padding: 0cm 5.4pt 0cm 5.4pt;
+	height: 18.45pt;
+}
+
+table .bottomTableLeft {
+	border: solid #B46F3C 1.5pt;
+	border-right: solid #B46F3C 1.0pt;
+	padding: 0cm 5.4pt 0cm 5.4pt;
+	height: 22.7pt;
+}
+
+table .bottomTableCenter {
+	border-top: solid #B46F3C 1.5pt;
+	border-left: none;
+	border-bottom: solid #B46F3C 1.5pt;
+	border-right: solid #B46F3C 1.0pt;
+	padding: 0cm 5.4pt 0cm 5.4pt;
+	height: 22.7pt;
+}
+
+table .bottomTableRight {
+	border: solid #B46F3C 1.5pt;
+	border-left: none;
+	padding: 0cm 5.4pt 0cm 5.4pt;
+	height: 22.7pt;
+}
+
+table .fullLine {
+	border-top: none;
+	border-left: solid #B46F3C 1.5pt;
+	border-bottom: solid #B46F3C 1.0pt;
+	border-right: solid #B46F3C 1.5pt;
+	padding: 0cm 5.4pt 0cm 5.4pt;
+	height: 18.45pt;
+}
+
+table .fullDbLine {
+	border-top: none;
+	border-left: solid #B46F3C 1.5pt;
+	border-bottom: solid #B46F3C 1.0pt;
+	border-right: double #B46F3C 4.5pt;
+	padding: 0cm 5.4pt 0cm 5.4pt;
+	height: 18.45pt;
+}
+
+table .fullLineBottom {
+	border-top: none;
+	border-left: solid #B46F3C 1.5pt;
+	border-bottom: solid #B46F3C 1.5pt;
+	border-right: solid #B46F3C 1.5pt;
+	padding: 0cm 5.4pt 0cm 5.4pt;
+	height: 18.45pt;
+}
+
+table .fullDbLineBottom {
+	border-top: none;
+	border-left: solid #B46F3C 1.5pt;
+	border-bottom: solid #B46F3C 1.5pt;
+	border-right: double #B46F3C 4.5pt;
+	padding: 0cm 5.4pt 0cm 5.4pt;
+	height: 18.45pt;
+}
+
+.Title1 {
+	font-size: 14.0pt;
+	font-family: 宋体;
+	font-weight: bold;
+	color: #B46F3C;
+	vertical-align: middle;
+}
+
+.Title2 {
+	font-size: 12.0pt;
+	font-family: 宋体;
+	font-weight: bold;
+	color: #B46F3C;
+	vertical-align: middle;
+	text-align: left;
+}
+
+.Title3 {
+	font-size: 10.0pt;
+	font-family: 宋体;
+	color: #B46F3C;
+	vertical-align: middle;
+	text-align: center;
+}
+
+.Content3 {
+	font-size: 10.0pt;
+	font-family: 宋体;
+	color: #B46F3C;
+	vertical-align: middle;
+}
+
+ul.nav 
+{
+	border-color: #B46F3C;
+}
+
+.nav-tabs>li>a, .nav-tabs>li>a:focus
+{
+	border-color:#B46F3C;
+}
+
+.nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover
+{
+	border-bottom: none;
+	border-left: solid #B46F3C 1.5pt;
+	border-top: solid #B46F3C 1.5pt;
+	border-right: double #B46F3C 1.5pt;
+}

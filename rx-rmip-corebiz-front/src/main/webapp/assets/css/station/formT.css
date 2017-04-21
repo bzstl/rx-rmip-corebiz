@@ -1,0 +1,480 @@
+Normal
+		{
+			margin-bottom:.0001pt;
+			text-align:center;
+			font-size:10.5pt;
+			font-family:"TimesNewRoman","serif";
+			margin-left:0cm;
+			margin-right:0cm;
+			margin-top:0cm;
+		}
+
+		table  
+		{
+			font-size:10.5pt;
+			font-family:"Calibri","sans-serif";
+		}
+
+		td
+		{
+			vertical-align:middle;
+			white-space:nowrap;
+		}
+
+		#MenuDiv{ 
+			font-size:9pt;
+			font-family:宋体;
+			font-weight:bold;
+			color:#FF3300;
+			background-color:#FF9999;   
+			border: 1px solid #FF3300;   
+			position:absolute;
+			top:10px;
+			left:85%;
+			width:95px;   
+			height:85px;  
+		}   
+
+		li
+		{
+			list-style-type:none;	
+		}
+
+		ul
+		{
+			padding:0px;
+		}
+
+		#MenuDiv > li > ul > a:link
+		{
+			font-size:9pt;
+			font-family:宋体;
+			font-weight:bold;
+			color:#FFFFFF;
+		}
+
+		#MenuDiv > li > ul > a:visited
+		{
+			font-size:9pt;
+			font-family:宋体;
+			font-weight:bold;
+			color:#FFFFFF;
+		}
+
+		#MenuDiv > li > ul > a:hover{
+			font-size:9pt;
+			font-family:宋体;
+			font-weight:bold;
+			color:#CCCCCC;
+		}
+
+		#MenuDiv > li > ul > a:active
+		{
+			font-size:9pt;
+			font-family:宋体;
+			font-weight:normal;
+			color:#FF3300;
+		}
+
+	input[type="checkbox"] {
+	visibility: hidden;
+	width: 0;
+	height: 0;
+	margin: 0;
+	padding: 0;
+}
+
+input[type="checkbox"]+label {
+	background: url(../../images/station/checkboxt.png) no-repeat;
+	padding-left: 18px;
+	color: #FF3300;
+	height: 15px;
+	font-size:10.0pt;
+	display:inline;
+}
+
+input[type="checkbox"]+label:hover {
+	color: #FF3300;
+	background-position: 0 -16px;
+}
+
+.checkboxchecked {
+	color: #FF3300;
+	background-position: 0 -16px;
+}
+
+.checkboxfocus {
+	color: #FF3300;
+	background-position: 0 -16px;
+}
+
+input[type="radio"]{
+			visibility:hidden;
+			width:0;
+			height:0;
+			margin:0;
+			padding:0;
+		} 
+input[type="radio"]+label{
+	background:url(../../images/station/checkboxt.png) no-repeat 0 0;
+	padding-left:18px;color:#FF3300;
+	cursor:pointer;
+	height:15px;
+	font-size:10.0pt;
+	display:inline;
+}
+input[type="radio"]+label:hover {
+	color: #FF3300;
+	background-position: 0 -16px;
+}
+
+.radiochecked {
+	color: #FF3300;
+	background-position: 0 -16px;
+}
+
+.radiofocus {
+	color: #FF3300;
+	background-position: 0 -16px;
+}
+
+.txtDefault,
+		input.txtDefault
+		{
+			border-style: none;
+			border-color: inherit;
+			border-width: 0px;
+			width:98%;
+			height:16px;
+			color:Black;
+			vertical-align:bottom;
+			margin-left:0px;
+			margin-top:3px;
+			text-align:left;
+			padding:0;
+		}
+
+		.txtNumber,
+		input.txtNumber
+		{
+			width:50px;
+			height:16px;
+			margin-top:3px;
+			border:0px;
+			color:Black;
+			
+			vertical-align:bottom;
+			text-align:left;
+			margin-left:0px;
+			padding:0;
+		}
+		.txtNumberLong,
+		input.txtNumberLong
+		{
+			width:180px;
+			height:60%;
+			border:0px;
+			color:Black;
+			vertical-align:bottom;
+			text-align:left;
+			margin-left:0px;
+			padding:0;
+		}
+		.txtLine,
+		input.txtLine
+		{
+			width:80px;
+			height:100%;
+			color:Black;
+			vertical-align:middle;
+			border-top:0pt;
+			border-left:0pt;
+			border-right:0pt;
+			border-bottom:1px red solid;
+			padding:0;
+		}
+
+		.txtApplyStauts,
+		input.txtApplyStauts
+		{
+			border-style: none;
+			border-color: inherit;
+			border-width: 0px;
+			width:78%;
+			height:60%;
+			color:red;
+			vertical-align:bottom;
+			margin-left:0px;
+			background:#FF9999;
+			padding:0;
+		}
+
+		table .tdTitleTop
+		{
+			border:solid #FF3300 1.5pt;
+			background:#FF9999;
+			padding:0cm 5.4pt 0cm 5.4pt;
+			height:18.45pt;
+		}
+
+		table .tdTitleLeft
+		{
+			border-top:none;
+			border-left:solid #FF3300 1.5pt;
+			border-bottom:solid #FF3300 1.5pt;
+			border-right:solid #FF3300 1.5pt;
+			background:#FF9999;
+			padding:0cm 5.4pt 0cm 5.4pt;
+			height:18.45pt;
+		}
+
+		table .tdTitleRight
+		{
+			border-top:none;
+			border-left:none;
+			border-bottom:solid #FF3300 1.5pt;
+			border-right:solid #FF3300 1.5pt;
+			background:#FF9999;
+			padding:0cm 5.4pt 0cm 5.4pt;
+			height:18.45pt;
+		}
+
+		table .tdTitleBottom
+		{
+			border:solid #FF3300 1.5pt;
+			background:#FF9999;
+			padding:0cm 5.4pt 0cm 5.4pt;
+			height:18.45pt;
+		}
+
+		table .tdContentTitle
+		{
+			border-top:none;
+			border-left:none;
+			border-bottom:solid #FF3300 1.0pt;
+			border-right:solid #FF3300 1.0pt;
+			padding:0cm 5.4pt 0cm 5.4pt;
+			height:18.45pt;
+		}
+
+		table .tdContent
+		{
+			border-top:none;
+			border-left:none;
+			border-bottom:solid #FF3300 1.0pt;
+			border-right:solid #FF3300 1.0pt;
+			padding:0cm 5.4pt 0cm 5.4pt;
+			height:18.45pt;
+		}
+
+		table .tdBorderLeft
+		{
+			border-top:none;
+			border-left:solid #FF3300 1.5pt;
+			border-bottom:solid #FF3300 1.0pt;
+			border-right:solid #FF3300 1.0pt;
+			padding:0cm 5.4pt 0cm 5.4pt;
+			height:18.45pt;
+		}
+
+		table .tdBorderLeft1
+		{
+			border-top:none;
+			border-left:solid #FF3300 1.5pt;
+			border-bottom:solid #FF3300 1.0pt;
+			border-right:solid #FF3300 1pt;
+			padding:0cm 6pt;
+			height:18.45pt;
+		}
+		table .tdBorderRight
+		{
+			border-top:none;
+			border-left:none;
+			border-bottom:solid #FF3300 1.0pt;
+			border-right:solid #FF3300 1.5pt;
+			padding:0cm 5.4pt 0cm 5.4pt;
+			height:18.45pt;
+		}
+
+		table .tdBorderRight1
+		{
+			border-top:none;
+			border-left:none;
+			border-bottom:none;
+			border-right:solid #FF3300 1.5pt;
+			padding:0cm 0pt 0cm 0pt;
+			margin:0px;
+			height:18.45pt;
+		}
+
+		table .tdDbBorderRight
+		{
+			border-top:none;
+			border-left:none;
+			border-bottom:solid #FF3300 1.5pt;
+			border-right:double #FF3300 4.5pt;
+			padding:0cm 5.4pt 0cm 5.4pt;
+			height:18.45pt;
+		}
+
+		table .tdBorderBottom
+		{
+			border-top:none;
+			border-left:none;
+			border-bottom:solid #FF3300 1.5pt;
+			border-right:solid #FF3300 1.0pt;
+			padding:0cm 5.4pt 0cm 5.4pt;
+			height:18.45pt;
+		}
+
+		table .tdBorderLeftCorner
+		{
+			border-top:none;
+			border-left:solid #FF3300 1.5pt;
+			border-bottom:solid #FF3300 1.5pt;
+			border-right:solid #FF3300 1.0pt;
+			padding:0cm 5.4pt 0cm 5.4pt;
+			height:18.45pt;
+		}
+
+		table .tdBorderRightCorner
+		{
+			border-top:none;
+			border-left:none;
+			border-bottom:solid #FF3300 1.5pt;
+			border-right:solid #FF3300 1.5pt;
+			padding:0cm 5.4pt 0cm 5.4pt;
+			height:18.45pt;
+		}
+
+		table .tdDbBorderRightCorner
+		{
+			border-top:none;
+			border-left:none;
+			border-bottom:solid #FF3300 1.5pt;
+			border-right:double #FF3300 4.5pt;
+			padding:0cm 5.4pt 0cm 5.4pt;
+			height:18.45pt;
+		}
+
+		table .bottomTableLeft
+		{
+			border:solid #FF3300 1.5pt;
+			border-right:solid #FF3300 1.0pt;
+			padding:0cm 5.4pt 0cm 5.4pt;
+			height:22.7pt;
+		}
+
+		table .bottomTableCenter
+		{
+			border-top:solid #FF3300 1.5pt;
+			border-left:none;
+			border-bottom:solid #FF3300 1.5pt;
+			border-right:solid #FF3300 1.5pt;
+			padding:0cm 5.4pt 0cm 5.4pt;
+			height:22.7pt;
+		}
+
+		table .bottomTableRight
+		{
+			border:solid #FF3300 1.5pt;
+			border-left:none;
+			padding:0cm 5.4pt 0cm 5.4pt;
+			height:22.7pt;
+		}
+
+
+
+		table .fullLine
+		{
+			border-top:none;
+			border-left:solid #FF3300 1.5pt;
+			border-bottom:solid #FF3300 1.0pt;
+			border-right:solid #FF3300 1.5pt;
+			padding:0cm 0cm 0cm 0pt;
+			
+		}
+
+
+		table .fullDbLine
+		{
+			border-top:none;
+			border-left:solid #FF3300 1.5pt;
+			border-bottom:solid #FF3300 1.0pt;
+			border-right:double #FF3300 4.5pt;
+			padding:0cm 5.4pt 0cm 5.4pt;
+			height:18.45pt;
+		}
+		table .fullLineBottom
+		{
+			border-top:none;
+			border-left:solid #FF3300 1.5pt;
+			border-bottom:solid #FF3300 1.5pt;
+			border-right:solid #FF3300 1.5pt;
+			padding:0cm 5.4pt 0cm 5.4pt;
+			height:18.45pt;
+		}
+
+
+		table .fullDbLineBottom
+		{
+			border-top:none;
+			border-left:solid #FF3300 1.5pt;
+			border-bottom:solid #FF3300 1.5pt;
+			border-right:double #FF3300 4.5pt;
+			padding:0cm 5.4pt 0cm 5.4pt;
+			height:18.45pt;
+		}
+
+		.Title1
+		{
+			font-size:14.0pt;
+			font-family:宋体;
+			font-weight:bold;
+			color:#FF3300;
+			vertical-align:middle;
+		}
+
+		.Title2
+		{
+			font-size:12.0pt;
+			font-family:宋体;
+			font-weight:bold;
+			color:#FF3300;
+			vertical-align:middle;
+			text-align:left;
+		}
+
+		.Title3{
+			font-size:10.0pt;
+			font-family:宋体;
+			color:#FF3300;
+			vertical-align:middle;
+			text-align:center;
+		}
+
+		.Title3Left{
+			font-size:10.0pt;
+			font-family:宋体;
+			color:#FF3300;
+			vertical-align:middle;
+			text-align:left;
+		}
+
+		.Content3{
+			font-size:10.0pt;
+			font-family:宋体;
+			color:#FF3300;
+			vertical-align:middle;
+		}
+
+		.combobox-item-hover{
+				background:#f09999;
+				filter:Alpha(opacity=50);
+		}
+
+
+        .style1
+        {
+            width: 1000px;
+        }

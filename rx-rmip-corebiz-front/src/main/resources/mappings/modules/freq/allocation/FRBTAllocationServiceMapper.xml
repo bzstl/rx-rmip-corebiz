@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.rx.rmip.corebiz.service.modules.freq.allocation.dao.FRBTAllocationServiceMapper" >
+  <resultMap id="BaseResultMap" type="com.rx.rmip.corebiz.service.modules.freq.allocation.model.FRBTAllocationService" >
+    <id column="GUID" property="guid" jdbcType="VARCHAR" />
+    <result column="ALLOC_GUID" property="allocGuid" jdbcType="VARCHAR" />
+    <result column="ISALLOCATE" property="isallocate" jdbcType="VARCHAR" />
+    <result column="NOTALLOC_INFO" property="notallocInfo" jdbcType="VARCHAR" />
+    <result column="SERV_CODE" property="servCode" jdbcType="VARCHAR" />
+    <result column="ADDI_INFO" property="addiInfo" jdbcType="VARCHAR" />
+    <result column="SERV_TYPE" property="servType" jdbcType="VARCHAR" />
+    <result column="FN_CODE" property="fnCode" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    GUID, ALLOC_GUID, ISALLOCATE, NOTALLOC_INFO, SERV_CODE, ADDI_INFO, SERV_TYPE, FN_CODE
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from FRBT_ALLOCATION_SERVICE
+    where GUID = #{guid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from FRBT_ALLOCATION_SERVICE
+    where GUID = #{guid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.rx.rmip.corebiz.service.modules.freq.allocation.model.FRBTAllocationService" >
+    insert into FRBT_ALLOCATION_SERVICE (GUID, ALLOC_GUID, ISALLOCATE, 
+      NOTALLOC_INFO, SERV_CODE, ADDI_INFO, 
+      SERV_TYPE, FN_CODE)
+    values (#{guid,jdbcType=VARCHAR}, #{allocGuid,jdbcType=VARCHAR}, #{isallocate,jdbcType=VARCHAR}, 
+      #{notallocInfo,jdbcType=VARCHAR}, #{servCode,jdbcType=VARCHAR}, #{addiInfo,jdbcType=VARCHAR}, 
+      #{servType,jdbcType=VARCHAR}, #{fnCode,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.rx.rmip.corebiz.service.modules.freq.allocation.model.FRBTAllocationService" >
+    insert into FRBT_ALLOCATION_SERVICE
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="guid != null" >
+        GUID,
+      </if>
+      <if test="allocGuid != null" >
+        ALLOC_GUID,
+      </if>
+      <if test="isallocate != null" >
+        ISALLOCATE,
+      </if>
+      <if test="notallocInfo != null" >
+        NOTALLOC_INFO,
+      </if>
+      <if test="servCode != null" >
+        SERV_CODE,
+      </if>
+      <if test="addiInfo != null" >
+        ADDI_INFO,
+      </if>
+      <if test="servType != null" >
+        SERV_TYPE,
+      </if>
+      <if test="fnCode != null" >
+        FN_CODE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="guid != null" >
+        #{guid,jdbcType=VARCHAR},
+      </if>
+      <if test="allocGuid != null" >
+        #{allocGuid,jdbcType=VARCHAR},
+      </if>
+      <if test="isallocate != null" >
+        #{isallocate,jdbcType=VARCHAR},
+      </if>
+      <if test="notallocInfo != null" >
+        #{notallocInfo,jdbcType=VARCHAR},
+      </if>
+      <if test="servCode != null" >
+        #{servCode,jdbcType=VARCHAR},
+      </if>
+      <if test="addiInfo != null" >
+        #{addiInfo,jdbcType=VARCHAR},
+      </if>
+      <if test="servType != null" >
+        #{servType,jdbcType=VARCHAR},
+      </if>
+      <if test="fnCode != null" >
+        #{fnCode,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.rx.rmip.corebiz.service.modules.freq.allocation.model.FRBTAllocationService" >
+    update FRBT_ALLOCATION_SERVICE
+    <set >
+      <if test="allocGuid != null" >
+        ALLOC_GUID = #{allocGuid,jdbcType=VARCHAR},
+      </if>
+      <if test="isallocate != null" >
+        ISALLOCATE = #{isallocate,jdbcType=VARCHAR},
+      </if>
+      <if test="notallocInfo != null" >
+        NOTALLOC_INFO = #{notallocInfo,jdbcType=VARCHAR},
+      </if>
+      <if test="servCode != null" >
+        SERV_CODE = #{servCode,jdbcType=VARCHAR},
+      </if>
+      <if test="addiInfo != null" >
+        ADDI_INFO = #{addiInfo,jdbcType=VARCHAR},
+      </if>
+      <if test="servType != null" >
+        SERV_TYPE = #{servType,jdbcType=VARCHAR},
+      </if>
+      <if test="fnCode != null" >
+        FN_CODE = #{fnCode,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where GUID = #{guid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.rx.rmip.corebiz.service.modules.freq.allocation.model.FRBTAllocationService" >
+    update FRBT_ALLOCATION_SERVICE
+    set ALLOC_GUID = #{allocGuid,jdbcType=VARCHAR},
+      ISALLOCATE = #{isallocate,jdbcType=VARCHAR},
+      NOTALLOC_INFO = #{notallocInfo,jdbcType=VARCHAR},
+      SERV_CODE = #{servCode,jdbcType=VARCHAR},
+      ADDI_INFO = #{addiInfo,jdbcType=VARCHAR},
+      SERV_TYPE = #{servType,jdbcType=VARCHAR},
+      FN_CODE = #{fnCode,jdbcType=VARCHAR}
+    where GUID = #{guid,jdbcType=VARCHAR}
+  </update>
+</mapper>

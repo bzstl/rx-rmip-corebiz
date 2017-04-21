@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.rx.rmip.corebiz.service.modules.station.settingapply.dao.RSBTOrgMapper" >
+  <resultMap id="BaseResultMap" type="com.rx.rmip.corebiz.service.modules.station.settingapply.model.RSBTOrg" >
+    <id column="GUID" property="guid" jdbcType="VARCHAR" />
+    <result column="ORG_CODE" property="orgCode" jdbcType="VARCHAR" />
+    <result column="ORG_NAME" property="orgName" jdbcType="VARCHAR" />
+    <result column="ORG_AREA_CODE" property="orgAreaCode" jdbcType="VARCHAR" />
+    <result column="ORG_SYS_CODE" property="orgSysCode" jdbcType="VARCHAR" />
+    <result column="ORG_TYPE" property="orgType" jdbcType="VARCHAR" />
+    <result column="ORG_LINK_PERSON" property="orgLinkPerson" jdbcType="VARCHAR" />
+    <result column="ORG_PERSON_ID" property="orgPersonId" jdbcType="VARCHAR" />
+    <result column="ORG_SUP_CODE" property="orgSupCode" jdbcType="VARCHAR" />
+    <result column="ORG_ADDR" property="orgAddr" jdbcType="VARCHAR" />
+    <result column="ORG_POST" property="orgPost" jdbcType="VARCHAR" />
+    <result column="ORG_PHONE" property="orgPhone" jdbcType="VARCHAR" />
+    <result column="ORG_MOB_PHONE" property="orgMobPhone" jdbcType="VARCHAR" />
+    <result column="ORG_FAX" property="orgFax" jdbcType="VARCHAR" />
+    <result column="ORG_BANK" property="orgBank" jdbcType="VARCHAR" />
+    <result column="ORG_ACCOUNT_NAME" property="orgAccountName" jdbcType="VARCHAR" />
+    <result column="ORG_ACCOUNT" property="orgAccount" jdbcType="VARCHAR" />
+    <result column="ORG_HOSTILITY" property="orgHostility" jdbcType="DECIMAL" />
+    <result column="ORG_WEB_SITE" property="orgWebSite" jdbcType="VARCHAR" />
+    <result column="ORG_MAIL" property="orgMail" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    GUID, ORG_CODE, ORG_NAME, ORG_AREA_CODE, ORG_SYS_CODE, ORG_TYPE, ORG_LINK_PERSON, 
+    ORG_PERSON_ID, ORG_SUP_CODE, ORG_ADDR, ORG_POST, ORG_PHONE, ORG_MOB_PHONE, ORG_FAX, 
+    ORG_BANK, ORG_ACCOUNT_NAME, ORG_ACCOUNT, ORG_HOSTILITY, ORG_WEB_SITE, ORG_MAIL
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from RSBT_ORG
+    where GUID = #{guid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from RSBT_ORG
+    where GUID = #{guid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.rx.rmip.corebiz.service.modules.station.settingapply.model.RSBTOrg" >
+  
+  		<!-- 自动生成guid并赋值给 #{guid}-->
+  		<selectKey keyProperty="guid" resultType="String" order="BEFORE">  
+            select sys_guid() from dual  
+        </selectKey>  
+        
+    insert into RSBT_ORG (GUID, ORG_CODE, ORG_NAME, 
+      ORG_AREA_CODE, ORG_SYS_CODE, ORG_TYPE, 
+      ORG_LINK_PERSON, ORG_PERSON_ID, ORG_SUP_CODE, 
+      ORG_ADDR, ORG_POST, ORG_PHONE, 
+      ORG_MOB_PHONE, ORG_FAX, ORG_BANK, 
+      ORG_ACCOUNT_NAME, ORG_ACCOUNT, ORG_HOSTILITY, 
+      ORG_WEB_SITE, ORG_MAIL)
+    values (#{guid,jdbcType=VARCHAR}, #{orgCode,jdbcType=VARCHAR}, #{orgName,jdbcType=VARCHAR}, 
+      #{orgAreaCode,jdbcType=VARCHAR}, #{orgSysCode,jdbcType=VARCHAR}, #{orgType,jdbcType=VARCHAR}, 
+      #{orgLinkPerson,jdbcType=VARCHAR}, #{orgPersonId,jdbcType=VARCHAR}, #{orgSupCode,jdbcType=VARCHAR}, 
+      #{orgAddr,jdbcType=VARCHAR}, #{orgPost,jdbcType=VARCHAR}, #{orgPhone,jdbcType=VARCHAR}, 
+      #{orgMobPhone,jdbcType=VARCHAR}, #{orgFax,jdbcType=VARCHAR}, #{orgBank,jdbcType=VARCHAR}, 
+      #{orgAccountName,jdbcType=VARCHAR}, #{orgAccount,jdbcType=VARCHAR}, #{orgHostility,jdbcType=DECIMAL}, 
+      #{orgWebSite,jdbcType=VARCHAR}, #{orgMail,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.rx.rmip.corebiz.service.modules.station.settingapply.model.RSBTOrg" >
+    insert into RSBT_ORG
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="guid != null" >
+        GUID,
+      </if>
+      <if test="orgCode != null" >
+        ORG_CODE,
+      </if>
+      <if test="orgName != null" >
+        ORG_NAME,
+      </if>
+      <if test="orgAreaCode != null" >
+        ORG_AREA_CODE,
+      </if>
+      <if test="orgSysCode != null" >
+        ORG_SYS_CODE,
+      </if>
+      <if test="orgType != null" >
+        ORG_TYPE,
+      </if>
+      <if test="orgLinkPerson != null" >
+        ORG_LINK_PERSON,
+      </if>
+      <if test="orgPersonId != null" >
+        ORG_PERSON_ID,
+      </if>
+      <if test="orgSupCode != null" >
+        ORG_SUP_CODE,
+      </if>
+      <if test="orgAddr != null" >
+        ORG_ADDR,
+      </if>
+      <if test="orgPost != null" >
+        ORG_POST,
+      </if>
+      <if test="orgPhone != null" >
+        ORG_PHONE,
+      </if>
+      <if test="orgMobPhone != null" >
+        ORG_MOB_PHONE,
+      </if>
+      <if test="orgFax != null" >
+        ORG_FAX,
+      </if>
+      <if test="orgBank != null" >
+        ORG_BANK,
+      </if>
+      <if test="orgAccountName != null" >
+        ORG_ACCOUNT_NAME,
+      </if>
+      <if test="orgAccount != null" >
+        ORG_ACCOUNT,
+      </if>
+      <if test="orgHostility != null" >
+        ORG_HOSTILITY,
+      </if>
+      <if test="orgWebSite != null" >
+        ORG_WEB_SITE,
+      </if>
+      <if test="orgMail != null" >
+        ORG_MAIL,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="guid != null" >
+        #{guid,jdbcType=VARCHAR},
+      </if>
+      <if test="orgCode != null" >
+        #{orgCode,jdbcType=VARCHAR},
+      </if>
+      <if test="orgName != null" >
+        #{orgName,jdbcType=VARCHAR},
+      </if>
+      <if test="orgAreaCode != null" >
+        #{orgAreaCode,jdbcType=VARCHAR},
+      </if>
+      <if test="orgSysCode != null" >
+        #{orgSysCode,jdbcType=VARCHAR},
+      </if>
+      <if test="orgType != null" >
+        #{orgType,jdbcType=VARCHAR},
+      </if>
+      <if test="orgLinkPerson != null" >
+        #{orgLinkPerson,jdbcType=VARCHAR},
+      </if>
+      <if test="orgPersonId != null" >
+        #{orgPersonId,jdbcType=VARCHAR},
+      </if>
+      <if test="orgSupCode != null" >
+        #{orgSupCode,jdbcType=VARCHAR},
+      </if>
+      <if test="orgAddr != null" >
+        #{orgAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="orgPost != null" >
+        #{orgPost,jdbcType=VARCHAR},
+      </if>
+      <if test="orgPhone != null" >
+        #{orgPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="orgMobPhone != null" >
+        #{orgMobPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="orgFax != null" >
+        #{orgFax,jdbcType=VARCHAR},
+      </if>
+      <if test="orgBank != null" >
+        #{orgBank,jdbcType=VARCHAR},
+      </if>
+      <if test="orgAccountName != null" >
+        #{orgAccountName,jdbcType=VARCHAR},
+      </if>
+      <if test="orgAccount != null" >
+        #{orgAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="orgHostility != null" >
+        #{orgHostility,jdbcType=DECIMAL},
+      </if>
+      <if test="orgWebSite != null" >
+        #{orgWebSite,jdbcType=VARCHAR},
+      </if>
+      <if test="orgMail != null" >
+        #{orgMail,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.rx.rmip.corebiz.service.modules.station.settingapply.model.RSBTOrg" >
+    update RSBT_ORG
+    <set >
+      <if test="orgCode != null" >
+        ORG_CODE = #{orgCode,jdbcType=VARCHAR},
+      </if>
+      <if test="orgName != null" >
+        ORG_NAME = #{orgName,jdbcType=VARCHAR},
+      </if>
+      <if test="orgAreaCode != null" >
+        ORG_AREA_CODE = #{orgAreaCode,jdbcType=VARCHAR},
+      </if>
+      <if test="orgSysCode != null" >
+        ORG_SYS_CODE = #{orgSysCode,jdbcType=VARCHAR},
+      </if>
+      <if test="orgType != null" >
+        ORG_TYPE = #{orgType,jdbcType=VARCHAR},
+      </if>
+      <if test="orgLinkPerson != null" >
+        ORG_LINK_PERSON = #{orgLinkPerson,jdbcType=VARCHAR},
+      </if>
+      <if test="orgPersonId != null" >
+        ORG_PERSON_ID = #{orgPersonId,jdbcType=VARCHAR},
+      </if>
+      <if test="orgSupCode != null" >
+        ORG_SUP_CODE = #{orgSupCode,jdbcType=VARCHAR},
+      </if>
+      <if test="orgAddr != null" >
+        ORG_ADDR = #{orgAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="orgPost != null" >
+        ORG_POST = #{orgPost,jdbcType=VARCHAR},
+      </if>
+      <if test="orgPhone != null" >
+        ORG_PHONE = #{orgPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="orgMobPhone != null" >
+        ORG_MOB_PHONE = #{orgMobPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="orgFax != null" >
+        ORG_FAX = #{orgFax,jdbcType=VARCHAR},
+      </if>
+      <if test="orgBank != null" >
+        ORG_BANK = #{orgBank,jdbcType=VARCHAR},
+      </if>
+      <if test="orgAccountName != null" >
+        ORG_ACCOUNT_NAME = #{orgAccountName,jdbcType=VARCHAR},
+      </if>
+      <if test="orgAccount != null" >
+        ORG_ACCOUNT = #{orgAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="orgHostility != null" >
+        ORG_HOSTILITY = #{orgHostility,jdbcType=DECIMAL},
+      </if>
+      <if test="orgWebSite != null" >
+        ORG_WEB_SITE = #{orgWebSite,jdbcType=VARCHAR},
+      </if>
+      <if test="orgMail != null" >
+        ORG_MAIL = #{orgMail,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where GUID = #{guid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.rx.rmip.corebiz.service.modules.station.settingapply.model.RSBTOrg" >
+    update RSBT_ORG
+    set ORG_CODE = #{orgCode,jdbcType=VARCHAR},
+      ORG_NAME = #{orgName,jdbcType=VARCHAR},
+      ORG_AREA_CODE = #{orgAreaCode,jdbcType=VARCHAR},
+      ORG_SYS_CODE = #{orgSysCode,jdbcType=VARCHAR},
+      ORG_TYPE = #{orgType,jdbcType=VARCHAR},
+      ORG_LINK_PERSON = #{orgLinkPerson,jdbcType=VARCHAR},
+      ORG_PERSON_ID = #{orgPersonId,jdbcType=VARCHAR},
+      ORG_SUP_CODE = #{orgSupCode,jdbcType=VARCHAR},
+      ORG_ADDR = #{orgAddr,jdbcType=VARCHAR},
+      ORG_POST = #{orgPost,jdbcType=VARCHAR},
+      ORG_PHONE = #{orgPhone,jdbcType=VARCHAR},
+      ORG_MOB_PHONE = #{orgMobPhone,jdbcType=VARCHAR},
+      ORG_FAX = #{orgFax,jdbcType=VARCHAR},
+      ORG_BANK = #{orgBank,jdbcType=VARCHAR},
+      ORG_ACCOUNT_NAME = #{orgAccountName,jdbcType=VARCHAR},
+      ORG_ACCOUNT = #{orgAccount,jdbcType=VARCHAR},
+      ORG_HOSTILITY = #{orgHostility,jdbcType=DECIMAL},
+      ORG_WEB_SITE = #{orgWebSite,jdbcType=VARCHAR},
+      ORG_MAIL = #{orgMail,jdbcType=VARCHAR}
+    where GUID = #{guid,jdbcType=VARCHAR}
+  </update>
+</mapper>

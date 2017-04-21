@@ -1,0 +1,731 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.rx.rmip.corebiz.service.modules.station.techdata.dao.RSBTStationTMapper" >
+  <resultMap id="BaseResultMap" type="com.rx.rmip.corebiz.service.modules.station.techdata.model.RSBTStationT" >
+    <id column="GUID" property="guid" jdbcType="VARCHAR" />
+    <result column="ST_TIME_B" property="stTimeB" jdbcType="DATE" />
+    <result column="ST_TIME_E" property="stTimeE" jdbcType="DATE" />
+    <result column="ST_LMMTR" property="stLmmtr" jdbcType="VARCHAR" />
+    <result column="ST_USER_AREA" property="stUserArea" jdbcType="VARCHAR" />
+    <result column="ST_TF_CODE" property="stTfCode" jdbcType="VARCHAR" />
+    <result column="ST_TF_TRANS_CA_PU" property="stTfTransCaPu" jdbcType="VARCHAR" />
+    <result column="ST_TF_TRANS_CA_P" property="stTfTransCaP" jdbcType="DECIMAL" />
+    <result column="ST_E_NET_CODE" property="stENetCode" jdbcType="VARCHAR" />
+    <result column="ST_E_MULTI_ADDR" property="stEMultiAddr" jdbcType="VARCHAR" />
+    <result column="ST_E_COM_AREA" property="stEComArea" jdbcType="VARCHAR" />
+    <result column="ST_POS_TYPE" property="stPosType" jdbcType="VARCHAR" />
+    <result column="ST_E_POS" property="stEPos" jdbcType="VARCHAR" />
+    <result column="ST_E_SAT" property="stESat" jdbcType="VARCHAR" />
+    <result column="ST_E_LG" property="stELg" jdbcType="VARCHAR" />
+    <result column="ST_B_SGN" property="stBSgn" jdbcType="VARCHAR" />
+    <result column="ST_B_LEVEL" property="stBLevel" jdbcType="VARCHAR" />
+    <result column="ST_B_BM" property="stBBm" jdbcType="VARCHAR" />
+    <result column="ST_B_EDU" property="stBEdu" jdbcType="VARCHAR" />
+    <result column="ST_B_IC" property="stBIc" jdbcType="VARCHAR" />
+    <result column="ST_B_COVER_AREA" property="stBCoverArea" jdbcType="VARCHAR" />
+    <result column="ST_SHIP_TYPE" property="stShipType" jdbcType="VARCHAR" />
+    <result column="ST_CALL_SIGN" property="stCallSign" jdbcType="VARCHAR" />
+    <result column="ST_S_MMSI" property="stSMmsi" jdbcType="VARCHAR" />
+    <result column="ST_S_CS" property="stSCs" jdbcType="VARCHAR" />
+    <result column="ST_SHIP_NAME" property="stShipName" jdbcType="VARCHAR" />
+    <result column="ST_S_PN" property="stSPn" jdbcType="VARCHAR" />
+    <result column="ST_S_AAIC" property="stSAaic" jdbcType="VARCHAR" />
+    <result column="ST_S_T" property="stST" jdbcType="DECIMAL" />
+    <result column="ST_S_P" property="stSP" jdbcType="DECIMAL" />
+    <result column="ST_A_MODEL" property="stAModel" jdbcType="VARCHAR" />
+    <result column="ST_A_TYPE" property="stAType" jdbcType="VARCHAR" />
+    <result column="ST_A_CALL" property="stACall" jdbcType="VARCHAR" />
+    <result column="ST_A_CALL_OI" property="stACallOi" jdbcType="VARCHAR" />
+    <result column="ST_A_SGN" property="stASgn" jdbcType="VARCHAR" />
+    <result column="ST_A_ST" property="stASt" jdbcType="DECIMAL" />
+    <result column="ST_A_PILOTING" property="stAPiloting" jdbcType="VARCHAR" />
+    <result column="ST_A_NRM" property="stANrm" jdbcType="VARCHAR" />
+    <result column="ST_R_WAMIN" property="stRWamin" jdbcType="VARCHAR" />
+    <result column="ST_R_WAMAX" property="stRWamax" jdbcType="VARCHAR" />
+    <result column="ST_R_EMIN" property="stREmin" jdbcType="VARCHAR" />
+    <result column="ST_R_EMAX" property="stREmax" jdbcType="VARCHAR" />
+    <result column="ST_C_CODE" property="stCCode" jdbcType="VARCHAR" />
+    <result column="ST_C_SUM" property="stCSum" jdbcType="DECIMAL" />
+    <result column="ST_SERV_R" property="stServR" jdbcType="DECIMAL" />
+    <result column="ST_D_TEC_TYPE" property="stDTecType" jdbcType="VARCHAR" />
+    <result column="ST_D_TYPE" property="stDType" jdbcType="VARCHAR" />
+    <result column="ST_ME_SAT_NAME" property="stMeSatName" jdbcType="VARCHAR" />
+    <result column="ST_ME_STA1" property="stMeSta1" jdbcType="VARCHAR" />
+    <result column="ST_ME_STA2" property="stMeSta2" jdbcType="VARCHAR" />
+    <result column="ST_ME_STA3" property="stMeSta3" jdbcType="VARCHAR" />
+    <result column="ST_ME_STYPE" property="stMeStype" jdbcType="VARCHAR" />
+    <result column="ST_ME_NAME1" property="stMeName1" jdbcType="VARCHAR" />
+    <result column="ST_ME_NAME2" property="stMeName2" jdbcType="VARCHAR" />
+    <result column="ST_ME_LG1" property="stMeLg1" jdbcType="DECIMAL" />
+    <result column="ST_ME_LG2" property="stMeLg2" jdbcType="DECIMAL" />
+    <result column="ST_ME_FBAND" property="stMeFband" jdbcType="DECIMAL" />
+    <result column="ST_B_TYPE1" property="stBType1" jdbcType="VARCHAR" />
+    <result column="ST_B_TYPE2" property="stBType2" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    GUID, ST_TIME_B, ST_TIME_E, ST_LMMTR, ST_USER_AREA, ST_TF_CODE, ST_TF_TRANS_CA_PU, 
+    ST_TF_TRANS_CA_P, ST_E_NET_CODE, ST_E_MULTI_ADDR, ST_E_COM_AREA, ST_POS_TYPE, ST_E_POS, 
+    ST_E_SAT, ST_E_LG, ST_B_SGN, ST_B_LEVEL, ST_B_BM, ST_B_EDU, ST_B_IC, ST_B_COVER_AREA, 
+    ST_SHIP_TYPE, ST_CALL_SIGN, ST_S_MMSI, ST_S_CS, ST_SHIP_NAME, ST_S_PN, ST_S_AAIC, 
+    ST_S_T, ST_S_P, ST_A_MODEL, ST_A_TYPE, ST_A_CALL, ST_A_CALL_OI, ST_A_SGN, ST_A_ST, 
+    ST_A_PILOTING, ST_A_NRM, ST_R_WAMIN, ST_R_WAMAX, ST_R_EMIN, ST_R_EMAX, ST_C_CODE, 
+    ST_C_SUM, ST_SERV_R, ST_D_TEC_TYPE, ST_D_TYPE, ST_ME_SAT_NAME, ST_ME_STA1, ST_ME_STA2, 
+    ST_ME_STA3, ST_ME_STYPE, ST_ME_NAME1, ST_ME_NAME2, ST_ME_LG1, ST_ME_LG2, ST_ME_FBAND, 
+    ST_B_TYPE1, ST_B_TYPE2
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from RSBT_STATION_T
+    where GUID = #{guid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from RSBT_STATION_T
+    where GUID = #{guid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.rx.rmip.corebiz.service.modules.station.techdata.model.RSBTStationT" >
+    insert into RSBT_STATION_T (GUID, ST_TIME_B, ST_TIME_E, 
+      ST_LMMTR, ST_USER_AREA, ST_TF_CODE, 
+      ST_TF_TRANS_CA_PU, ST_TF_TRANS_CA_P, ST_E_NET_CODE, 
+      ST_E_MULTI_ADDR, ST_E_COM_AREA, ST_POS_TYPE, 
+      ST_E_POS, ST_E_SAT, ST_E_LG, 
+      ST_B_SGN, ST_B_LEVEL, ST_B_BM, 
+      ST_B_EDU, ST_B_IC, ST_B_COVER_AREA, 
+      ST_SHIP_TYPE, ST_CALL_SIGN, ST_S_MMSI, 
+      ST_S_CS, ST_SHIP_NAME, ST_S_PN, 
+      ST_S_AAIC, ST_S_T, ST_S_P, 
+      ST_A_MODEL, ST_A_TYPE, ST_A_CALL, 
+      ST_A_CALL_OI, ST_A_SGN, ST_A_ST, 
+      ST_A_PILOTING, ST_A_NRM, ST_R_WAMIN, 
+      ST_R_WAMAX, ST_R_EMIN, ST_R_EMAX, 
+      ST_C_CODE, ST_C_SUM, ST_SERV_R, 
+      ST_D_TEC_TYPE, ST_D_TYPE, ST_ME_SAT_NAME, 
+      ST_ME_STA1, ST_ME_STA2, ST_ME_STA3, 
+      ST_ME_STYPE, ST_ME_NAME1, ST_ME_NAME2, 
+      ST_ME_LG1, ST_ME_LG2, ST_ME_FBAND, 
+      ST_B_TYPE1, ST_B_TYPE2)
+    values (#{guid,jdbcType=VARCHAR}, #{stTimeB,jdbcType=DATE}, #{stTimeE,jdbcType=DATE}, 
+      #{stLmmtr,jdbcType=VARCHAR}, #{stUserArea,jdbcType=VARCHAR}, #{stTfCode,jdbcType=VARCHAR}, 
+      #{stTfTransCaPu,jdbcType=VARCHAR}, #{stTfTransCaP,jdbcType=DECIMAL}, #{stENetCode,jdbcType=VARCHAR}, 
+      #{stEMultiAddr,jdbcType=VARCHAR}, #{stEComArea,jdbcType=VARCHAR}, #{stPosType,jdbcType=VARCHAR}, 
+      #{stEPos,jdbcType=VARCHAR}, #{stESat,jdbcType=VARCHAR}, #{stELg,jdbcType=VARCHAR}, 
+      #{stBSgn,jdbcType=VARCHAR}, #{stBLevel,jdbcType=VARCHAR}, #{stBBm,jdbcType=VARCHAR}, 
+      #{stBEdu,jdbcType=VARCHAR}, #{stBIc,jdbcType=VARCHAR}, #{stBCoverArea,jdbcType=VARCHAR}, 
+      #{stShipType,jdbcType=VARCHAR}, #{stCallSign,jdbcType=VARCHAR}, #{stSMmsi,jdbcType=VARCHAR}, 
+      #{stSCs,jdbcType=VARCHAR}, #{stShipName,jdbcType=VARCHAR}, #{stSPn,jdbcType=VARCHAR}, 
+      #{stSAaic,jdbcType=VARCHAR}, #{stST,jdbcType=DECIMAL}, #{stSP,jdbcType=DECIMAL}, 
+      #{stAModel,jdbcType=VARCHAR}, #{stAType,jdbcType=VARCHAR}, #{stACall,jdbcType=VARCHAR}, 
+      #{stACallOi,jdbcType=VARCHAR}, #{stASgn,jdbcType=VARCHAR}, #{stASt,jdbcType=DECIMAL}, 
+      #{stAPiloting,jdbcType=VARCHAR}, #{stANrm,jdbcType=VARCHAR}, #{stRWamin,jdbcType=VARCHAR}, 
+      #{stRWamax,jdbcType=VARCHAR}, #{stREmin,jdbcType=VARCHAR}, #{stREmax,jdbcType=VARCHAR}, 
+      #{stCCode,jdbcType=VARCHAR}, #{stCSum,jdbcType=DECIMAL}, #{stServR,jdbcType=DECIMAL}, 
+      #{stDTecType,jdbcType=VARCHAR}, #{stDType,jdbcType=VARCHAR}, #{stMeSatName,jdbcType=VARCHAR}, 
+      #{stMeSta1,jdbcType=VARCHAR}, #{stMeSta2,jdbcType=VARCHAR}, #{stMeSta3,jdbcType=VARCHAR}, 
+      #{stMeStype,jdbcType=VARCHAR}, #{stMeName1,jdbcType=VARCHAR}, #{stMeName2,jdbcType=VARCHAR}, 
+      #{stMeLg1,jdbcType=DECIMAL}, #{stMeLg2,jdbcType=DECIMAL}, #{stMeFband,jdbcType=DECIMAL}, 
+      #{stBType1,jdbcType=VARCHAR}, #{stBType2,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.rx.rmip.corebiz.service.modules.station.techdata.model.RSBTStationT" >
+    insert into RSBT_STATION_T
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="guid != null" >
+        GUID,
+      </if>
+      <if test="stTimeB != null" >
+        ST_TIME_B,
+      </if>
+      <if test="stTimeE != null" >
+        ST_TIME_E,
+      </if>
+      <if test="stLmmtr != null" >
+        ST_LMMTR,
+      </if>
+      <if test="stUserArea != null" >
+        ST_USER_AREA,
+      </if>
+      <if test="stTfCode != null" >
+        ST_TF_CODE,
+      </if>
+      <if test="stTfTransCaPu != null" >
+        ST_TF_TRANS_CA_PU,
+      </if>
+      <if test="stTfTransCaP != null" >
+        ST_TF_TRANS_CA_P,
+      </if>
+      <if test="stENetCode != null" >
+        ST_E_NET_CODE,
+      </if>
+      <if test="stEMultiAddr != null" >
+        ST_E_MULTI_ADDR,
+      </if>
+      <if test="stEComArea != null" >
+        ST_E_COM_AREA,
+      </if>
+      <if test="stPosType != null" >
+        ST_POS_TYPE,
+      </if>
+      <if test="stEPos != null" >
+        ST_E_POS,
+      </if>
+      <if test="stESat != null" >
+        ST_E_SAT,
+      </if>
+      <if test="stELg != null" >
+        ST_E_LG,
+      </if>
+      <if test="stBSgn != null" >
+        ST_B_SGN,
+      </if>
+      <if test="stBLevel != null" >
+        ST_B_LEVEL,
+      </if>
+      <if test="stBBm != null" >
+        ST_B_BM,
+      </if>
+      <if test="stBEdu != null" >
+        ST_B_EDU,
+      </if>
+      <if test="stBIc != null" >
+        ST_B_IC,
+      </if>
+      <if test="stBCoverArea != null" >
+        ST_B_COVER_AREA,
+      </if>
+      <if test="stShipType != null" >
+        ST_SHIP_TYPE,
+      </if>
+      <if test="stCallSign != null" >
+        ST_CALL_SIGN,
+      </if>
+      <if test="stSMmsi != null" >
+        ST_S_MMSI,
+      </if>
+      <if test="stSCs != null" >
+        ST_S_CS,
+      </if>
+      <if test="stShipName != null" >
+        ST_SHIP_NAME,
+      </if>
+      <if test="stSPn != null" >
+        ST_S_PN,
+      </if>
+      <if test="stSAaic != null" >
+        ST_S_AAIC,
+      </if>
+      <if test="stST != null" >
+        ST_S_T,
+      </if>
+      <if test="stSP != null" >
+        ST_S_P,
+      </if>
+      <if test="stAModel != null" >
+        ST_A_MODEL,
+      </if>
+      <if test="stAType != null" >
+        ST_A_TYPE,
+      </if>
+      <if test="stACall != null" >
+        ST_A_CALL,
+      </if>
+      <if test="stACallOi != null" >
+        ST_A_CALL_OI,
+      </if>
+      <if test="stASgn != null" >
+        ST_A_SGN,
+      </if>
+      <if test="stASt != null" >
+        ST_A_ST,
+      </if>
+      <if test="stAPiloting != null" >
+        ST_A_PILOTING,
+      </if>
+      <if test="stANrm != null" >
+        ST_A_NRM,
+      </if>
+      <if test="stRWamin != null" >
+        ST_R_WAMIN,
+      </if>
+      <if test="stRWamax != null" >
+        ST_R_WAMAX,
+      </if>
+      <if test="stREmin != null" >
+        ST_R_EMIN,
+      </if>
+      <if test="stREmax != null" >
+        ST_R_EMAX,
+      </if>
+      <if test="stCCode != null" >
+        ST_C_CODE,
+      </if>
+      <if test="stCSum != null" >
+        ST_C_SUM,
+      </if>
+      <if test="stServR != null" >
+        ST_SERV_R,
+      </if>
+      <if test="stDTecType != null" >
+        ST_D_TEC_TYPE,
+      </if>
+      <if test="stDType != null" >
+        ST_D_TYPE,
+      </if>
+      <if test="stMeSatName != null" >
+        ST_ME_SAT_NAME,
+      </if>
+      <if test="stMeSta1 != null" >
+        ST_ME_STA1,
+      </if>
+      <if test="stMeSta2 != null" >
+        ST_ME_STA2,
+      </if>
+      <if test="stMeSta3 != null" >
+        ST_ME_STA3,
+      </if>
+      <if test="stMeStype != null" >
+        ST_ME_STYPE,
+      </if>
+      <if test="stMeName1 != null" >
+        ST_ME_NAME1,
+      </if>
+      <if test="stMeName2 != null" >
+        ST_ME_NAME2,
+      </if>
+      <if test="stMeLg1 != null" >
+        ST_ME_LG1,
+      </if>
+      <if test="stMeLg2 != null" >
+        ST_ME_LG2,
+      </if>
+      <if test="stMeFband != null" >
+        ST_ME_FBAND,
+      </if>
+      <if test="stBType1 != null" >
+        ST_B_TYPE1,
+      </if>
+      <if test="stBType2 != null" >
+        ST_B_TYPE2,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="guid != null" >
+        #{guid,jdbcType=VARCHAR},
+      </if>
+      <if test="stTimeB != null" >
+        #{stTimeB,jdbcType=DATE},
+      </if>
+      <if test="stTimeE != null" >
+        #{stTimeE,jdbcType=DATE},
+      </if>
+      <if test="stLmmtr != null" >
+        #{stLmmtr,jdbcType=VARCHAR},
+      </if>
+      <if test="stUserArea != null" >
+        #{stUserArea,jdbcType=VARCHAR},
+      </if>
+      <if test="stTfCode != null" >
+        #{stTfCode,jdbcType=VARCHAR},
+      </if>
+      <if test="stTfTransCaPu != null" >
+        #{stTfTransCaPu,jdbcType=VARCHAR},
+      </if>
+      <if test="stTfTransCaP != null" >
+        #{stTfTransCaP,jdbcType=DECIMAL},
+      </if>
+      <if test="stENetCode != null" >
+        #{stENetCode,jdbcType=VARCHAR},
+      </if>
+      <if test="stEMultiAddr != null" >
+        #{stEMultiAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="stEComArea != null" >
+        #{stEComArea,jdbcType=VARCHAR},
+      </if>
+      <if test="stPosType != null" >
+        #{stPosType,jdbcType=VARCHAR},
+      </if>
+      <if test="stEPos != null" >
+        #{stEPos,jdbcType=VARCHAR},
+      </if>
+      <if test="stESat != null" >
+        #{stESat,jdbcType=VARCHAR},
+      </if>
+      <if test="stELg != null" >
+        #{stELg,jdbcType=VARCHAR},
+      </if>
+      <if test="stBSgn != null" >
+        #{stBSgn,jdbcType=VARCHAR},
+      </if>
+      <if test="stBLevel != null" >
+        #{stBLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="stBBm != null" >
+        #{stBBm,jdbcType=VARCHAR},
+      </if>
+      <if test="stBEdu != null" >
+        #{stBEdu,jdbcType=VARCHAR},
+      </if>
+      <if test="stBIc != null" >
+        #{stBIc,jdbcType=VARCHAR},
+      </if>
+      <if test="stBCoverArea != null" >
+        #{stBCoverArea,jdbcType=VARCHAR},
+      </if>
+      <if test="stShipType != null" >
+        #{stShipType,jdbcType=VARCHAR},
+      </if>
+      <if test="stCallSign != null" >
+        #{stCallSign,jdbcType=VARCHAR},
+      </if>
+      <if test="stSMmsi != null" >
+        #{stSMmsi,jdbcType=VARCHAR},
+      </if>
+      <if test="stSCs != null" >
+        #{stSCs,jdbcType=VARCHAR},
+      </if>
+      <if test="stShipName != null" >
+        #{stShipName,jdbcType=VARCHAR},
+      </if>
+      <if test="stSPn != null" >
+        #{stSPn,jdbcType=VARCHAR},
+      </if>
+      <if test="stSAaic != null" >
+        #{stSAaic,jdbcType=VARCHAR},
+      </if>
+      <if test="stST != null" >
+        #{stST,jdbcType=DECIMAL},
+      </if>
+      <if test="stSP != null" >
+        #{stSP,jdbcType=DECIMAL},
+      </if>
+      <if test="stAModel != null" >
+        #{stAModel,jdbcType=VARCHAR},
+      </if>
+      <if test="stAType != null" >
+        #{stAType,jdbcType=VARCHAR},
+      </if>
+      <if test="stACall != null" >
+        #{stACall,jdbcType=VARCHAR},
+      </if>
+      <if test="stACallOi != null" >
+        #{stACallOi,jdbcType=VARCHAR},
+      </if>
+      <if test="stASgn != null" >
+        #{stASgn,jdbcType=VARCHAR},
+      </if>
+      <if test="stASt != null" >
+        #{stASt,jdbcType=DECIMAL},
+      </if>
+      <if test="stAPiloting != null" >
+        #{stAPiloting,jdbcType=VARCHAR},
+      </if>
+      <if test="stANrm != null" >
+        #{stANrm,jdbcType=VARCHAR},
+      </if>
+      <if test="stRWamin != null" >
+        #{stRWamin,jdbcType=VARCHAR},
+      </if>
+      <if test="stRWamax != null" >
+        #{stRWamax,jdbcType=VARCHAR},
+      </if>
+      <if test="stREmin != null" >
+        #{stREmin,jdbcType=VARCHAR},
+      </if>
+      <if test="stREmax != null" >
+        #{stREmax,jdbcType=VARCHAR},
+      </if>
+      <if test="stCCode != null" >
+        #{stCCode,jdbcType=VARCHAR},
+      </if>
+      <if test="stCSum != null" >
+        #{stCSum,jdbcType=DECIMAL},
+      </if>
+      <if test="stServR != null" >
+        #{stServR,jdbcType=DECIMAL},
+      </if>
+      <if test="stDTecType != null" >
+        #{stDTecType,jdbcType=VARCHAR},
+      </if>
+      <if test="stDType != null" >
+        #{stDType,jdbcType=VARCHAR},
+      </if>
+      <if test="stMeSatName != null" >
+        #{stMeSatName,jdbcType=VARCHAR},
+      </if>
+      <if test="stMeSta1 != null" >
+        #{stMeSta1,jdbcType=VARCHAR},
+      </if>
+      <if test="stMeSta2 != null" >
+        #{stMeSta2,jdbcType=VARCHAR},
+      </if>
+      <if test="stMeSta3 != null" >
+        #{stMeSta3,jdbcType=VARCHAR},
+      </if>
+      <if test="stMeStype != null" >
+        #{stMeStype,jdbcType=VARCHAR},
+      </if>
+      <if test="stMeName1 != null" >
+        #{stMeName1,jdbcType=VARCHAR},
+      </if>
+      <if test="stMeName2 != null" >
+        #{stMeName2,jdbcType=VARCHAR},
+      </if>
+      <if test="stMeLg1 != null" >
+        #{stMeLg1,jdbcType=DECIMAL},
+      </if>
+      <if test="stMeLg2 != null" >
+        #{stMeLg2,jdbcType=DECIMAL},
+      </if>
+      <if test="stMeFband != null" >
+        #{stMeFband,jdbcType=DECIMAL},
+      </if>
+      <if test="stBType1 != null" >
+        #{stBType1,jdbcType=VARCHAR},
+      </if>
+      <if test="stBType2 != null" >
+        #{stBType2,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.rx.rmip.corebiz.service.modules.station.techdata.model.RSBTStationT" >
+    update RSBT_STATION_T
+    <set >
+      <if test="stTimeB != null" >
+        ST_TIME_B = #{stTimeB,jdbcType=DATE},
+      </if>
+      <if test="stTimeE != null" >
+        ST_TIME_E = #{stTimeE,jdbcType=DATE},
+      </if>
+      <if test="stLmmtr != null" >
+        ST_LMMTR = #{stLmmtr,jdbcType=VARCHAR},
+      </if>
+      <if test="stUserArea != null" >
+        ST_USER_AREA = #{stUserArea,jdbcType=VARCHAR},
+      </if>
+      <if test="stTfCode != null" >
+        ST_TF_CODE = #{stTfCode,jdbcType=VARCHAR},
+      </if>
+      <if test="stTfTransCaPu != null" >
+        ST_TF_TRANS_CA_PU = #{stTfTransCaPu,jdbcType=VARCHAR},
+      </if>
+      <if test="stTfTransCaP != null" >
+        ST_TF_TRANS_CA_P = #{stTfTransCaP,jdbcType=DECIMAL},
+      </if>
+      <if test="stENetCode != null" >
+        ST_E_NET_CODE = #{stENetCode,jdbcType=VARCHAR},
+      </if>
+      <if test="stEMultiAddr != null" >
+        ST_E_MULTI_ADDR = #{stEMultiAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="stEComArea != null" >
+        ST_E_COM_AREA = #{stEComArea,jdbcType=VARCHAR},
+      </if>
+      <if test="stPosType != null" >
+        ST_POS_TYPE = #{stPosType,jdbcType=VARCHAR},
+      </if>
+      <if test="stEPos != null" >
+        ST_E_POS = #{stEPos,jdbcType=VARCHAR},
+      </if>
+      <if test="stESat != null" >
+        ST_E_SAT = #{stESat,jdbcType=VARCHAR},
+      </if>
+      <if test="stELg != null" >
+        ST_E_LG = #{stELg,jdbcType=VARCHAR},
+      </if>
+      <if test="stBSgn != null" >
+        ST_B_SGN = #{stBSgn,jdbcType=VARCHAR},
+      </if>
+      <if test="stBLevel != null" >
+        ST_B_LEVEL = #{stBLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="stBBm != null" >
+        ST_B_BM = #{stBBm,jdbcType=VARCHAR},
+      </if>
+      <if test="stBEdu != null" >
+        ST_B_EDU = #{stBEdu,jdbcType=VARCHAR},
+      </if>
+      <if test="stBIc != null" >
+        ST_B_IC = #{stBIc,jdbcType=VARCHAR},
+      </if>
+      <if test="stBCoverArea != null" >
+        ST_B_COVER_AREA = #{stBCoverArea,jdbcType=VARCHAR},
+      </if>
+      <if test="stShipType != null" >
+        ST_SHIP_TYPE = #{stShipType,jdbcType=VARCHAR},
+      </if>
+      <if test="stCallSign != null" >
+        ST_CALL_SIGN = #{stCallSign,jdbcType=VARCHAR},
+      </if>
+      <if test="stSMmsi != null" >
+        ST_S_MMSI = #{stSMmsi,jdbcType=VARCHAR},
+      </if>
+      <if test="stSCs != null" >
+        ST_S_CS = #{stSCs,jdbcType=VARCHAR},
+      </if>
+      <if test="stShipName != null" >
+        ST_SHIP_NAME = #{stShipName,jdbcType=VARCHAR},
+      </if>
+      <if test="stSPn != null" >
+        ST_S_PN = #{stSPn,jdbcType=VARCHAR},
+      </if>
+      <if test="stSAaic != null" >
+        ST_S_AAIC = #{stSAaic,jdbcType=VARCHAR},
+      </if>
+      <if test="stST != null" >
+        ST_S_T = #{stST,jdbcType=DECIMAL},
+      </if>
+      <if test="stSP != null" >
+        ST_S_P = #{stSP,jdbcType=DECIMAL},
+      </if>
+      <if test="stAModel != null" >
+        ST_A_MODEL = #{stAModel,jdbcType=VARCHAR},
+      </if>
+      <if test="stAType != null" >
+        ST_A_TYPE = #{stAType,jdbcType=VARCHAR},
+      </if>
+      <if test="stACall != null" >
+        ST_A_CALL = #{stACall,jdbcType=VARCHAR},
+      </if>
+      <if test="stACallOi != null" >
+        ST_A_CALL_OI = #{stACallOi,jdbcType=VARCHAR},
+      </if>
+      <if test="stASgn != null" >
+        ST_A_SGN = #{stASgn,jdbcType=VARCHAR},
+      </if>
+      <if test="stASt != null" >
+        ST_A_ST = #{stASt,jdbcType=DECIMAL},
+      </if>
+      <if test="stAPiloting != null" >
+        ST_A_PILOTING = #{stAPiloting,jdbcType=VARCHAR},
+      </if>
+      <if test="stANrm != null" >
+        ST_A_NRM = #{stANrm,jdbcType=VARCHAR},
+      </if>
+      <if test="stRWamin != null" >
+        ST_R_WAMIN = #{stRWamin,jdbcType=VARCHAR},
+      </if>
+      <if test="stRWamax != null" >
+        ST_R_WAMAX = #{stRWamax,jdbcType=VARCHAR},
+      </if>
+      <if test="stREmin != null" >
+        ST_R_EMIN = #{stREmin,jdbcType=VARCHAR},
+      </if>
+      <if test="stREmax != null" >
+        ST_R_EMAX = #{stREmax,jdbcType=VARCHAR},
+      </if>
+      <if test="stCCode != null" >
+        ST_C_CODE = #{stCCode,jdbcType=VARCHAR},
+      </if>
+      <if test="stCSum != null" >
+        ST_C_SUM = #{stCSum,jdbcType=DECIMAL},
+      </if>
+      <if test="stServR != null" >
+        ST_SERV_R = #{stServR,jdbcType=DECIMAL},
+      </if>
+      <if test="stDTecType != null" >
+        ST_D_TEC_TYPE = #{stDTecType,jdbcType=VARCHAR},
+      </if>
+      <if test="stDType != null" >
+        ST_D_TYPE = #{stDType,jdbcType=VARCHAR},
+      </if>
+      <if test="stMeSatName != null" >
+        ST_ME_SAT_NAME = #{stMeSatName,jdbcType=VARCHAR},
+      </if>
+      <if test="stMeSta1 != null" >
+        ST_ME_STA1 = #{stMeSta1,jdbcType=VARCHAR},
+      </if>
+      <if test="stMeSta2 != null" >
+        ST_ME_STA2 = #{stMeSta2,jdbcType=VARCHAR},
+      </if>
+      <if test="stMeSta3 != null" >
+        ST_ME_STA3 = #{stMeSta3,jdbcType=VARCHAR},
+      </if>
+      <if test="stMeStype != null" >
+        ST_ME_STYPE = #{stMeStype,jdbcType=VARCHAR},
+      </if>
+      <if test="stMeName1 != null" >
+        ST_ME_NAME1 = #{stMeName1,jdbcType=VARCHAR},
+      </if>
+      <if test="stMeName2 != null" >
+        ST_ME_NAME2 = #{stMeName2,jdbcType=VARCHAR},
+      </if>
+      <if test="stMeLg1 != null" >
+        ST_ME_LG1 = #{stMeLg1,jdbcType=DECIMAL},
+      </if>
+      <if test="stMeLg2 != null" >
+        ST_ME_LG2 = #{stMeLg2,jdbcType=DECIMAL},
+      </if>
+      <if test="stMeFband != null" >
+        ST_ME_FBAND = #{stMeFband,jdbcType=DECIMAL},
+      </if>
+      <if test="stBType1 != null" >
+        ST_B_TYPE1 = #{stBType1,jdbcType=VARCHAR},
+      </if>
+      <if test="stBType2 != null" >
+        ST_B_TYPE2 = #{stBType2,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where GUID = #{guid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.rx.rmip.corebiz.service.modules.station.techdata.model.RSBTStationT" >
+    update RSBT_STATION_T
+    set ST_TIME_B = #{stTimeB,jdbcType=DATE},
+      ST_TIME_E = #{stTimeE,jdbcType=DATE},
+      ST_LMMTR = #{stLmmtr,jdbcType=VARCHAR},
+      ST_USER_AREA = #{stUserArea,jdbcType=VARCHAR},
+      ST_TF_CODE = #{stTfCode,jdbcType=VARCHAR},
+      ST_TF_TRANS_CA_PU = #{stTfTransCaPu,jdbcType=VARCHAR},
+      ST_TF_TRANS_CA_P = #{stTfTransCaP,jdbcType=DECIMAL},
+      ST_E_NET_CODE = #{stENetCode,jdbcType=VARCHAR},
+      ST_E_MULTI_ADDR = #{stEMultiAddr,jdbcType=VARCHAR},
+      ST_E_COM_AREA = #{stEComArea,jdbcType=VARCHAR},
+      ST_POS_TYPE = #{stPosType,jdbcType=VARCHAR},
+      ST_E_POS = #{stEPos,jdbcType=VARCHAR},
+      ST_E_SAT = #{stESat,jdbcType=VARCHAR},
+      ST_E_LG = #{stELg,jdbcType=VARCHAR},
+      ST_B_SGN = #{stBSgn,jdbcType=VARCHAR},
+      ST_B_LEVEL = #{stBLevel,jdbcType=VARCHAR},
+      ST_B_BM = #{stBBm,jdbcType=VARCHAR},
+      ST_B_EDU = #{stBEdu,jdbcType=VARCHAR},
+      ST_B_IC = #{stBIc,jdbcType=VARCHAR},
+      ST_B_COVER_AREA = #{stBCoverArea,jdbcType=VARCHAR},
+      ST_SHIP_TYPE = #{stShipType,jdbcType=VARCHAR},
+      ST_CALL_SIGN = #{stCallSign,jdbcType=VARCHAR},
+      ST_S_MMSI = #{stSMmsi,jdbcType=VARCHAR},
+      ST_S_CS = #{stSCs,jdbcType=VARCHAR},
+      ST_SHIP_NAME = #{stShipName,jdbcType=VARCHAR},
+      ST_S_PN = #{stSPn,jdbcType=VARCHAR},
+      ST_S_AAIC = #{stSAaic,jdbcType=VARCHAR},
+      ST_S_T = #{stST,jdbcType=DECIMAL},
+      ST_S_P = #{stSP,jdbcType=DECIMAL},
+      ST_A_MODEL = #{stAModel,jdbcType=VARCHAR},
+      ST_A_TYPE = #{stAType,jdbcType=VARCHAR},
+      ST_A_CALL = #{stACall,jdbcType=VARCHAR},
+      ST_A_CALL_OI = #{stACallOi,jdbcType=VARCHAR},
+      ST_A_SGN = #{stASgn,jdbcType=VARCHAR},
+      ST_A_ST = #{stASt,jdbcType=DECIMAL},
+      ST_A_PILOTING = #{stAPiloting,jdbcType=VARCHAR},
+      ST_A_NRM = #{stANrm,jdbcType=VARCHAR},
+      ST_R_WAMIN = #{stRWamin,jdbcType=VARCHAR},
+      ST_R_WAMAX = #{stRWamax,jdbcType=VARCHAR},
+      ST_R_EMIN = #{stREmin,jdbcType=VARCHAR},
+      ST_R_EMAX = #{stREmax,jdbcType=VARCHAR},
+      ST_C_CODE = #{stCCode,jdbcType=VARCHAR},
+      ST_C_SUM = #{stCSum,jdbcType=DECIMAL},
+      ST_SERV_R = #{stServR,jdbcType=DECIMAL},
+      ST_D_TEC_TYPE = #{stDTecType,jdbcType=VARCHAR},
+      ST_D_TYPE = #{stDType,jdbcType=VARCHAR},
+      ST_ME_SAT_NAME = #{stMeSatName,jdbcType=VARCHAR},
+      ST_ME_STA1 = #{stMeSta1,jdbcType=VARCHAR},
+      ST_ME_STA2 = #{stMeSta2,jdbcType=VARCHAR},
+      ST_ME_STA3 = #{stMeSta3,jdbcType=VARCHAR},
+      ST_ME_STYPE = #{stMeStype,jdbcType=VARCHAR},
+      ST_ME_NAME1 = #{stMeName1,jdbcType=VARCHAR},
+      ST_ME_NAME2 = #{stMeName2,jdbcType=VARCHAR},
+      ST_ME_LG1 = #{stMeLg1,jdbcType=DECIMAL},
+      ST_ME_LG2 = #{stMeLg2,jdbcType=DECIMAL},
+      ST_ME_FBAND = #{stMeFband,jdbcType=DECIMAL},
+      ST_B_TYPE1 = #{stBType1,jdbcType=VARCHAR},
+      ST_B_TYPE2 = #{stBType2,jdbcType=VARCHAR}
+    where GUID = #{guid,jdbcType=VARCHAR}
+  </update>
+</mapper>

@@ -1,0 +1,88 @@
+<?xml version="1.0"?>
+<project
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.rxing</groupId>
+		<artifactId>rx-rmip-corebiz</artifactId>
+		<version>0.0.1</version>
+	</parent>
+	<artifactId>rx-rmip-corebiz-service</artifactId>
+	<name>rx-rmip-corebiz-service</name>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>com.rxing</groupId>
+			<artifactId>rx-rmip-corebiz-common</artifactId>
+		</dependency>
+		<!-- Web Sevlet begin -->
+		
+		<dependency>
+			<groupId>javax.servlet.jsp</groupId>
+			<artifactId>jsp-api</artifactId>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<!-- 依赖包复制到父项目的target/lib中 -->
+			<plugin>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<version>2.10</version>
+				<executions>
+					<execution>
+						<id>copy-shared-lib</id>
+						<phase>prepare-package</phase>
+						<goals>
+							<goal>copy-dependencies</goal>
+						</goals>
+						<configuration>
+							<includeTypes>jar</includeTypes>
+							<excludeGroupIds>org.apache.maven,${project.groupId}</excludeGroupIds>
+							<overWriteSnapshots>true</overWriteSnapshots>
+							<excludeTransitive>false</excludeTransitive>
+							<type>jar</type>
+							<outputDirectory>${project.build.deploydir}/lib/shared</outputDirectory>
+						</configuration>
+					</execution>
+					<execution>
+						<id>copy-r-lib</id>
+						<phase>prepare-package</phase>
+						<goals>
+							<goal>copy-dependencies</goal>
+						</goals>
+						<configuration>
+							<includeTypes>jar</includeTypes>
+							<includeGroupIds>${project.groupId}</includeGroupIds>
+							<overWriteSnapshots>true</overWriteSnapshots>
+							<excludeTransitive>false</excludeTransitive>
+							<type>jar</type>
+							<outputDirectory>${project.build.deploydir}/lib/rx</outputDirectory>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<!-- 生成源码包 -->
+			<plugin>
+				<artifactId>maven-source-plugin</artifactId>
+				<version>2.1</version>
+				<configuration>
+					<attach>true</attach>
+				</configuration>
+				<executions>
+					<execution>
+						<phase>compile</phase>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+</project>

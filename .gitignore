@@ -61,3 +61,8 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+
+#maven target file
+
+/target/*
+*/target/*

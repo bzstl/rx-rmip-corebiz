@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.rx.rmip.corebiz.service.modules.station.techdata.dao.RSBTESeMapper" >
+  <resultMap id="BaseResultMap" type="com.rx.rmip.corebiz.service.modules.station.techdata.model.RSBTESe" >
+    <id column="GUID" property="guid" jdbcType="VARCHAR" />
+    <result column="STATION_GUID" property="stationGuid" jdbcType="VARCHAR" />
+    <result column="SE_COMM" property="seComm" jdbcType="DECIMAL" />
+    <result column="SE_ANGLE" property="seAngle" jdbcType="DECIMAL" />
+    <result column="SE_DIS" property="seDis" jdbcType="DECIMAL" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    GUID, STATION_GUID, SE_COMM, SE_ANGLE, SE_DIS
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from RSBT_E_SE
+    where GUID = #{guid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from RSBT_E_SE
+    where GUID = #{guid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.rx.rmip.corebiz.service.modules.station.techdata.model.RSBTESe" >
+    <!-- 自动生成guid并赋值给 #{guid}-->
+  		<selectKey keyProperty="guid" resultType="String" order="BEFORE">  
+            select sys_guid() from dual  
+        </selectKey> 
+    insert into RSBT_E_SE (GUID, STATION_GUID, SE_COMM, 
+      SE_ANGLE, SE_DIS)
+    values (#{guid,jdbcType=VARCHAR}, #{stationGuid,jdbcType=VARCHAR}, #{seComm,jdbcType=DECIMAL}, 
+      #{seAngle,jdbcType=DECIMAL}, #{seDis,jdbcType=DECIMAL})
+  </insert>
+  <insert id="insertSelective" parameterType="com.rx.rmip.corebiz.service.modules.station.techdata.model.RSBTESe" >
+    insert into RSBT_E_SE
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="guid != null" >
+        GUID,
+      </if>
+      <if test="stationGuid != null" >
+        STATION_GUID,
+      </if>
+      <if test="seComm != null" >
+        SE_COMM,
+      </if>
+      <if test="seAngle != null" >
+        SE_ANGLE,
+      </if>
+      <if test="seDis != null" >
+        SE_DIS,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="guid != null" >
+        #{guid,jdbcType=VARCHAR},
+      </if>
+      <if test="stationGuid != null" >
+        #{stationGuid,jdbcType=VARCHAR},
+      </if>
+      <if test="seComm != null" >
+        #{seComm,jdbcType=DECIMAL},
+      </if>
+      <if test="seAngle != null" >
+        #{seAngle,jdbcType=DECIMAL},
+      </if>
+      <if test="seDis != null" >
+        #{seDis,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.rx.rmip.corebiz.service.modules.station.techdata.model.RSBTESe" >
+    update RSBT_E_SE
+    <set >
+      <if test="stationGuid != null" >
+        STATION_GUID = #{stationGuid,jdbcType=VARCHAR},
+      </if>
+      <if test="seComm != null" >
+        SE_COMM = #{seComm,jdbcType=DECIMAL},
+      </if>
+      <if test="seAngle != null" >
+        SE_ANGLE = #{seAngle,jdbcType=DECIMAL},
+      </if>
+      <if test="seDis != null" >
+        SE_DIS = #{seDis,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where GUID = #{guid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.rx.rmip.corebiz.service.modules.station.techdata.model.RSBTESe" >
+    update RSBT_E_SE
+    set STATION_GUID = #{stationGuid,jdbcType=VARCHAR},
+      SE_COMM = #{seComm,jdbcType=DECIMAL},
+      SE_ANGLE = #{seAngle,jdbcType=DECIMAL},
+      SE_DIS = #{seDis,jdbcType=DECIMAL}
+    where GUID = #{guid,jdbcType=VARCHAR}
+  </update>
+</mapper>

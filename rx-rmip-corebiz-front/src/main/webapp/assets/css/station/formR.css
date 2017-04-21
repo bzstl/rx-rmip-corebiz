@@ -1,0 +1,447 @@
+﻿Normal {
+	margin-bottom: .0001pt;
+	text-align: center;
+	font-size: 10.5pt;
+	font-family: "TimesNewRoman", "serif";
+	margin-left: 0cm;
+	margin-right: 0cm;
+	margin-top: 0cm;
+}
+
+table {
+	font-size: 10.5pt;
+	font-family: "Calibri", "sans-serif";
+}
+
+td {
+	vertical-align: middle;
+	white-space: nowrap;
+}
+
+tr {
+	text-align: left;
+}
+
+#MenuDiv {
+	font-size: 9pt;
+	font-family: 宋体;
+	font-weight: bold;
+	color: #9933FF;
+	background-color: #CC99FF;
+	border: 1px solid #9933FF;
+	position: absolute;
+	top: 10px;
+	left: 85%;
+	width: 95px;
+	height: 85px;
+}
+
+li {
+	list-style-type: none;
+}
+
+ul {
+	padding: 0px;
+}
+
+#MenuDiv>li>ul>a:link {
+	font-size: 9pt;
+	font-family: 宋体;
+	font-weight: bold;
+	color: #FFFFFF;
+}
+
+#MenuDiv>li>ul>a:visited {
+	font-size: 9pt;
+	font-family: 宋体;
+	font-weight: bold;
+	color: #FFFFFF;
+}
+
+#MenuDiv>li>ul>a:hover {
+	font-size: 9pt;
+	font-family: 宋体;
+	font-weight: bold;
+	color: #CCCCCC;
+}
+
+#MenuDiv>li>ul>a:active {
+	font-size: 9pt;
+	font-family: 宋体;
+	font-weight: normal;
+	color: #9933FF;
+}
+
+input[type="checkbox"] {
+	visibility: hidden;
+	width: 0;
+	height: 0;
+	margin: 0;
+	padding: 0;
+}
+
+input[type="checkbox"]+label {
+	background: url(../../images/station/checkboxR.png) no-repeat;
+	padding-left: 18px;
+	color: #9933FF;
+	height: 15px;
+	font-size:10.0pt;
+	display:inline;
+}
+
+input[type="checkbox"]+label:hover {
+	color: #9933FF;
+	background-position: 0 -16px;
+}
+
+.checkboxchecked {
+	color: #9933FF;
+	background-position: 0 -16px;
+}
+
+.checkboxfocus {
+	color: #9933FF;
+	background-position: 0 -16px;
+}
+
+input[type="radio"] {
+	visibility: hidden;
+	width: 0;
+	height: 0;
+	margin: 0;
+	padding: 0;
+}
+
+input[type="radio"]+label {
+	background: url(../../images/station/checkboxR.png) no-repeat 0 0;
+	padding-left: 18px;
+	color: #9933FF;
+	cursor: pointer;
+	height: 15px;
+	font-size:10.0pt;
+	display:inline;
+}
+
+input[type="radio"]+label:hover {
+	color: #9933FF;
+	background-position: 0 -16px;
+}
+
+.radiochecked {
+	color: #9933FF;
+	background-position: 0 -16px;
+}
+
+.radiofocus {
+	color: #9933FF;
+	background-position: 0 -16px;
+}
+
+input.txtDefault {
+	border-style: none;
+	border-color: inherit;
+	border-width: 0px;
+	width: 78%;
+	height: 16px;
+	margin-top: 3px;
+	color: Black;
+	vertical-align: bottom;
+	margin-left: 0px;
+	padding:0;
+}
+
+input.txtNumber {
+	width: 50px;
+	height: 16px;
+	margin-top: 3px;
+	border: 0px;
+	color: Black;
+	vertical-align: bottom;
+	text-align: left;
+	margin-left: 0px;
+	padding:0;
+}
+
+input.txtNumberLong {
+	width: 180px;
+	height: 16px;
+	border: 0px;
+	color: Black;
+	vertical-align: bottom;
+	text-align: left;
+	margin-left: 0px;
+	padding:0;
+}
+
+input.txtLine {
+	width: 80px;
+	height: 100%;
+	color: Black;
+	vertical-align: middle;
+	border-top: 0pt;
+	border-left: 0pt;
+	border-right: 0pt;
+	border-bottom: solid #9933FF 1.0pt;
+}
+
+.txtStatStauts, input.txtStatStauts
+ {
+	border-style: none;
+	border-color: inherit;
+	border-width: 0px;
+	width: 78%;
+	height: 60%;
+	color: red;
+	vertical-align: bottom;
+	margin-left: 0px;
+	background: #CC99FF;
+}
+
+table .tdTitleTop {
+	border: solid #9933FF 1.5pt;
+	background: #CC99FF;
+	padding: 0cm 5.4pt 0cm 5.4pt;
+	height: 18.45pt;
+}
+
+table .tdTitleTopLeft {
+	border-top: solid #9933FF 1.5pt;
+	border-left: solid #9933FF 1.5pt;
+	border-bottom: solid #9933FF 1.5pt;
+	border-right: none;
+	background: #CC99FF;
+	padding: 0cm 5.4pt 0cm 5.4pt;
+	height: 18.45pt;
+}
+
+table .tdTitleTopRight {
+	border-top: solid #9933FF 1.5pt;
+	border-left: none;
+	border-bottom: solid #9933FF 1.5pt;
+	border-right: solid #9933FF 1.5pt;
+	background: #CC99FF;
+	padding: 0cm 5.4pt 0cm 5.4pt;
+	height: 18.45pt;
+}
+
+table .tdTitleLeft {
+	border-top: none;
+	border-left: solid #9933FF 1.5pt;
+	border-bottom: solid #9933FF 1.5pt;
+	border-right: solid #9933FF 1.5pt;
+	background: #CC99FF;
+	padding: 0cm 5.4pt 0cm 5.4pt;
+	height: 18.45pt;
+}
+
+table .tdTitleRight {
+	border-top: none;
+	border-left: none;
+	border-bottom: solid #9933FF 1.5pt;
+	border-right: solid #9933FF 1.5pt;
+	background: #CC99FF;
+	padding: 0cm 5.4pt 0cm 5.4pt;
+	height: 18.45pt;
+}
+
+table .tdTitleBottom {
+	border: solid #9933FF 1.5pt;
+	background: #CC99FF;
+	padding: 0cm 5.4pt 0cm 5.4pt;
+	height: 18.45pt;
+}
+
+table .tdContentTitle {
+	border-top: none;
+	border-left: none;
+	border-bottom: solid #9933FF 1.0pt;
+	border-right: solid #9933FF 1.0pt;
+	padding: 0cm 5.4pt 0cm 5.4pt;
+	height: 18.45pt;
+}
+
+table .tdContent {
+	border-top: none;
+	border-left: none;
+	border-bottom: solid #9933FF 1.0pt;
+	border-right: solid #9933FF 1.0pt;
+	padding: 0cm 5.4pt 0cm 5.4pt;
+	height: 18.45pt;
+}
+
+table .tdBorderLeft {
+	border-top: none;
+	border-left: solid #9933FF 1.5pt;
+	border-bottom: solid #9933FF 1.0pt;
+	border-right: solid #9933FF 1.0pt;
+	padding: 0cm 5.4pt 0cm 5.4pt;
+	height: 18.45pt;
+}
+
+table .tdBorderRight {
+	border-top: none;
+	border-left: none;
+	border-bottom: solid #9933FF 1.0pt;
+	border-right: solid #9933FF 1.5pt;
+	padding: 0cm 5.4pt 0cm 5.4pt;
+	height: 18.45pt;
+}
+
+table .tdBorderCenter {
+	border-top: none;
+	border-left: none;
+	border-bottom: solid #9933FF 1.0pt;
+	border-right: none;
+	padding: 0cm 5.4pt 0cm 5.4pt;
+	height: 18.45pt;
+}
+
+table .tdDbBorderRight {
+	border-top: none;
+	border-left: none;
+	border-bottom: solid #9933FF 1.0pt;
+	border-right: double #9933FF 4.5pt;
+	padding: 0cm 5.4pt 0cm 5.4pt;
+	height: 18.45pt;
+}
+
+table .tdBorderBottom {
+	border-top: none;
+	border-left: none;
+	border-bottom: solid #9933FF 1.5pt;
+	border-right: solid #9933FF 1.0pt;
+	padding: 0cm 5.4pt 0cm 5.4pt;
+	height: 18.45pt;
+}
+
+table .tdBorderLeftCorner {
+	border-top: none;
+	border-left: solid #9933FF 1.5pt;
+	border-bottom: solid #9933FF 1.5pt;
+	border-right: solid #9933FF 1.0pt;
+	padding: 0cm 5.4pt 0cm 5.4pt;
+	height: 18.45pt;
+}
+
+table .tdBorderRightCorner {
+	border-top: none;
+	border-left: none;
+	border-bottom: solid #9933FF 1.5pt;
+	border-right: solid #9933FF 1.5pt;
+	padding: 0cm 5.4pt 0cm 5.4pt;
+	height: 18.45pt;
+}
+
+table .tdDbBorderRightCorner {
+	border-top: none;
+	border-left: none;
+	border-bottom: solid #9933FF 1.5pt;
+	border-right: double #9933FF 4.5pt;
+	padding: 0cm 5.4pt 0cm 5.4pt;
+	height: 18.45pt;
+}
+
+table .bottomTableLeft {
+	border: solid #9933FF 1.5pt;
+	border-right: solid #9933FF 1.0pt;
+	padding: 0cm 5.4pt 0cm 5.4pt;
+	height: 22.7pt;
+}
+
+table .bottomTableCenter {
+	border-top: solid #9933FF 1.5pt;
+	border-left: none;
+	border-bottom: solid #9933FF 1.5pt;
+	border-right: solid #9933FF 1.5pt;
+	padding: 0cm 5.4pt 0cm 5.4pt;
+	height: 22.7pt;
+}
+
+table .bottomTableRight {
+	border: solid #9933FF 1.5pt;
+	border-left: none;
+	padding: 0cm 5.4pt 0cm 5.4pt;
+	height: 22.7pt;
+}
+
+table .fullLine {
+	border-top: none;
+	border-left: solid #9933FF 1.5pt;
+	border-bottom: solid #9933FF 1.5pt;
+	border-right: solid #9933FF 1.5pt;
+	padding: 0cm 0pt 0cm 0pt;
+}
+
+table .fullDbLine {
+	border-top: none;
+	border-left: solid #9933FF 1.5pt;
+	border-bottom: solid #9933FF 1.0pt;
+	border-right: double #9933FF 4.5pt;
+	padding: 0cm 5.4pt 0cm 5.4pt;
+	height: 18.45pt;
+}
+
+table .fullLineBottom {
+	border-top: none;
+	border-left: solid #9933FF 1.5pt;
+	border-bottom: solid #9933FF 1.5pt;
+	border-right: solid #9933FF 1.5pt;
+	padding: 0cm 5.4pt 0cm 5.4pt;
+	height: 18.45pt;
+}
+
+table .fullDbLineBottom {
+	border-top: none;
+	border-left: solid #9933FF 1.5pt;
+	border-bottom: solid #9933FF 1.5pt;
+	border-right: double #9933FF 4.5pt;
+	padding: 0cm 5.4pt 0cm 5.4pt;
+	height: 18.45pt;
+}
+
+.Title1 {
+	font-size: 14.0pt;
+	font-family: 宋体;
+	font-weight: bold;
+	color: #9933FF;
+	vertical-align: middle;
+}
+
+.Title2 {
+	font-size: 12.0pt;
+	font-family: 宋体;
+	font-weight: bold;
+	color: #9933FF;
+	vertical-align: middle;
+	text-align: left;
+}
+
+.Title3 {
+	font-size: 10.0pt;
+	font-family: 宋体;
+	color: #9933FF;
+	vertical-align: middle;
+	text-align: center;
+}
+
+.tdLabelAndCheckbox {
+	font-size: 10.0pt;
+	color: #9933FF;
+	vertical-align: middle;
+	text-align: center;
+}
+
+.Title3Left {
+	font-size: 10.0pt;
+	font-family: 宋体;
+	color: #9933FF;
+	vertical-align: middle;
+	text-align: left;
+}
+
+.Content3 {
+	font-size: 10.0pt;
+	font-family: 宋体;
+	color: #9933FF;
+	vertical-align: middle;
+}

@@ -1,0 +1,43 @@
+﻿.jqValidate-invalid{
+	background:#FFFFEE url('images/jqvalidate/warning.png') no-repeat right 1px;
+}
+.jqValidate-tip{
+	position:absolute;
+	width:240px;
+	height:auto;
+	display:none;
+	z-index:9900000;
+}
+.jqValidate-tip-content{
+	display:inline-block;
+	position:absolute;
+	top:0px;
+	left:10px;
+	padding:3px 5px;
+	border:1px solid #CC9933;
+	background:#FFFFCC;
+	z-index:9900001;
+	font-size:12px;
+}
+.jqValidate-tip-pointer{
+	background:url(assets/images/jqvalidate/pointer_up.png) no-repeat left top;
+	display:inline-block;
+	width:19px;
+	height:10px;
+	position:absolute;
+	left:10px;
+	top:-9px;
+	z-index:9900002;
+}
+
+input.error , textarea.error
+{
+   /* border: 2px dashed red;*/
+    background:#FFFFEE url(../../images/jqvalidate/warning.png) no-repeat right 1px;
+}
+
+    input
+    {
+        /* 防止由于样式只读导致的文本框变灰 */
+     background-color:White;
+    }

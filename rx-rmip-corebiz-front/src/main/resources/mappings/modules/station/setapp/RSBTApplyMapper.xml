@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.rx.rmip.corebiz.service.modules.station.settingapply.dao.RSBTApplyMapper" >
+  <resultMap id="BaseResultMap" type="com.rx.rmip.corebiz.service.modules.station.settingapply.model.RSBTApply" >
+    <id column="GUID" property="guid" jdbcType="VARCHAR" />
+    <result column="ORG_GUID" property="orgGuid" jdbcType="VARCHAR" />
+    <result column="NET_GUID" property="netGuid" jdbcType="VARCHAR" />
+    <result column="ORG_MANAGER_GUID" property="orgManagerGuid" jdbcType="VARCHAR" />
+    <result column="APP_CODE" property="appCode" jdbcType="VARCHAR" />
+    <result column="APP_TYPE" property="appType" jdbcType="VARCHAR" />
+    <result column="APP_SUB_TYPE" property="appSubType" jdbcType="VARCHAR" />
+    <result column="APP_OBJECT_TYPE" property="appObjectType" jdbcType="VARCHAR" />
+    <result column="APP_DATE" property="appDate" jdbcType="DATE" />
+    <result column="APP_FTLB" property="appFtlb" jdbcType="DATE" />
+    <result column="APP_FTLE" property="appFtle" jdbcType="DATE" />
+    <result column="MEMO" property="memo" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    GUID, ORG_GUID, NET_GUID, ORG_MANAGER_GUID, APP_CODE, APP_TYPE, APP_SUB_TYPE, APP_OBJECT_TYPE, 
+    APP_DATE, APP_FTLB, APP_FTLE, MEMO
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from RSBT_APPLY
+    where GUID = #{guid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from RSBT_APPLY
+    where GUID = #{guid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.rx.rmip.corebiz.service.modules.station.settingapply.model.RSBTApply" >
+ 	  <!-- 自动生成guid并赋值给 #{guid}-->
+ 	<selectKey keyProperty="guid" resultType="String" order="BEFORE">  
+           select sys_guid() from dual  
+    </selectKey>
+  	
+    insert into RSBT_APPLY (GUID, ORG_GUID, NET_GUID, 
+      ORG_MANAGER_GUID, APP_CODE, APP_TYPE, 
+      APP_SUB_TYPE, APP_OBJECT_TYPE, APP_DATE, 
+      APP_FTLB, APP_FTLE, MEMO)
+    values (#{guid,jdbcType=VARCHAR}, #{orgGuid,jdbcType=VARCHAR}, #{netGuid,jdbcType=VARCHAR}, 
+      #{orgManagerGuid,jdbcType=VARCHAR}, #{appCode,jdbcType=VARCHAR}, #{appType,jdbcType=VARCHAR}, 
+      #{appSubType,jdbcType=VARCHAR}, #{appObjectType,jdbcType=VARCHAR}, #{appDate,jdbcType=DATE}, 
+      #{appFtlb,jdbcType=DATE}, #{appFtle,jdbcType=DATE}, #{memo,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.rx.rmip.corebiz.service.modules.station.settingapply.model.RSBTApply" >
+    insert into RSBT_APPLY
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="guid != null" >
+        GUID,
+      </if>
+      <if test="orgGuid != null" >
+        ORG_GUID,
+      </if>
+      <if test="netGuid != null" >
+        NET_GUID,
+      </if>
+      <if test="orgManagerGuid != null" >
+        ORG_MANAGER_GUID,
+      </if>
+      <if test="appCode != null" >
+        APP_CODE,
+      </if>
+      <if test="appType != null" >
+        APP_TYPE,
+      </if>
+      <if test="appSubType != null" >
+        APP_SUB_TYPE,
+      </if>
+      <if test="appObjectType != null" >
+        APP_OBJECT_TYPE,
+      </if>
+      <if test="appDate != null" >
+        APP_DATE,
+      </if>
+      <if test="appFtlb != null" >
+        APP_FTLB,
+      </if>
+      <if test="appFtle != null" >
+        APP_FTLE,
+      </if>
+      <if test="memo != null" >
+        MEMO,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="guid != null" >
+        #{guid,jdbcType=VARCHAR},
+      </if>
+      <if test="orgGuid != null" >
+        #{orgGuid,jdbcType=VARCHAR},
+      </if>
+      <if test="netGuid != null" >
+        #{netGuid,jdbcType=VARCHAR},
+      </if>
+      <if test="orgManagerGuid != null" >
+        #{orgManagerGuid,jdbcType=VARCHAR},
+      </if>
+      <if test="appCode != null" >
+        #{appCode,jdbcType=VARCHAR},
+      </if>
+      <if test="appType != null" >
+        #{appType,jdbcType=VARCHAR},
+      </if>
+      <if test="appSubType != null" >
+        #{appSubType,jdbcType=VARCHAR},
+      </if>
+      <if test="appObjectType != null" >
+        #{appObjectType,jdbcType=VARCHAR},
+      </if>
+      <if test="appDate != null" >
+        #{appDate,jdbcType=DATE},
+      </if>
+      <if test="appFtlb != null" >
+        #{appFtlb,jdbcType=DATE},
+      </if>
+      <if test="appFtle != null" >
+        #{appFtle,jdbcType=DATE},
+      </if>
+      <if test="memo != null" >
+        #{memo,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.rx.rmip.corebiz.service.modules.station.settingapply.model.RSBTApply" >
+    update RSBT_APPLY
+    <set >
+      <if test="orgGuid != null" >
+        ORG_GUID = #{orgGuid,jdbcType=VARCHAR},
+      </if>
+      <if test="netGuid != null" >
+        NET_GUID = #{netGuid,jdbcType=VARCHAR},
+      </if>
+      <if test="orgManagerGuid != null" >
+        ORG_MANAGER_GUID = #{orgManagerGuid,jdbcType=VARCHAR},
+      </if>
+      <if test="appCode != null" >
+        APP_CODE = #{appCode,jdbcType=VARCHAR},
+      </if>
+      <if test="appType != null" >
+        APP_TYPE = #{appType,jdbcType=VARCHAR},
+      </if>
+      <if test="appSubType != null" >
+        APP_SUB_TYPE = #{appSubType,jdbcType=VARCHAR},
+      </if>
+      <if test="appObjectType != null" >
+        APP_OBJECT_TYPE = #{appObjectType,jdbcType=VARCHAR},
+      </if>
+      <if test="appDate != null" >
+        APP_DATE = #{appDate,jdbcType=DATE},
+      </if>
+      <if test="appFtlb != null" >
+        APP_FTLB = #{appFtlb,jdbcType=DATE},
+      </if>
+      <if test="appFtle != null" >
+        APP_FTLE = #{appFtle,jdbcType=DATE},
+      </if>
+      <if test="memo != null" >
+        MEMO = #{memo,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where GUID = #{guid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.rx.rmip.corebiz.service.modules.station.settingapply.model.RSBTApply" >
+    update RSBT_APPLY
+    set ORG_GUID = #{orgGuid,jdbcType=VARCHAR},
+      NET_GUID = #{netGuid,jdbcType=VARCHAR},
+      ORG_MANAGER_GUID = #{orgManagerGuid,jdbcType=VARCHAR},
+      APP_CODE = #{appCode,jdbcType=VARCHAR},
+      APP_TYPE = #{appType,jdbcType=VARCHAR},
+      APP_SUB_TYPE = #{appSubType,jdbcType=VARCHAR},
+      APP_OBJECT_TYPE = #{appObjectType,jdbcType=VARCHAR},
+      APP_DATE = #{appDate,jdbcType=DATE},
+      APP_FTLB = #{appFtlb,jdbcType=DATE},
+      APP_FTLE = #{appFtle,jdbcType=DATE},
+      MEMO = #{memo,jdbcType=VARCHAR}
+    where GUID = #{guid,jdbcType=VARCHAR}
+  </update>
+</mapper>

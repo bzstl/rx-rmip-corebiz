@@ -1,0 +1,507 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.rx.rmip.corebiz.service.modules.station.techdata.dao.RSBTEquTMapper" >
+  <resultMap id="BaseResultMap" type="com.rx.rmip.corebiz.service.modules.station.techdata.model.RSBTEquT" >
+    <id column="GUID" property="guid" jdbcType="VARCHAR" />
+    <result column="ET_EQU_NO" property="etEquNo" jdbcType="VARCHAR" />
+    <result column="ET_AF_TYPE" property="etAfType" jdbcType="VARCHAR" />
+    <result column="ET_POW_U" property="etPowU" jdbcType="VARCHAR" />
+    <result column="ET_EQU_CL" property="etEquCl" jdbcType="VARCHAR" />
+    <result column="ET_EQU_TL" property="etEquTl" jdbcType="DECIMAL" />
+    <result column="ET_EQU_RNQ" property="etEquRnq" jdbcType="DECIMAL" />
+    <result column="ET_EQU_TYPE_ID" property="etEquTypeId" jdbcType="VARCHAR" />
+    <result column="ET_EQU_NAME" property="etEquName" jdbcType="VARCHAR" />
+    <result column="ET_EQU_CODE" property="etEquCode" jdbcType="VARCHAR" />
+    <result column="ET_EQU_ESGN" property="etEquEsgn" jdbcType="VARCHAR" />
+    <result column="ET_EQU_EPOS" property="etEquEpos" jdbcType="VARCHAR" />
+    <result column="ET_EQU_ATYPE" property="etEquAtype" jdbcType="VARCHAR" />
+    <result column="ET_EQU_APOS" property="etEquApos" jdbcType="VARCHAR" />
+    <result column="ET_EQU_SUM" property="etEquSum" jdbcType="DECIMAL" />
+    <result column="ET_EQU_EUSE" property="etEquEuse" jdbcType="VARCHAR" />
+    <result column="ET_EQU_FNTVAL" property="etEquFntval" jdbcType="DECIMAL" />
+    <result column="ET_EQU_PUP" property="etEquPup" jdbcType="DECIMAL" />
+    <result column="ET_EQU_PDN" property="etEquPdn" jdbcType="DECIMAL" />
+    <result column="ET_EQU_CHRIP" property="etEquChrip" jdbcType="DECIMAL" />
+    <result column="ET_EQU_PWID1" property="etEquPwid1" jdbcType="DECIMAL" />
+    <result column="ET_EQU_PWID2" property="etEquPwid2" jdbcType="DECIMAL" />
+    <result column="ET_EQU_PR" property="etEquPr" jdbcType="DECIMAL" />
+    <result column="ET_EQU_PF" property="etEquPf" jdbcType="DECIMAL" />
+    <result column="ET_EQU_RF" property="etEquRf" jdbcType="DECIMAL" />
+    <result column="ET_EQU_RF_BAND" property="etEquRfBand" jdbcType="DECIMAL" />
+    <result column="ET_EQU_SEN" property="etEquSen" jdbcType="DECIMAL" />
+    <result column="ET_EQU_SENU" property="etEquSenu" jdbcType="VARCHAR" />
+    <result column="ET_EQU_SENERR" property="etEquSenerr" jdbcType="VARCHAR" />
+    <result column="ET_EQU_RWID" property="etEquRwid" jdbcType="DECIMAL" />
+    <result column="ET_EQU_MT" property="etEquMt" jdbcType="VARCHAR" />
+    <result column="ET_EQU_CCODE" property="etEquCcode" jdbcType="VARCHAR" />
+    <result column="ET_EQU_UPU" property="etEquUpu" jdbcType="VARCHAR" />
+    <result column="ET_EQU_DNU" property="etEquDnu" jdbcType="VARCHAR" />
+    <result column="ET_EQU_TYPE" property="etEquType" jdbcType="VARCHAR" />
+    <result column="ET_EQU_USE" property="etEquUse" jdbcType="VARCHAR" />
+    <result column="ET_EQU_POW_MAX" property="etEquPowMax" jdbcType="DECIMAL" />
+    <result column="ET_EQU_POW_AVG" property="etEquPowAvg" jdbcType="DECIMAL" />
+    <result column="ET_EQU_UPOW" property="etEquUpow" jdbcType="DECIMAL" />
+    <result column="ET_EQU_DPOW" property="etEquDpow" jdbcType="DECIMAL" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    GUID, ET_EQU_NO, ET_AF_TYPE, ET_POW_U, ET_EQU_CL, ET_EQU_TL, ET_EQU_RNQ, ET_EQU_TYPE_ID, 
+    ET_EQU_NAME, ET_EQU_CODE, ET_EQU_ESGN, ET_EQU_EPOS, ET_EQU_ATYPE, ET_EQU_APOS, ET_EQU_SUM, 
+    ET_EQU_EUSE, ET_EQU_FNTVAL, ET_EQU_PUP, ET_EQU_PDN, ET_EQU_CHRIP, ET_EQU_PWID1, ET_EQU_PWID2, 
+    ET_EQU_PR, ET_EQU_PF, ET_EQU_RF, ET_EQU_RF_BAND, ET_EQU_SEN, ET_EQU_SENU, ET_EQU_SENERR, 
+    ET_EQU_RWID, ET_EQU_MT, ET_EQU_CCODE, ET_EQU_UPU, ET_EQU_DNU, ET_EQU_TYPE, ET_EQU_USE, 
+    ET_EQU_POW_MAX, ET_EQU_POW_AVG, ET_EQU_UPOW, ET_EQU_DPOW
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from RSBT_EQU_T
+    where GUID = #{guid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from RSBT_EQU_T
+    where GUID = #{guid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.rx.rmip.corebiz.service.modules.station.techdata.model.RSBTEquT" >
+    insert into RSBT_EQU_T (GUID, ET_EQU_NO, ET_AF_TYPE, 
+      ET_POW_U, ET_EQU_CL, ET_EQU_TL, 
+      ET_EQU_RNQ, ET_EQU_TYPE_ID, ET_EQU_NAME, 
+      ET_EQU_CODE, ET_EQU_ESGN, ET_EQU_EPOS, 
+      ET_EQU_ATYPE, ET_EQU_APOS, ET_EQU_SUM, 
+      ET_EQU_EUSE, ET_EQU_FNTVAL, ET_EQU_PUP, 
+      ET_EQU_PDN, ET_EQU_CHRIP, ET_EQU_PWID1, 
+      ET_EQU_PWID2, ET_EQU_PR, ET_EQU_PF, 
+      ET_EQU_RF, ET_EQU_RF_BAND, ET_EQU_SEN, 
+      ET_EQU_SENU, ET_EQU_SENERR, ET_EQU_RWID, 
+      ET_EQU_MT, ET_EQU_CCODE, ET_EQU_UPU, 
+      ET_EQU_DNU, ET_EQU_TYPE, ET_EQU_USE, 
+      ET_EQU_POW_MAX, ET_EQU_POW_AVG, ET_EQU_UPOW, 
+      ET_EQU_DPOW)
+    values (#{guid,jdbcType=VARCHAR}, #{etEquNo,jdbcType=VARCHAR}, #{etAfType,jdbcType=VARCHAR}, 
+      #{etPowU,jdbcType=VARCHAR}, #{etEquCl,jdbcType=VARCHAR}, #{etEquTl,jdbcType=DECIMAL}, 
+      #{etEquRnq,jdbcType=DECIMAL}, #{etEquTypeId,jdbcType=VARCHAR}, #{etEquName,jdbcType=VARCHAR}, 
+      #{etEquCode,jdbcType=VARCHAR}, #{etEquEsgn,jdbcType=VARCHAR}, #{etEquEpos,jdbcType=VARCHAR}, 
+      #{etEquAtype,jdbcType=VARCHAR}, #{etEquApos,jdbcType=VARCHAR}, #{etEquSum,jdbcType=DECIMAL}, 
+      #{etEquEuse,jdbcType=VARCHAR}, #{etEquFntval,jdbcType=DECIMAL}, #{etEquPup,jdbcType=DECIMAL}, 
+      #{etEquPdn,jdbcType=DECIMAL}, #{etEquChrip,jdbcType=DECIMAL}, #{etEquPwid1,jdbcType=DECIMAL}, 
+      #{etEquPwid2,jdbcType=DECIMAL}, #{etEquPr,jdbcType=DECIMAL}, #{etEquPf,jdbcType=DECIMAL}, 
+      #{etEquRf,jdbcType=DECIMAL}, #{etEquRfBand,jdbcType=DECIMAL}, #{etEquSen,jdbcType=DECIMAL}, 
+      #{etEquSenu,jdbcType=VARCHAR}, #{etEquSenerr,jdbcType=VARCHAR}, #{etEquRwid,jdbcType=DECIMAL}, 
+      #{etEquMt,jdbcType=VARCHAR}, #{etEquCcode,jdbcType=VARCHAR}, #{etEquUpu,jdbcType=VARCHAR}, 
+      #{etEquDnu,jdbcType=VARCHAR}, #{etEquType,jdbcType=VARCHAR}, #{etEquUse,jdbcType=VARCHAR}, 
+      #{etEquPowMax,jdbcType=DECIMAL}, #{etEquPowAvg,jdbcType=DECIMAL}, #{etEquUpow,jdbcType=DECIMAL}, 
+      #{etEquDpow,jdbcType=DECIMAL})
+  </insert>
+  <insert id="insertSelective" parameterType="com.rx.rmip.corebiz.service.modules.station.techdata.model.RSBTEquT" >
+    insert into RSBT_EQU_T
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="guid != null" >
+        GUID,
+      </if>
+      <if test="etEquNo != null" >
+        ET_EQU_NO,
+      </if>
+      <if test="etAfType != null" >
+        ET_AF_TYPE,
+      </if>
+      <if test="etPowU != null" >
+        ET_POW_U,
+      </if>
+      <if test="etEquCl != null" >
+        ET_EQU_CL,
+      </if>
+      <if test="etEquTl != null" >
+        ET_EQU_TL,
+      </if>
+      <if test="etEquRnq != null" >
+        ET_EQU_RNQ,
+      </if>
+      <if test="etEquTypeId != null" >
+        ET_EQU_TYPE_ID,
+      </if>
+      <if test="etEquName != null" >
+        ET_EQU_NAME,
+      </if>
+      <if test="etEquCode != null" >
+        ET_EQU_CODE,
+      </if>
+      <if test="etEquEsgn != null" >
+        ET_EQU_ESGN,
+      </if>
+      <if test="etEquEpos != null" >
+        ET_EQU_EPOS,
+      </if>
+      <if test="etEquAtype != null" >
+        ET_EQU_ATYPE,
+      </if>
+      <if test="etEquApos != null" >
+        ET_EQU_APOS,
+      </if>
+      <if test="etEquSum != null" >
+        ET_EQU_SUM,
+      </if>
+      <if test="etEquEuse != null" >
+        ET_EQU_EUSE,
+      </if>
+      <if test="etEquFntval != null" >
+        ET_EQU_FNTVAL,
+      </if>
+      <if test="etEquPup != null" >
+        ET_EQU_PUP,
+      </if>
+      <if test="etEquPdn != null" >
+        ET_EQU_PDN,
+      </if>
+      <if test="etEquChrip != null" >
+        ET_EQU_CHRIP,
+      </if>
+      <if test="etEquPwid1 != null" >
+        ET_EQU_PWID1,
+      </if>
+      <if test="etEquPwid2 != null" >
+        ET_EQU_PWID2,
+      </if>
+      <if test="etEquPr != null" >
+        ET_EQU_PR,
+      </if>
+      <if test="etEquPf != null" >
+        ET_EQU_PF,
+      </if>
+      <if test="etEquRf != null" >
+        ET_EQU_RF,
+      </if>
+      <if test="etEquRfBand != null" >
+        ET_EQU_RF_BAND,
+      </if>
+      <if test="etEquSen != null" >
+        ET_EQU_SEN,
+      </if>
+      <if test="etEquSenu != null" >
+        ET_EQU_SENU,
+      </if>
+      <if test="etEquSenerr != null" >
+        ET_EQU_SENERR,
+      </if>
+      <if test="etEquRwid != null" >
+        ET_EQU_RWID,
+      </if>
+      <if test="etEquMt != null" >
+        ET_EQU_MT,
+      </if>
+      <if test="etEquCcode != null" >
+        ET_EQU_CCODE,
+      </if>
+      <if test="etEquUpu != null" >
+        ET_EQU_UPU,
+      </if>
+      <if test="etEquDnu != null" >
+        ET_EQU_DNU,
+      </if>
+      <if test="etEquType != null" >
+        ET_EQU_TYPE,
+      </if>
+      <if test="etEquUse != null" >
+        ET_EQU_USE,
+      </if>
+      <if test="etEquPowMax != null" >
+        ET_EQU_POW_MAX,
+      </if>
+      <if test="etEquPowAvg != null" >
+        ET_EQU_POW_AVG,
+      </if>
+      <if test="etEquUpow != null" >
+        ET_EQU_UPOW,
+      </if>
+      <if test="etEquDpow != null" >
+        ET_EQU_DPOW,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="guid != null" >
+        #{guid,jdbcType=VARCHAR},
+      </if>
+      <if test="etEquNo != null" >
+        #{etEquNo,jdbcType=VARCHAR},
+      </if>
+      <if test="etAfType != null" >
+        #{etAfType,jdbcType=VARCHAR},
+      </if>
+      <if test="etPowU != null" >
+        #{etPowU,jdbcType=VARCHAR},
+      </if>
+      <if test="etEquCl != null" >
+        #{etEquCl,jdbcType=VARCHAR},
+      </if>
+      <if test="etEquTl != null" >
+        #{etEquTl,jdbcType=DECIMAL},
+      </if>
+      <if test="etEquRnq != null" >
+        #{etEquRnq,jdbcType=DECIMAL},
+      </if>
+      <if test="etEquTypeId != null" >
+        #{etEquTypeId,jdbcType=VARCHAR},
+      </if>
+      <if test="etEquName != null" >
+        #{etEquName,jdbcType=VARCHAR},
+      </if>
+      <if test="etEquCode != null" >
+        #{etEquCode,jdbcType=VARCHAR},
+      </if>
+      <if test="etEquEsgn != null" >
+        #{etEquEsgn,jdbcType=VARCHAR},
+      </if>
+      <if test="etEquEpos != null" >
+        #{etEquEpos,jdbcType=VARCHAR},
+      </if>
+      <if test="etEquAtype != null" >
+        #{etEquAtype,jdbcType=VARCHAR},
+      </if>
+      <if test="etEquApos != null" >
+        #{etEquApos,jdbcType=VARCHAR},
+      </if>
+      <if test="etEquSum != null" >
+        #{etEquSum,jdbcType=DECIMAL},
+      </if>
+      <if test="etEquEuse != null" >
+        #{etEquEuse,jdbcType=VARCHAR},
+      </if>
+      <if test="etEquFntval != null" >
+        #{etEquFntval,jdbcType=DECIMAL},
+      </if>
+      <if test="etEquPup != null" >
+        #{etEquPup,jdbcType=DECIMAL},
+      </if>
+      <if test="etEquPdn != null" >
+        #{etEquPdn,jdbcType=DECIMAL},
+      </if>
+      <if test="etEquChrip != null" >
+        #{etEquChrip,jdbcType=DECIMAL},
+      </if>
+      <if test="etEquPwid1 != null" >
+        #{etEquPwid1,jdbcType=DECIMAL},
+      </if>
+      <if test="etEquPwid2 != null" >
+        #{etEquPwid2,jdbcType=DECIMAL},
+      </if>
+      <if test="etEquPr != null" >
+        #{etEquPr,jdbcType=DECIMAL},
+      </if>
+      <if test="etEquPf != null" >
+        #{etEquPf,jdbcType=DECIMAL},
+      </if>
+      <if test="etEquRf != null" >
+        #{etEquRf,jdbcType=DECIMAL},
+      </if>
+      <if test="etEquRfBand != null" >
+        #{etEquRfBand,jdbcType=DECIMAL},
+      </if>
+      <if test="etEquSen != null" >
+        #{etEquSen,jdbcType=DECIMAL},
+      </if>
+      <if test="etEquSenu != null" >
+        #{etEquSenu,jdbcType=VARCHAR},
+      </if>
+      <if test="etEquSenerr != null" >
+        #{etEquSenerr,jdbcType=VARCHAR},
+      </if>
+      <if test="etEquRwid != null" >
+        #{etEquRwid,jdbcType=DECIMAL},
+      </if>
+      <if test="etEquMt != null" >
+        #{etEquMt,jdbcType=VARCHAR},
+      </if>
+      <if test="etEquCcode != null" >
+        #{etEquCcode,jdbcType=VARCHAR},
+      </if>
+      <if test="etEquUpu != null" >
+        #{etEquUpu,jdbcType=VARCHAR},
+      </if>
+      <if test="etEquDnu != null" >
+        #{etEquDnu,jdbcType=VARCHAR},
+      </if>
+      <if test="etEquType != null" >
+        #{etEquType,jdbcType=VARCHAR},
+      </if>
+      <if test="etEquUse != null" >
+        #{etEquUse,jdbcType=VARCHAR},
+      </if>
+      <if test="etEquPowMax != null" >
+        #{etEquPowMax,jdbcType=DECIMAL},
+      </if>
+      <if test="etEquPowAvg != null" >
+        #{etEquPowAvg,jdbcType=DECIMAL},
+      </if>
+      <if test="etEquUpow != null" >
+        #{etEquUpow,jdbcType=DECIMAL},
+      </if>
+      <if test="etEquDpow != null" >
+        #{etEquDpow,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.rx.rmip.corebiz.service.modules.station.techdata.model.RSBTEquT" >
+    update RSBT_EQU_T
+    <set >
+      <if test="etEquNo != null" >
+        ET_EQU_NO = #{etEquNo,jdbcType=VARCHAR},
+      </if>
+      <if test="etAfType != null" >
+        ET_AF_TYPE = #{etAfType,jdbcType=VARCHAR},
+      </if>
+      <if test="etPowU != null" >
+        ET_POW_U = #{etPowU,jdbcType=VARCHAR},
+      </if>
+      <if test="etEquCl != null" >
+        ET_EQU_CL = #{etEquCl,jdbcType=VARCHAR},
+      </if>
+      <if test="etEquTl != null" >
+        ET_EQU_TL = #{etEquTl,jdbcType=DECIMAL},
+      </if>
+      <if test="etEquRnq != null" >
+        ET_EQU_RNQ = #{etEquRnq,jdbcType=DECIMAL},
+      </if>
+      <if test="etEquTypeId != null" >
+        ET_EQU_TYPE_ID = #{etEquTypeId,jdbcType=VARCHAR},
+      </if>
+      <if test="etEquName != null" >
+        ET_EQU_NAME = #{etEquName,jdbcType=VARCHAR},
+      </if>
+      <if test="etEquCode != null" >
+        ET_EQU_CODE = #{etEquCode,jdbcType=VARCHAR},
+      </if>
+      <if test="etEquEsgn != null" >
+        ET_EQU_ESGN = #{etEquEsgn,jdbcType=VARCHAR},
+      </if>
+      <if test="etEquEpos != null" >
+        ET_EQU_EPOS = #{etEquEpos,jdbcType=VARCHAR},
+      </if>
+      <if test="etEquAtype != null" >
+        ET_EQU_ATYPE = #{etEquAtype,jdbcType=VARCHAR},
+      </if>
+      <if test="etEquApos != null" >
+        ET_EQU_APOS = #{etEquApos,jdbcType=VARCHAR},
+      </if>
+      <if test="etEquSum != null" >
+        ET_EQU_SUM = #{etEquSum,jdbcType=DECIMAL},
+      </if>
+      <if test="etEquEuse != null" >
+        ET_EQU_EUSE = #{etEquEuse,jdbcType=VARCHAR},
+      </if>
+      <if test="etEquFntval != null" >
+        ET_EQU_FNTVAL = #{etEquFntval,jdbcType=DECIMAL},
+      </if>
+      <if test="etEquPup != null" >
+        ET_EQU_PUP = #{etEquPup,jdbcType=DECIMAL},
+      </if>
+      <if test="etEquPdn != null" >
+        ET_EQU_PDN = #{etEquPdn,jdbcType=DECIMAL},
+      </if>
+      <if test="etEquChrip != null" >
+        ET_EQU_CHRIP = #{etEquChrip,jdbcType=DECIMAL},
+      </if>
+      <if test="etEquPwid1 != null" >
+        ET_EQU_PWID1 = #{etEquPwid1,jdbcType=DECIMAL},
+      </if>
+      <if test="etEquPwid2 != null" >
+        ET_EQU_PWID2 = #{etEquPwid2,jdbcType=DECIMAL},
+      </if>
+      <if test="etEquPr != null" >
+        ET_EQU_PR = #{etEquPr,jdbcType=DECIMAL},
+      </if>
+      <if test="etEquPf != null" >
+        ET_EQU_PF = #{etEquPf,jdbcType=DECIMAL},
+      </if>
+      <if test="etEquRf != null" >
+        ET_EQU_RF = #{etEquRf,jdbcType=DECIMAL},
+      </if>
+      <if test="etEquRfBand != null" >
+        ET_EQU_RF_BAND = #{etEquRfBand,jdbcType=DECIMAL},
+      </if>
+      <if test="etEquSen != null" >
+        ET_EQU_SEN = #{etEquSen,jdbcType=DECIMAL},
+      </if>
+      <if test="etEquSenu != null" >
+        ET_EQU_SENU = #{etEquSenu,jdbcType=VARCHAR},
+      </if>
+      <if test="etEquSenerr != null" >
+        ET_EQU_SENERR = #{etEquSenerr,jdbcType=VARCHAR},
+      </if>
+      <if test="etEquRwid != null" >
+        ET_EQU_RWID = #{etEquRwid,jdbcType=DECIMAL},
+      </if>
+      <if test="etEquMt != null" >
+        ET_EQU_MT = #{etEquMt,jdbcType=VARCHAR},
+      </if>
+      <if test="etEquCcode != null" >
+        ET_EQU_CCODE = #{etEquCcode,jdbcType=VARCHAR},
+      </if>
+      <if test="etEquUpu != null" >
+        ET_EQU_UPU = #{etEquUpu,jdbcType=VARCHAR},
+      </if>
+      <if test="etEquDnu != null" >
+        ET_EQU_DNU = #{etEquDnu,jdbcType=VARCHAR},
+      </if>
+      <if test="etEquType != null" >
+        ET_EQU_TYPE = #{etEquType,jdbcType=VARCHAR},
+      </if>
+      <if test="etEquUse != null" >
+        ET_EQU_USE = #{etEquUse,jdbcType=VARCHAR},
+      </if>
+      <if test="etEquPowMax != null" >
+        ET_EQU_POW_MAX = #{etEquPowMax,jdbcType=DECIMAL},
+      </if>
+      <if test="etEquPowAvg != null" >
+        ET_EQU_POW_AVG = #{etEquPowAvg,jdbcType=DECIMAL},
+      </if>
+      <if test="etEquUpow != null" >
+        ET_EQU_UPOW = #{etEquUpow,jdbcType=DECIMAL},
+      </if>
+      <if test="etEquDpow != null" >
+        ET_EQU_DPOW = #{etEquDpow,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where GUID = #{guid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.rx.rmip.corebiz.service.modules.station.techdata.model.RSBTEquT" >
+    update RSBT_EQU_T
+    set ET_EQU_NO = #{etEquNo,jdbcType=VARCHAR},
+      ET_AF_TYPE = #{etAfType,jdbcType=VARCHAR},
+      ET_POW_U = #{etPowU,jdbcType=VARCHAR},
+      ET_EQU_CL = #{etEquCl,jdbcType=VARCHAR},
+      ET_EQU_TL = #{etEquTl,jdbcType=DECIMAL},
+      ET_EQU_RNQ = #{etEquRnq,jdbcType=DECIMAL},
+      ET_EQU_TYPE_ID = #{etEquTypeId,jdbcType=VARCHAR},
+      ET_EQU_NAME = #{etEquName,jdbcType=VARCHAR},
+      ET_EQU_CODE = #{etEquCode,jdbcType=VARCHAR},
+      ET_EQU_ESGN = #{etEquEsgn,jdbcType=VARCHAR},
+      ET_EQU_EPOS = #{etEquEpos,jdbcType=VARCHAR},
+      ET_EQU_ATYPE = #{etEquAtype,jdbcType=VARCHAR},
+      ET_EQU_APOS = #{etEquApos,jdbcType=VARCHAR},
+      ET_EQU_SUM = #{etEquSum,jdbcType=DECIMAL},
+      ET_EQU_EUSE = #{etEquEuse,jdbcType=VARCHAR},
+      ET_EQU_FNTVAL = #{etEquFntval,jdbcType=DECIMAL},
+      ET_EQU_PUP = #{etEquPup,jdbcType=DECIMAL},
+      ET_EQU_PDN = #{etEquPdn,jdbcType=DECIMAL},
+      ET_EQU_CHRIP = #{etEquChrip,jdbcType=DECIMAL},
+      ET_EQU_PWID1 = #{etEquPwid1,jdbcType=DECIMAL},
+      ET_EQU_PWID2 = #{etEquPwid2,jdbcType=DECIMAL},
+      ET_EQU_PR = #{etEquPr,jdbcType=DECIMAL},
+      ET_EQU_PF = #{etEquPf,jdbcType=DECIMAL},
+      ET_EQU_RF = #{etEquRf,jdbcType=DECIMAL},
+      ET_EQU_RF_BAND = #{etEquRfBand,jdbcType=DECIMAL},
+      ET_EQU_SEN = #{etEquSen,jdbcType=DECIMAL},
+      ET_EQU_SENU = #{etEquSenu,jdbcType=VARCHAR},
+      ET_EQU_SENERR = #{etEquSenerr,jdbcType=VARCHAR},
+      ET_EQU_RWID = #{etEquRwid,jdbcType=DECIMAL},
+      ET_EQU_MT = #{etEquMt,jdbcType=VARCHAR},
+      ET_EQU_CCODE = #{etEquCcode,jdbcType=VARCHAR},
+      ET_EQU_UPU = #{etEquUpu,jdbcType=VARCHAR},
+      ET_EQU_DNU = #{etEquDnu,jdbcType=VARCHAR},
+      ET_EQU_TYPE = #{etEquType,jdbcType=VARCHAR},
+      ET_EQU_USE = #{etEquUse,jdbcType=VARCHAR},
+      ET_EQU_POW_MAX = #{etEquPowMax,jdbcType=DECIMAL},
+      ET_EQU_POW_AVG = #{etEquPowAvg,jdbcType=DECIMAL},
+      ET_EQU_UPOW = #{etEquUpow,jdbcType=DECIMAL},
+      ET_EQU_DPOW = #{etEquDpow,jdbcType=DECIMAL}
+    where GUID = #{guid,jdbcType=VARCHAR}
+  </update>
+</mapper>

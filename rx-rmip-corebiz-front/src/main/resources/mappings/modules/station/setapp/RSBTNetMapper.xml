@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.rx.rmip.corebiz.service.modules.station.settingapply.dao.RSBTNetMapper" >
+  <resultMap id="BaseResultMap" type="com.rx.rmip.corebiz.service.modules.station.settingapply.model.RSBTNet" >
+    <id column="GUID" property="guid" jdbcType="VARCHAR" />
+    <result column="ORG_GUID" property="orgGuid" jdbcType="VARCHAR" />
+    <result column="FEE_GUID" property="feeGuid" jdbcType="VARCHAR" />
+    <result column="ORG_CODE" property="orgCode" jdbcType="VARCHAR" />
+    <result column="NET_NAME" property="netName" jdbcType="VARCHAR" />
+    <result column="NET_SVN" property="netSvn" jdbcType="VARCHAR" />
+    <result column="NET_SP" property="netSp" jdbcType="VARCHAR" />
+    <result column="NET_TS" property="netTs" jdbcType="VARCHAR" />
+    <result column="NET_BAND" property="netBand" jdbcType="DECIMAL" />
+    <result column="NET_AREA" property="netArea" jdbcType="VARCHAR" />
+    <result column="NET_USE" property="netUse" jdbcType="VARCHAR" />
+    <result column="NET_SAT_NAME" property="netSatName" jdbcType="VARCHAR" />
+    <result column="NET_LG" property="netLg" jdbcType="VARCHAR" />
+    <result column="NET_START_DATE" property="netStartDate" jdbcType="DATE" />
+    <result column="NET_CONFIRM_DATE" property="netConfirmDate" jdbcType="DATE" />
+    <result column="NET_EXPIRED_DATE" property="netExpiredDate" jdbcType="DATE" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    GUID, ORG_GUID, FEE_GUID, ORG_CODE, NET_NAME, NET_SVN, NET_SP, NET_TS, NET_BAND, 
+    NET_AREA, NET_USE, NET_SAT_NAME, NET_LG, NET_START_DATE, NET_CONFIRM_DATE, NET_EXPIRED_DATE
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from RSBT_NET
+    where GUID = #{guid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from RSBT_NET
+    where GUID = #{guid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.rx.rmip.corebiz.service.modules.station.settingapply.model.RSBTNet" >
+  	  <!-- 自动生成guid并赋值给 #{guid}-->
+  		<selectKey keyProperty="guid" resultType="String" order="BEFORE">  
+            select sys_guid() from dual  
+        </selectKey>
+  	
+    insert into RSBT_NET (GUID, ORG_GUID, FEE_GUID, 
+      ORG_CODE, NET_NAME, NET_SVN, 
+      NET_SP, NET_TS, NET_BAND, 
+      NET_AREA, NET_USE, NET_SAT_NAME, 
+      NET_LG, NET_START_DATE, NET_CONFIRM_DATE, 
+      NET_EXPIRED_DATE)
+    values (#{guid,jdbcType=VARCHAR}, #{orgGuid,jdbcType=VARCHAR}, #{feeGuid,jdbcType=VARCHAR}, 
+      #{orgCode,jdbcType=VARCHAR}, #{netName,jdbcType=VARCHAR}, #{netSvn,jdbcType=VARCHAR}, 
+      #{netSp,jdbcType=VARCHAR}, #{netTs,jdbcType=VARCHAR}, #{netBand,jdbcType=DECIMAL}, 
+      #{netArea,jdbcType=VARCHAR}, #{netUse,jdbcType=VARCHAR}, #{netSatName,jdbcType=VARCHAR}, 
+      #{netLg,jdbcType=VARCHAR}, #{netStartDate,jdbcType=DATE}, #{netConfirmDate,jdbcType=DATE}, 
+      #{netExpiredDate,jdbcType=DATE})
+  </insert>
+  <insert id="insertSelective" parameterType="com.rx.rmip.corebiz.service.modules.station.settingapply.model.RSBTNet" >
+    insert into RSBT_NET
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="guid != null" >
+        GUID,
+      </if>
+      <if test="orgGuid != null" >
+        ORG_GUID,
+      </if>
+      <if test="feeGuid != null" >
+        FEE_GUID,
+      </if>
+      <if test="orgCode != null" >
+        ORG_CODE,
+      </if>
+      <if test="netName != null" >
+        NET_NAME,
+      </if>
+      <if test="netSvn != null" >
+        NET_SVN,
+      </if>
+      <if test="netSp != null" >
+        NET_SP,
+      </if>
+      <if test="netTs != null" >
+        NET_TS,
+      </if>
+      <if test="netBand != null" >
+        NET_BAND,
+      </if>
+      <if test="netArea != null" >
+        NET_AREA,
+      </if>
+      <if test="netUse != null" >
+        NET_USE,
+      </if>
+      <if test="netSatName != null" >
+        NET_SAT_NAME,
+      </if>
+      <if test="netLg != null" >
+        NET_LG,
+      </if>
+      <if test="netStartDate != null" >
+        NET_START_DATE,
+      </if>
+      <if test="netConfirmDate != null" >
+        NET_CONFIRM_DATE,
+      </if>
+      <if test="netExpiredDate != null" >
+        NET_EXPIRED_DATE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="guid != null" >
+        #{guid,jdbcType=VARCHAR},
+      </if>
+      <if test="orgGuid != null" >
+        #{orgGuid,jdbcType=VARCHAR},
+      </if>
+      <if test="feeGuid != null" >
+        #{feeGuid,jdbcType=VARCHAR},
+      </if>
+      <if test="orgCode != null" >
+        #{orgCode,jdbcType=VARCHAR},
+      </if>
+      <if test="netName != null" >
+        #{netName,jdbcType=VARCHAR},
+      </if>
+      <if test="netSvn != null" >
+        #{netSvn,jdbcType=VARCHAR},
+      </if>
+      <if test="netSp != null" >
+        #{netSp,jdbcType=VARCHAR},
+      </if>
+      <if test="netTs != null" >
+        #{netTs,jdbcType=VARCHAR},
+      </if>
+      <if test="netBand != null" >
+        #{netBand,jdbcType=DECIMAL},
+      </if>
+      <if test="netArea != null" >
+        #{netArea,jdbcType=VARCHAR},
+      </if>
+      <if test="netUse != null" >
+        #{netUse,jdbcType=VARCHAR},
+      </if>
+      <if test="netSatName != null" >
+        #{netSatName,jdbcType=VARCHAR},
+      </if>
+      <if test="netLg != null" >
+        #{netLg,jdbcType=VARCHAR},
+      </if>
+      <if test="netStartDate != null" >
+        #{netStartDate,jdbcType=DATE},
+      </if>
+      <if test="netConfirmDate != null" >
+        #{netConfirmDate,jdbcType=DATE},
+      </if>
+      <if test="netExpiredDate != null" >
+        #{netExpiredDate,jdbcType=DATE},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.rx.rmip.corebiz.service.modules.station.settingapply.model.RSBTNet" >
+    update RSBT_NET
+    <set >
+      <if test="orgGuid != null" >
+        ORG_GUID = #{orgGuid,jdbcType=VARCHAR},
+      </if>
+      <if test="feeGuid != null" >
+        FEE_GUID = #{feeGuid,jdbcType=VARCHAR},
+      </if>
+      <if test="orgCode != null" >
+        ORG_CODE = #{orgCode,jdbcType=VARCHAR},
+      </if>
+      <if test="netName != null" >
+        NET_NAME = #{netName,jdbcType=VARCHAR},
+      </if>
+      <if test="netSvn != null" >
+        NET_SVN = #{netSvn,jdbcType=VARCHAR},
+      </if>
+      <if test="netSp != null" >
+        NET_SP = #{netSp,jdbcType=VARCHAR},
+      </if>
+      <if test="netTs != null" >
+        NET_TS = #{netTs,jdbcType=VARCHAR},
+      </if>
+      <if test="netBand != null" >
+        NET_BAND = #{netBand,jdbcType=DECIMAL},
+      </if>
+      <if test="netArea != null" >
+        NET_AREA = #{netArea,jdbcType=VARCHAR},
+      </if>
+      <if test="netUse != null" >
+        NET_USE = #{netUse,jdbcType=VARCHAR},
+      </if>
+      <if test="netSatName != null" >
+        NET_SAT_NAME = #{netSatName,jdbcType=VARCHAR},
+      </if>
+      <if test="netLg != null" >
+        NET_LG = #{netLg,jdbcType=VARCHAR},
+      </if>
+      <if test="netStartDate != null" >
+        NET_START_DATE = #{netStartDate,jdbcType=DATE},
+      </if>
+      <if test="netConfirmDate != null" >
+        NET_CONFIRM_DATE = #{netConfirmDate,jdbcType=DATE},
+      </if>
+      <if test="netExpiredDate != null" >
+        NET_EXPIRED_DATE = #{netExpiredDate,jdbcType=DATE},
+      </if>
+    </set>
+    where GUID = #{guid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.rx.rmip.corebiz.service.modules.station.settingapply.model.RSBTNet" >
+    update RSBT_NET
+    set ORG_GUID = #{orgGuid,jdbcType=VARCHAR},
+      FEE_GUID = #{feeGuid,jdbcType=VARCHAR},
+      ORG_CODE = #{orgCode,jdbcType=VARCHAR},
+      NET_NAME = #{netName,jdbcType=VARCHAR},
+      NET_SVN = #{netSvn,jdbcType=VARCHAR},
+      NET_SP = #{netSp,jdbcType=VARCHAR},
+      NET_TS = #{netTs,jdbcType=VARCHAR},
+      NET_BAND = #{netBand,jdbcType=DECIMAL},
+      NET_AREA = #{netArea,jdbcType=VARCHAR},
+      NET_USE = #{netUse,jdbcType=VARCHAR},
+      NET_SAT_NAME = #{netSatName,jdbcType=VARCHAR},
+      NET_LG = #{netLg,jdbcType=VARCHAR},
+      NET_START_DATE = #{netStartDate,jdbcType=DATE},
+      NET_CONFIRM_DATE = #{netConfirmDate,jdbcType=DATE},
+      NET_EXPIRED_DATE = #{netExpiredDate,jdbcType=DATE}
+    where GUID = #{guid,jdbcType=VARCHAR}
+  </update>
+</mapper>

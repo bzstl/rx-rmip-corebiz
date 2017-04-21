@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.rx.rmip.corebiz.service.modules.station.techdata.dao.RSBTStationMapper" >
+  <resultMap id="BaseResultMap" type="com.rx.rmip.corebiz.service.modules.station.techdata.model.RSBTStation" >
+    <id column="GUID" property="guid" jdbcType="VARCHAR" />
+    <result column="NET_GUID" property="netGuid" jdbcType="VARCHAR" />
+    <result column="ORG_CODE" property="orgCode" jdbcType="VARCHAR" />
+    <result column="APP_CODE" property="appCode" jdbcType="VARCHAR" />
+    <result column="STAT_APP_TYPE" property="statAppType" jdbcType="VARCHAR" />
+    <result column="STAT_TDI" property="statTdi" jdbcType="VARCHAR" />
+    <result column="STAT_NAME" property="statName" jdbcType="VARCHAR" />
+    <result column="STAT_ADDR" property="statAddr" jdbcType="VARCHAR" />
+    <result column="STAT_AREA_CODE" property="statAreaCode" jdbcType="VARCHAR" />
+    <result column="STAT_TYPE" property="statType" jdbcType="VARCHAR" />
+    <result column="STAT_WORK" property="statWork" jdbcType="VARCHAR" />
+    <result column="STAT_STATUS" property="statStatus" jdbcType="VARCHAR" />
+    <result column="STAT_EQU_SUM" property="statEquSum" jdbcType="DECIMAL" />
+    <result column="STAT_LG" property="statLg" jdbcType="DECIMAL" />
+    <result column="STAT_LA" property="statLa" jdbcType="DECIMAL" />
+    <result column="STAT_AT" property="statAt" jdbcType="DECIMAL" />
+    <result column="STAT_DATE_START" property="statDateStart" jdbcType="DATE" />
+    <result column="MEMO" property="memo" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    GUID, NET_GUID, ORG_CODE, APP_CODE, STAT_APP_TYPE, STAT_TDI, STAT_NAME, STAT_ADDR, 
+    STAT_AREA_CODE, STAT_TYPE, STAT_WORK, STAT_STATUS, STAT_EQU_SUM, STAT_LG, STAT_LA, 
+    STAT_AT, STAT_DATE_START, MEMO
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from RSBT_STATION
+    where GUID = #{guid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from RSBT_STATION
+    where GUID = #{guid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.rx.rmip.corebiz.service.modules.station.techdata.model.RSBTStation" >
+    <!-- 自动生成guid并赋值给 #{guid}-->
+	<selectKey keyProperty="guid" resultType="String" order="BEFORE">  
+         select sys_guid() from dual  
+     </selectKey> 
+    insert into RSBT_STATION (GUID, NET_GUID, ORG_CODE, 
+      APP_CODE, STAT_APP_TYPE, STAT_TDI, 
+      STAT_NAME, STAT_ADDR, STAT_AREA_CODE, 
+      STAT_TYPE, STAT_WORK, STAT_STATUS, 
+      STAT_EQU_SUM, STAT_LG, STAT_LA, 
+      STAT_AT, STAT_DATE_START, MEMO
+      )
+    values (#{guid,jdbcType=VARCHAR}, #{netGuid,jdbcType=VARCHAR}, #{orgCode,jdbcType=VARCHAR}, 
+      #{appCode,jdbcType=VARCHAR}, #{statAppType,jdbcType=VARCHAR}, #{statTdi,jdbcType=VARCHAR}, 
+      #{statName,jdbcType=VARCHAR}, #{statAddr,jdbcType=VARCHAR}, #{statAreaCode,jdbcType=VARCHAR}, 
+      #{statType,jdbcType=VARCHAR}, #{statWork,jdbcType=VARCHAR}, #{statStatus,jdbcType=VARCHAR}, 
+      #{statEquSum,jdbcType=DECIMAL}, #{statLg,jdbcType=DECIMAL}, #{statLa,jdbcType=DECIMAL}, 
+      #{statAt,jdbcType=DECIMAL}, #{statDateStart,jdbcType=DATE}, #{memo,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.rx.rmip.corebiz.service.modules.station.techdata.model.RSBTStation" >
+    insert into RSBT_STATION
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="guid != null" >
+        GUID,
+      </if>
+      <if test="netGuid != null" >
+        NET_GUID,
+      </if>
+      <if test="orgCode != null" >
+        ORG_CODE,
+      </if>
+      <if test="appCode != null" >
+        APP_CODE,
+      </if>
+      <if test="statAppType != null" >
+        STAT_APP_TYPE,
+      </if>
+      <if test="statTdi != null" >
+        STAT_TDI,
+      </if>
+      <if test="statName != null" >
+        STAT_NAME,
+      </if>
+      <if test="statAddr != null" >
+        STAT_ADDR,
+      </if>
+      <if test="statAreaCode != null" >
+        STAT_AREA_CODE,
+      </if>
+      <if test="statType != null" >
+        STAT_TYPE,
+      </if>
+      <if test="statWork != null" >
+        STAT_WORK,
+      </if>
+      <if test="statStatus != null" >
+        STAT_STATUS,
+      </if>
+      <if test="statEquSum != null" >
+        STAT_EQU_SUM,
+      </if>
+      <if test="statLg != null" >
+        STAT_LG,
+      </if>
+      <if test="statLa != null" >
+        STAT_LA,
+      </if>
+      <if test="statAt != null" >
+        STAT_AT,
+      </if>
+      <if test="statDateStart != null" >
+        STAT_DATE_START,
+      </if>
+      <if test="memo != null" >
+        MEMO,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="guid != null" >
+        #{guid,jdbcType=VARCHAR},
+      </if>
+      <if test="netGuid != null" >
+        #{netGuid,jdbcType=VARCHAR},
+      </if>
+      <if test="orgCode != null" >
+        #{orgCode,jdbcType=VARCHAR},
+      </if>
+      <if test="appCode != null" >
+        #{appCode,jdbcType=VARCHAR},
+      </if>
+      <if test="statAppType != null" >
+        #{statAppType,jdbcType=VARCHAR},
+      </if>
+      <if test="statTdi != null" >
+        #{statTdi,jdbcType=VARCHAR},
+      </if>
+      <if test="statName != null" >
+        #{statName,jdbcType=VARCHAR},
+      </if>
+      <if test="statAddr != null" >
+        #{statAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="statAreaCode != null" >
+        #{statAreaCode,jdbcType=VARCHAR},
+      </if>
+      <if test="statType != null" >
+        #{statType,jdbcType=VARCHAR},
+      </if>
+      <if test="statWork != null" >
+        #{statWork,jdbcType=VARCHAR},
+      </if>
+      <if test="statStatus != null" >
+        #{statStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="statEquSum != null" >
+        #{statEquSum,jdbcType=DECIMAL},
+      </if>
+      <if test="statLg != null" >
+        #{statLg,jdbcType=DECIMAL},
+      </if>
+      <if test="statLa != null" >
+        #{statLa,jdbcType=DECIMAL},
+      </if>
+      <if test="statAt != null" >
+        #{statAt,jdbcType=DECIMAL},
+      </if>
+      <if test="statDateStart != null" >
+        #{statDateStart,jdbcType=DATE},
+      </if>
+      <if test="memo != null" >
+        #{memo,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.rx.rmip.corebiz.service.modules.station.techdata.model.RSBTStation" >
+    update RSBT_STATION
+    <set >
+      <if test="netGuid != null" >
+        NET_GUID = #{netGuid,jdbcType=VARCHAR},
+      </if>
+      <if test="orgCode != null" >
+        ORG_CODE = #{orgCode,jdbcType=VARCHAR},
+      </if>
+      <if test="appCode != null" >
+        APP_CODE = #{appCode,jdbcType=VARCHAR},
+      </if>
+      <if test="statAppType != null" >
+        STAT_APP_TYPE = #{statAppType,jdbcType=VARCHAR},
+      </if>
+      <if test="statTdi != null" >
+        STAT_TDI = #{statTdi,jdbcType=VARCHAR},
+      </if>
+      <if test="statName != null" >
+        STAT_NAME = #{statName,jdbcType=VARCHAR},
+      </if>
+      <if test="statAddr != null" >
+        STAT_ADDR = #{statAddr,jdbcType=VARCHAR},
+      </if>
+      <if test="statAreaCode != null" >
+        STAT_AREA_CODE = #{statAreaCode,jdbcType=VARCHAR},
+      </if>
+      <if test="statType != null" >
+        STAT_TYPE = #{statType,jdbcType=VARCHAR},
+      </if>
+      <if test="statWork != null" >
+        STAT_WORK = #{statWork,jdbcType=VARCHAR},
+      </if>
+      <if test="statStatus != null" >
+        STAT_STATUS = #{statStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="statEquSum != null" >
+        STAT_EQU_SUM = #{statEquSum,jdbcType=DECIMAL},
+      </if>
+      <if test="statLg != null" >
+        STAT_LG = #{statLg,jdbcType=DECIMAL},
+      </if>
+      <if test="statLa != null" >
+        STAT_LA = #{statLa,jdbcType=DECIMAL},
+      </if>
+      <if test="statAt != null" >
+        STAT_AT = #{statAt,jdbcType=DECIMAL},
+      </if>
+      <if test="statDateStart != null" >
+        STAT_DATE_START = #{statDateStart,jdbcType=DATE},
+      </if>
+      <if test="memo != null" >
+        MEMO = #{memo,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where GUID = #{guid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.rx.rmip.corebiz.service.modules.station.techdata.model.RSBTStation" >
+    update RSBT_STATION
+    set NET_GUID = #{netGuid,jdbcType=VARCHAR},
+      ORG_CODE = #{orgCode,jdbcType=VARCHAR},
+      APP_CODE = #{appCode,jdbcType=VARCHAR},
+      STAT_APP_TYPE = #{statAppType,jdbcType=VARCHAR},
+      STAT_TDI = #{statTdi,jdbcType=VARCHAR},
+      STAT_NAME = #{statName,jdbcType=VARCHAR},
+      STAT_ADDR = #{statAddr,jdbcType=VARCHAR},
+      STAT_AREA_CODE = #{statAreaCode,jdbcType=VARCHAR},
+      STAT_TYPE = #{statType,jdbcType=VARCHAR},
+      STAT_WORK = #{statWork,jdbcType=VARCHAR},
+      STAT_STATUS = #{statStatus,jdbcType=VARCHAR},
+      STAT_EQU_SUM = #{statEquSum,jdbcType=DECIMAL},
+      STAT_LG = #{statLg,jdbcType=DECIMAL},
+      STAT_LA = #{statLa,jdbcType=DECIMAL},
+      STAT_AT = #{statAt,jdbcType=DECIMAL},
+      STAT_DATE_START = #{statDateStart,jdbcType=DATE},
+      MEMO = #{memo,jdbcType=VARCHAR}
+    where GUID = #{guid,jdbcType=VARCHAR}
+  </update>
+</mapper>

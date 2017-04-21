@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.rx.rmip.corebiz.service.modules.station.techdata.dao.RSBTAntFeedMapper" >
+  <resultMap id="BaseResultMap" type="com.rx.rmip.corebiz.service.modules.station.techdata.model.RSBTAntFeed" >
+    <id column="GUID" property="guid" jdbcType="VARCHAR" />
+    <result column="STATION_GUID" property="stationGuid" jdbcType="VARCHAR" />
+    <result column="ANT_WORK_TYPE" property="antWorkType" jdbcType="VARCHAR" />
+    <result column="ANT_POLE" property="antPole" jdbcType="VARCHAR" />
+    <result column="ANT_RPOLE" property="antRpole" jdbcType="VARCHAR" />
+    <result column="ANT_EPOLE" property="antEpole" jdbcType="VARCHAR" />
+    <result column="ANT_TYPE" property="antType" jdbcType="VARCHAR" />
+    <result column="ANT_MODEL" property="antModel" jdbcType="VARCHAR" />
+    <result column="ANT_MENU" property="antMenu" jdbcType="VARCHAR" />
+    <result column="ANT_HIGHT" property="antHight" jdbcType="DECIMAL" />
+    <result column="ANT_GAIN" property="antGain" jdbcType="DECIMAL" />
+    <result column="ANT_EGAIN" property="antEgain" jdbcType="DECIMAL" />
+    <result column="ANT_RGAIN" property="antRgain" jdbcType="DECIMAL" />
+    <result column="ANT_ANGLE" property="antAngle" jdbcType="DECIMAL" />
+    <result column="ANT_SIZE" property="antSize" jdbcType="VARCHAR" />
+    <result column="FEED_MENU" property="feedMenu" jdbcType="VARCHAR" />
+    <result column="FEED_MODEL" property="feedModel" jdbcType="VARCHAR" />
+    <result column="FEED_LENGTH" property="feedLength" jdbcType="DECIMAL" />
+    <result column="FEED_LOSE" property="feedLose" jdbcType="DECIMAL" />
+    <result column="ANT_CODE" property="antCode" jdbcType="DECIMAL" />
+    <result column="FEED_CODE" property="feedCode" jdbcType="DECIMAL" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    GUID, STATION_GUID, ANT_WORK_TYPE, ANT_POLE, ANT_RPOLE, ANT_EPOLE, ANT_TYPE, ANT_MODEL, 
+    ANT_MENU, ANT_HIGHT, ANT_GAIN, ANT_EGAIN, ANT_RGAIN, ANT_ANGLE, ANT_SIZE, FEED_MENU, 
+    FEED_MODEL, FEED_LENGTH, FEED_LOSE, ANT_CODE, FEED_CODE
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from RSBT_ANTFEED
+    where GUID = #{guid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from RSBT_ANTFEED
+    where GUID = #{guid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.rx.rmip.corebiz.service.modules.station.techdata.model.RSBTAntFeed" >
+    <!-- 自动生成guid并赋值给 #{guid}-->
+  		<selectKey keyProperty="guid" resultType="String" order="BEFORE">  
+            select sys_guid() from dual  
+        </selectKey> 
+    insert into RSBT_ANTFEED (GUID, STATION_GUID, ANT_WORK_TYPE, 
+      ANT_POLE, ANT_RPOLE, ANT_EPOLE, 
+      ANT_TYPE, ANT_MODEL, ANT_MENU, 
+      ANT_HIGHT, ANT_GAIN, ANT_EGAIN, 
+      ANT_RGAIN, ANT_ANGLE, ANT_SIZE, 
+      FEED_MENU, FEED_MODEL, FEED_LENGTH, 
+      FEED_LOSE, ANT_CODE, FEED_CODE
+      )
+    values (#{guid,jdbcType=VARCHAR}, #{stationGuid,jdbcType=VARCHAR}, #{antWorkType,jdbcType=VARCHAR}, 
+      #{antPole,jdbcType=VARCHAR}, #{antRpole,jdbcType=VARCHAR}, #{antEpole,jdbcType=VARCHAR}, 
+      #{antType,jdbcType=VARCHAR}, #{antModel,jdbcType=VARCHAR}, #{antMenu,jdbcType=VARCHAR}, 
+      #{antHight,jdbcType=DECIMAL}, #{antGain,jdbcType=DECIMAL}, #{antEgain,jdbcType=DECIMAL}, 
+      #{antRgain,jdbcType=DECIMAL}, #{antAngle,jdbcType=DECIMAL}, #{antSize,jdbcType=VARCHAR}, 
+      #{feedMenu,jdbcType=VARCHAR}, #{feedModel,jdbcType=VARCHAR}, #{feedLength,jdbcType=DECIMAL}, 
+      #{feedLose,jdbcType=DECIMAL}, #{antCode,jdbcType=DECIMAL}, #{feedCode,jdbcType=DECIMAL}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.rx.rmip.corebiz.service.modules.station.techdata.model.RSBTAntFeed" >
+    insert into RSBT_ANTFEED
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="guid != null" >
+        GUID,
+      </if>
+      <if test="stationGuid != null" >
+        STATION_GUID,
+      </if>
+      <if test="antWorkType != null" >
+        ANT_WORK_TYPE,
+      </if>
+      <if test="antPole != null" >
+        ANT_POLE,
+      </if>
+      <if test="antRpole != null" >
+        ANT_RPOLE,
+      </if>
+      <if test="antEpole != null" >
+        ANT_EPOLE,
+      </if>
+      <if test="antType != null" >
+        ANT_TYPE,
+      </if>
+      <if test="antModel != null" >
+        ANT_MODEL,
+      </if>
+      <if test="antMenu != null" >
+        ANT_MENU,
+      </if>
+      <if test="antHight != null" >
+        ANT_HIGHT,
+      </if>
+      <if test="antGain != null" >
+        ANT_GAIN,
+      </if>
+      <if test="antEgain != null" >
+        ANT_EGAIN,
+      </if>
+      <if test="antRgain != null" >
+        ANT_RGAIN,
+      </if>
+      <if test="antAngle != null" >
+        ANT_ANGLE,
+      </if>
+      <if test="antSize != null" >
+        ANT_SIZE,
+      </if>
+      <if test="feedMenu != null" >
+        FEED_MENU,
+      </if>
+      <if test="feedModel != null" >
+        FEED_MODEL,
+      </if>
+      <if test="feedLength != null" >
+        FEED_LENGTH,
+      </if>
+      <if test="feedLose != null" >
+        FEED_LOSE,
+      </if>
+      <if test="antCode != null" >
+        ANT_CODE,
+      </if>
+      <if test="feedCode != null" >
+        FEED_CODE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="guid != null" >
+        #{guid,jdbcType=VARCHAR},
+      </if>
+      <if test="stationGuid != null" >
+        #{stationGuid,jdbcType=VARCHAR},
+      </if>
+      <if test="antWorkType != null" >
+        #{antWorkType,jdbcType=VARCHAR},
+      </if>
+      <if test="antPole != null" >
+        #{antPole,jdbcType=VARCHAR},
+      </if>
+      <if test="antRpole != null" >
+        #{antRpole,jdbcType=VARCHAR},
+      </if>
+      <if test="antEpole != null" >
+        #{antEpole,jdbcType=VARCHAR},
+      </if>
+      <if test="antType != null" >
+        #{antType,jdbcType=VARCHAR},
+      </if>
+      <if test="antModel != null" >
+        #{antModel,jdbcType=VARCHAR},
+      </if>
+      <if test="antMenu != null" >
+        #{antMenu,jdbcType=VARCHAR},
+      </if>
+      <if test="antHight != null" >
+        #{antHight,jdbcType=DECIMAL},
+      </if>
+      <if test="antGain != null" >
+        #{antGain,jdbcType=DECIMAL},
+      </if>
+      <if test="antEgain != null" >
+        #{antEgain,jdbcType=DECIMAL},
+      </if>
+      <if test="antRgain != null" >
+        #{antRgain,jdbcType=DECIMAL},
+      </if>
+      <if test="antAngle != null" >
+        #{antAngle,jdbcType=DECIMAL},
+      </if>
+      <if test="antSize != null" >
+        #{antSize,jdbcType=VARCHAR},
+      </if>
+      <if test="feedMenu != null" >
+        #{feedMenu,jdbcType=VARCHAR},
+      </if>
+      <if test="feedModel != null" >
+        #{feedModel,jdbcType=VARCHAR},
+      </if>
+      <if test="feedLength != null" >
+        #{feedLength,jdbcType=DECIMAL},
+      </if>
+      <if test="feedLose != null" >
+        #{feedLose,jdbcType=DECIMAL},
+      </if>
+      <if test="antCode != null" >
+        #{antCode,jdbcType=DECIMAL},
+      </if>
+      <if test="feedCode != null" >
+        #{feedCode,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.rx.rmip.corebiz.service.modules.station.techdata.model.RSBTAntFeed" >
+    update RSBT_ANTFEED
+    <set >
+      <if test="stationGuid != null" >
+        STATION_GUID = #{stationGuid,jdbcType=VARCHAR},
+      </if>
+      <if test="antWorkType != null" >
+        ANT_WORK_TYPE = #{antWorkType,jdbcType=VARCHAR},
+      </if>
+      <if test="antPole != null" >
+        ANT_POLE = #{antPole,jdbcType=VARCHAR},
+      </if>
+      <if test="antRpole != null" >
+        ANT_RPOLE = #{antRpole,jdbcType=VARCHAR},
+      </if>
+      <if test="antEpole != null" >
+        ANT_EPOLE = #{antEpole,jdbcType=VARCHAR},
+      </if>
+      <if test="antType != null" >
+        ANT_TYPE = #{antType,jdbcType=VARCHAR},
+      </if>
+      <if test="antModel != null" >
+        ANT_MODEL = #{antModel,jdbcType=VARCHAR},
+      </if>
+      <if test="antMenu != null" >
+        ANT_MENU = #{antMenu,jdbcType=VARCHAR},
+      </if>
+      <if test="antHight != null" >
+        ANT_HIGHT = #{antHight,jdbcType=DECIMAL},
+      </if>
+      <if test="antGain != null" >
+        ANT_GAIN = #{antGain,jdbcType=DECIMAL},
+      </if>
+      <if test="antEgain != null" >
+        ANT_EGAIN = #{antEgain,jdbcType=DECIMAL},
+      </if>
+      <if test="antRgain != null" >
+        ANT_RGAIN = #{antRgain,jdbcType=DECIMAL},
+      </if>
+      <if test="antAngle != null" >
+        ANT_ANGLE = #{antAngle,jdbcType=DECIMAL},
+      </if>
+      <if test="antSize != null" >
+        ANT_SIZE = #{antSize,jdbcType=VARCHAR},
+      </if>
+      <if test="feedMenu != null" >
+        FEED_MENU = #{feedMenu,jdbcType=VARCHAR},
+      </if>
+      <if test="feedModel != null" >
+        FEED_MODEL = #{feedModel,jdbcType=VARCHAR},
+      </if>
+      <if test="feedLength != null" >
+        FEED_LENGTH = #{feedLength,jdbcType=DECIMAL},
+      </if>
+      <if test="feedLose != null" >
+        FEED_LOSE = #{feedLose,jdbcType=DECIMAL},
+      </if>
+      <if test="antCode != null" >
+        ANT_CODE = #{antCode,jdbcType=DECIMAL},
+      </if>
+      <if test="feedCode != null" >
+        FEED_CODE = #{feedCode,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where GUID = #{guid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.rx.rmip.corebiz.service.modules.station.techdata.model.RSBTAntFeed" >
+    update RSBT_ANTFEED
+    set STATION_GUID = #{stationGuid,jdbcType=VARCHAR},
+      ANT_WORK_TYPE = #{antWorkType,jdbcType=VARCHAR},
+      ANT_POLE = #{antPole,jdbcType=VARCHAR},
+      ANT_RPOLE = #{antRpole,jdbcType=VARCHAR},
+      ANT_EPOLE = #{antEpole,jdbcType=VARCHAR},
+      ANT_TYPE = #{antType,jdbcType=VARCHAR},
+      ANT_MODEL = #{antModel,jdbcType=VARCHAR},
+      ANT_MENU = #{antMenu,jdbcType=VARCHAR},
+      ANT_HIGHT = #{antHight,jdbcType=DECIMAL},
+      ANT_GAIN = #{antGain,jdbcType=DECIMAL},
+      ANT_EGAIN = #{antEgain,jdbcType=DECIMAL},
+      ANT_RGAIN = #{antRgain,jdbcType=DECIMAL},
+      ANT_ANGLE = #{antAngle,jdbcType=DECIMAL},
+      ANT_SIZE = #{antSize,jdbcType=VARCHAR},
+      FEED_MENU = #{feedMenu,jdbcType=VARCHAR},
+      FEED_MODEL = #{feedModel,jdbcType=VARCHAR},
+      FEED_LENGTH = #{feedLength,jdbcType=DECIMAL},
+      FEED_LOSE = #{feedLose,jdbcType=DECIMAL},
+      ANT_CODE = #{antCode,jdbcType=DECIMAL},
+      FEED_CODE = #{feedCode,jdbcType=DECIMAL}
+    where GUID = #{guid,jdbcType=VARCHAR}
+  </update>
+</mapper>

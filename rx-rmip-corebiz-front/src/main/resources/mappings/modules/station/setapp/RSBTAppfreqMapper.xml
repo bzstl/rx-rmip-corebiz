@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.rx.rmip.corebiz.service.modules.station.settingapply.dao.RSBTAppfreqMapper" >
+  <resultMap id="BaseResultMap" type="com.rx.rmip.corebiz.service.modules.station.settingapply.model.RSBTAppfreq" >
+    <id column="GUID" property="guid" jdbcType="VARCHAR" />
+    <result column="APP_GUID" property="appGuid" jdbcType="VARCHAR" />
+    <result column="APP_CODE" property="appCode" jdbcType="VARCHAR" />
+    <result column="APP_FREQ_LC" property="appFreqLc" jdbcType="DECIMAL" />
+    <result column="APP_FREQ_UC" property="appFreqUc" jdbcType="DECIMAL" />
+    <result column="APP_FREQ_LFB" property="appFreqLfb" jdbcType="DECIMAL" />
+    <result column="APP_FREQ_LFE" property="appFreqLfe" jdbcType="DECIMAL" />
+    <result column="APP_FREQ_LB" property="appFreqLb" jdbcType="DECIMAL" />
+    <result column="APP_FREQ_UFB" property="appFreqUfb" jdbcType="DECIMAL" />
+    <result column="APP_FREQ_UFE" property="appFreqUfe" jdbcType="DECIMAL" />
+    <result column="APP_FREQ_UB" property="appFreqUb" jdbcType="DECIMAL" />
+    <result column="APP_FREQ_CODE" property="appFreqCode" jdbcType="VARCHAR" />
+    <result column="APP_FREQ_TYPE" property="appFreqType" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    GUID, APP_GUID, APP_CODE, APP_FREQ_LC, APP_FREQ_UC, APP_FREQ_LFB, APP_FREQ_LFE, APP_FREQ_LB, 
+    APP_FREQ_UFB, APP_FREQ_UFE, APP_FREQ_UB, APP_FREQ_CODE, APP_FREQ_TYPE
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from RSBT_APPFREQ
+    where GUID = #{guid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from RSBT_APPFREQ
+    where GUID = #{guid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.rx.rmip.corebiz.service.modules.station.settingapply.model.RSBTAppfreq" >
+    <!-- 自动生成guid并赋值给 #{guid}-->
+  		<selectKey keyProperty="guid" resultType="String" order="BEFORE">  
+            select sys_guid() from dual  
+        </selectKey> 
+    insert into RSBT_APPFREQ (GUID, APP_GUID, APP_CODE, 
+      APP_FREQ_LC, APP_FREQ_UC, APP_FREQ_LFB, 
+      APP_FREQ_LFE, APP_FREQ_LB, APP_FREQ_UFB, 
+      APP_FREQ_UFE, APP_FREQ_UB, APP_FREQ_CODE, 
+      APP_FREQ_TYPE)
+    values (#{guid,jdbcType=VARCHAR}, #{appGuid,jdbcType=VARCHAR}, #{appCode,jdbcType=VARCHAR}, 
+      #{appFreqLc,jdbcType=DECIMAL}, #{appFreqUc,jdbcType=DECIMAL}, #{appFreqLfb,jdbcType=DECIMAL}, 
+      #{appFreqLfe,jdbcType=DECIMAL}, #{appFreqLb,jdbcType=DECIMAL}, #{appFreqUfb,jdbcType=DECIMAL}, 
+      #{appFreqUfe,jdbcType=DECIMAL}, #{appFreqUb,jdbcType=DECIMAL}, #{appFreqCode,jdbcType=VARCHAR}, 
+      #{appFreqType,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.rx.rmip.corebiz.service.modules.station.settingapply.model.RSBTAppfreq" >
+    insert into RSBT_APPFREQ
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="guid != null" >
+        GUID,
+      </if>
+      <if test="appGuid != null" >
+        APP_GUID,
+      </if>
+      <if test="appCode != null" >
+        APP_CODE,
+      </if>
+      <if test="appFreqLc != null" >
+        APP_FREQ_LC,
+      </if>
+      <if test="appFreqUc != null" >
+        APP_FREQ_UC,
+      </if>
+      <if test="appFreqLfb != null" >
+        APP_FREQ_LFB,
+      </if>
+      <if test="appFreqLfe != null" >
+        APP_FREQ_LFE,
+      </if>
+      <if test="appFreqLb != null" >
+        APP_FREQ_LB,
+      </if>
+      <if test="appFreqUfb != null" >
+        APP_FREQ_UFB,
+      </if>
+      <if test="appFreqUfe != null" >
+        APP_FREQ_UFE,
+      </if>
+      <if test="appFreqUb != null" >
+        APP_FREQ_UB,
+      </if>
+      <if test="appFreqCode != null" >
+        APP_FREQ_CODE,
+      </if>
+      <if test="appFreqType != null" >
+        APP_FREQ_TYPE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="guid != null" >
+        #{guid,jdbcType=VARCHAR},
+      </if>
+      <if test="appGuid != null" >
+        #{appGuid,jdbcType=VARCHAR},
+      </if>
+      <if test="appCode != null" >
+        #{appCode,jdbcType=VARCHAR},
+      </if>
+      <if test="appFreqLc != null" >
+        #{appFreqLc,jdbcType=DECIMAL},
+      </if>
+      <if test="appFreqUc != null" >
+        #{appFreqUc,jdbcType=DECIMAL},
+      </if>
+      <if test="appFreqLfb != null" >
+        #{appFreqLfb,jdbcType=DECIMAL},
+      </if>
+      <if test="appFreqLfe != null" >
+        #{appFreqLfe,jdbcType=DECIMAL},
+      </if>
+      <if test="appFreqLb != null" >
+        #{appFreqLb,jdbcType=DECIMAL},
+      </if>
+      <if test="appFreqUfb != null" >
+        #{appFreqUfb,jdbcType=DECIMAL},
+      </if>
+      <if test="appFreqUfe != null" >
+        #{appFreqUfe,jdbcType=DECIMAL},
+      </if>
+      <if test="appFreqUb != null" >
+        #{appFreqUb,jdbcType=DECIMAL},
+      </if>
+      <if test="appFreqCode != null" >
+        #{appFreqCode,jdbcType=VARCHAR},
+      </if>
+      <if test="appFreqType != null" >
+        #{appFreqType,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.rx.rmip.corebiz.service.modules.station.settingapply.model.RSBTAppfreq" >
+    update RSBT_APPFREQ
+    <set >
+      <if test="appGuid != null" >
+        APP_GUID = #{appGuid,jdbcType=VARCHAR},
+      </if>
+      <if test="appCode != null" >
+        APP_CODE = #{appCode,jdbcType=VARCHAR},
+      </if>
+      <if test="appFreqLc != null" >
+        APP_FREQ_LC = #{appFreqLc,jdbcType=DECIMAL},
+      </if>
+      <if test="appFreqUc != null" >
+        APP_FREQ_UC = #{appFreqUc,jdbcType=DECIMAL},
+      </if>
+      <if test="appFreqLfb != null" >
+        APP_FREQ_LFB = #{appFreqLfb,jdbcType=DECIMAL},
+      </if>
+      <if test="appFreqLfe != null" >
+        APP_FREQ_LFE = #{appFreqLfe,jdbcType=DECIMAL},
+      </if>
+      <if test="appFreqLb != null" >
+        APP_FREQ_LB = #{appFreqLb,jdbcType=DECIMAL},
+      </if>
+      <if test="appFreqUfb != null" >
+        APP_FREQ_UFB = #{appFreqUfb,jdbcType=DECIMAL},
+      </if>
+      <if test="appFreqUfe != null" >
+        APP_FREQ_UFE = #{appFreqUfe,jdbcType=DECIMAL},
+      </if>
+      <if test="appFreqUb != null" >
+        APP_FREQ_UB = #{appFreqUb,jdbcType=DECIMAL},
+      </if>
+      <if test="appFreqCode != null" >
+        APP_FREQ_CODE = #{appFreqCode,jdbcType=VARCHAR},
+      </if>
+      <if test="appFreqType != null" >
+        APP_FREQ_TYPE = #{appFreqType,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where GUID = #{guid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.rx.rmip.corebiz.service.modules.station.settingapply.model.RSBTAppfreq" >
+    update RSBT_APPFREQ
+    set APP_GUID = #{appGuid,jdbcType=VARCHAR},
+      APP_CODE = #{appCode,jdbcType=VARCHAR},
+      APP_FREQ_LC = #{appFreqLc,jdbcType=DECIMAL},
+      APP_FREQ_UC = #{appFreqUc,jdbcType=DECIMAL},
+      APP_FREQ_LFB = #{appFreqLfb,jdbcType=DECIMAL},
+      APP_FREQ_LFE = #{appFreqLfe,jdbcType=DECIMAL},
+      APP_FREQ_LB = #{appFreqLb,jdbcType=DECIMAL},
+      APP_FREQ_UFB = #{appFreqUfb,jdbcType=DECIMAL},
+      APP_FREQ_UFE = #{appFreqUfe,jdbcType=DECIMAL},
+      APP_FREQ_UB = #{appFreqUb,jdbcType=DECIMAL},
+      APP_FREQ_CODE = #{appFreqCode,jdbcType=VARCHAR},
+      APP_FREQ_TYPE = #{appFreqType,jdbcType=VARCHAR}
+    where GUID = #{guid,jdbcType=VARCHAR}
+  </update>
+  
+  <!-- 批量插入 -->
+  	<!-- <insert id="batchInsert" parameterType="java.util.List"> 
+		insert into RSBT_APPFREQ (GUID, APP_GUID, APP_CODE, 
+	      APP_FREQ_LC, APP_FREQ_UC, APP_FREQ_LFB, 
+	      APP_FREQ_LFE, APP_FREQ_LB, APP_FREQ_UFB, 
+	      APP_FREQ_UFE, APP_FREQ_UB, APP_FREQ_CODE, 
+	      APP_FREQ_TYPE)
+	 	<foreach close=")"collection="list"item="item"index="index"open="("separator="union"> 
+		select
+		#{item.guid,jdbcType=VARCHAR}, #{item.appGuid,jdbcType=VARCHAR}, #{item.appCode,jdbcType=VARCHAR}, 
+	    #{item.appFreqLc,jdbcType=DECIMAL}, #{item.appFreqUc,jdbcType=DECIMAL}, #{item.appFreqLfb,jdbcType=DECIMAL}, 
+	    #{item.appFreqLfe,jdbcType=DECIMAL}, #{item.appFreqLb,jdbcType=DECIMAL}, #{item.appFreqUfb,jdbcType=DECIMAL}, 
+	    #{item.appFreqUfe,jdbcType=DECIMAL}, #{item.appFreqUb,jdbcType=DECIMAL}, #{item.appFreqCode,jdbcType=VARCHAR}, 
+	    #{item.appFreqType,jdbcType=VARCHAR}
+		from dual 
+		</foreach>
+	</insert> -->
+  
+</mapper>

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.rx.rmip.corebiz.service.modules.freq.allocation.dao.FrmAllocationMapper">
+	<resultMap type="com.rx.rmip.corebiz.service.modules.freq.allocation.model.FrmAllocation" id="FrmAllocation">
+		<result property="id" column="ALLOCATION_ID" />
+		<result property="freqStart" column="FREQ_START" />
+		<result property="freqEnd" column="FREQ_END" />
+		<result property="serviceCode" column="SERVICE_CODE" />
+		<result property="serviceType" column="SERVICE_TYPE" />
+		<result property="allocAlias" column="ALLOC_ALIAS" />
+		<result property="specialFootnote" column="SPECIAL_FOOTNOTE_ALLOCATION" />
+		<result property="generalFootnote" column="GENERAL_FOOTNOTE_ALLOCATION" />
+		<result property="areaCode" column="AREA_CODE" />
+	</resultMap>
+	
+	<resultMap type="com.rx.rmip.corebiz.service.modules.freq.allocation.model.FrmService" id="FrmService">
+		<result property="serviceName" column="SERVICE_NAME" />
+		<result property="serviceColor" column="SERVICE_COLOR" />
+		<result property="isCutline" column="ISCUTLINE" />
+		<result property="parentService" column="PARENTSERVICE" />
+		<result property="serviceCode" column="SERVICE_CODE" />
+	</resultMap>
+	
+	<resultMap type="com.rx.rmip.corebiz.service.modules.freq.allocation.model.FrmFootnote" id="FrmFootnote">
+		<result property="footnoteCode" column="FOOTNOTE_CODE" />
+		<result property="footnoteProperty" column="FOOTNOTE_PROPERTY" />
+		<result property="footnoteClass" column="FOOTNOTE_CLASS" />
+		<result property="footnoteContent" column="FOOTNOTE_CONTENT" />
+		<result property="footnoteNote" column="FOOTNOTE_NOTE" />
+	</resultMap>
+
+	<select id="selectAllocations" parameterType="java.lang.String"
+		resultMap="FrmAllocation">
+		<!-- select * from T_RIM_FRM_ALLOCATION t where t.AREA_CODE=#{areaCode} 
+		<![CDATA[ and t.FREQ_START >=3.025 ]]> <![CDATA[ and t.FREQ_END <= 30.025 ]]>
+		order by t.FREQ_START asc ,t.SERVICE_TYPE
+		desc,T.SERVICE_CODE asc -->
+		select 
+		  t1.guid allocation_id, 
+		  t1.band_b freq_start, 
+		  t1.band_e freq_end, 
+		  t2.serv_code service_code, 
+		  t2.serv_type service_type, 
+		  t2.addi_info alloc_alias, 
+		  t2.fn_code special_footnote_allocation, 
+		  t1.fn_code general_footnote_allocation, 
+		  t1.area_code 
+		from 
+		  frbt_allocation t1, 
+		  frbt_allocation_service t2 
+		where 
+		  t2.alloc_guid = t1.guid 
+		  and t1.area_code = #{areaCode}
+		order by 
+		  t1.band_b asc, 
+		  cast(t2.serv_type as int) desc, 
+		  cast(t2.serv_code as int) asc
+	</select>
+	
+	<select id="selectFrmServices" resultMap="FrmService">
+		select 
+		  t1.serv_name service_name, 
+		  t1.rgb_color service_color, 
+		  t1.iscutline, 
+		  t1.serv_parent parentservice, 
+		  t1.serv_code service_code 
+		from 
+		  frbt_service t1
+	</select>
+	
+	<select id="selectFrmFootnotes" resultMap="FrmFootnote">
+		select 
+		  t1.fn_code footnote_code, 
+		  t1.fn_property footnote_property, 
+		  t1.fn_class footnote_class, 
+		  t1.fn_content footnote_content, 
+		  t1.memo footnote_note 
+		from 
+		  frbt_footnote t1
+	</select>
+</mapper>

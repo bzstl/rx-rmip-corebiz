@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.rx.rmip.corebiz.service.modules.station.techdata.dao.RSBTLinkMapper" >
+  <resultMap id="BaseResultMap" type="com.rx.rmip.corebiz.service.modules.station.techdata.model.RSBTLink" >
+    <id column="GUID" property="guid" jdbcType="VARCHAR" />
+    <result column="NET_GUID_A" property="netGuidA" jdbcType="VARCHAR" />
+    <result column="STATION_GUID_A" property="stationGuidA" jdbcType="VARCHAR" />
+    <result column="GUID_EAF_A" property="guidEafA" jdbcType="VARCHAR" />
+    <result column="NET_GUID_B" property="netGuidB" jdbcType="VARCHAR" />
+    <result column="STATION_GUID_B" property="stationGuidB" jdbcType="VARCHAR" />
+    <result column="GUID_EAF_B" property="guidEafB" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    GUID, NET_GUID_A, STATION_GUID_A, GUID_EAF_A, NET_GUID_B, STATION_GUID_B, GUID_EAF_B
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from RSBT_LINK
+    where GUID = #{guid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from RSBT_LINK
+    where GUID = #{guid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.rx.rmip.corebiz.service.modules.station.techdata.model.RSBTLink" >
+    <!-- 自动生成guid并赋值给 #{guid}-->
+  		<selectKey keyProperty="guid" resultType="String" order="BEFORE">  
+            select sys_guid() from dual  
+        </selectKey> 
+    insert into RSBT_LINK (GUID, NET_GUID_A, STATION_GUID_A, 
+      GUID_EAF_A, NET_GUID_B, STATION_GUID_B, 
+      GUID_EAF_B)
+    values (#{guid,jdbcType=VARCHAR}, #{netGuidA,jdbcType=VARCHAR}, #{stationGuidA,jdbcType=VARCHAR}, 
+      #{guidEafA,jdbcType=VARCHAR}, #{netGuidB,jdbcType=VARCHAR}, #{stationGuidB,jdbcType=VARCHAR}, 
+      #{guidEafB,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.rx.rmip.corebiz.service.modules.station.techdata.model.RSBTLink" >
+    insert into RSBT_LINK
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="guid != null" >
+        GUID,
+      </if>
+      <if test="netGuidA != null" >
+        NET_GUID_A,
+      </if>
+      <if test="stationGuidA != null" >
+        STATION_GUID_A,
+      </if>
+      <if test="guidEafA != null" >
+        GUID_EAF_A,
+      </if>
+      <if test="netGuidB != null" >
+        NET_GUID_B,
+      </if>
+      <if test="stationGuidB != null" >
+        STATION_GUID_B,
+      </if>
+      <if test="guidEafB != null" >
+        GUID_EAF_B,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="guid != null" >
+        #{guid,jdbcType=VARCHAR},
+      </if>
+      <if test="netGuidA != null" >
+        #{netGuidA,jdbcType=VARCHAR},
+      </if>
+      <if test="stationGuidA != null" >
+        #{stationGuidA,jdbcType=VARCHAR},
+      </if>
+      <if test="guidEafA != null" >
+        #{guidEafA,jdbcType=VARCHAR},
+      </if>
+      <if test="netGuidB != null" >
+        #{netGuidB,jdbcType=VARCHAR},
+      </if>
+      <if test="stationGuidB != null" >
+        #{stationGuidB,jdbcType=VARCHAR},
+      </if>
+      <if test="guidEafB != null" >
+        #{guidEafB,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.rx.rmip.corebiz.service.modules.station.techdata.model.RSBTLink" >
+    update RSBT_LINK
+    <set >
+      <if test="netGuidA != null" >
+        NET_GUID_A = #{netGuidA,jdbcType=VARCHAR},
+      </if>
+      <if test="stationGuidA != null" >
+        STATION_GUID_A = #{stationGuidA,jdbcType=VARCHAR},
+      </if>
+      <if test="guidEafA != null" >
+        GUID_EAF_A = #{guidEafA,jdbcType=VARCHAR},
+      </if>
+      <if test="netGuidB != null" >
+        NET_GUID_B = #{netGuidB,jdbcType=VARCHAR},
+      </if>
+      <if test="stationGuidB != null" >
+        STATION_GUID_B = #{stationGuidB,jdbcType=VARCHAR},
+      </if>
+      <if test="guidEafB != null" >
+        GUID_EAF_B = #{guidEafB,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where GUID = #{guid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.rx.rmip.corebiz.service.modules.station.techdata.model.RSBTLink" >
+    update RSBT_LINK
+    set NET_GUID_A = #{netGuidA,jdbcType=VARCHAR},
+      STATION_GUID_A = #{stationGuidA,jdbcType=VARCHAR},
+      GUID_EAF_A = #{guidEafA,jdbcType=VARCHAR},
+      NET_GUID_B = #{netGuidB,jdbcType=VARCHAR},
+      STATION_GUID_B = #{stationGuidB,jdbcType=VARCHAR},
+      GUID_EAF_B = #{guidEafB,jdbcType=VARCHAR}
+    where GUID = #{guid,jdbcType=VARCHAR}
+  </update>
+</mapper>

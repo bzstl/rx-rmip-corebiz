@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.rx.rmip.corebiz.service.modules.freq.allocation.dao.FRBTFootnoteMapper" >
+  <resultMap id="BaseResultMap" type="com.rx.rmip.corebiz.service.modules.freq.allocation.model.FRBTFootnote" >
+    <id column="FN_CODE" property="fnCode" jdbcType="VARCHAR" />
+    <result column="FN_PROPERTY" property="fnProperty" jdbcType="VARCHAR" />
+    <result column="FN_CLASS" property="fnClass" jdbcType="VARCHAR" />
+    <result column="FN_CONTENT" property="fnContent" jdbcType="VARCHAR" />
+    <result column="MEMO" property="memo" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    FN_CODE, FN_PROPERTY, FN_CLASS, FN_CONTENT, MEMO
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from FRBT_FOOTNOTE
+    where FN_CODE = #{fnCode,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from FRBT_FOOTNOTE
+    where FN_CODE = #{fnCode,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.rx.rmip.corebiz.service.modules.freq.allocation.model.FRBTFootnote" >
+    insert into FRBT_FOOTNOTE (FN_CODE, FN_PROPERTY, FN_CLASS, 
+      FN_CONTENT, MEMO)
+    values (#{fnCode,jdbcType=VARCHAR}, #{fnProperty,jdbcType=VARCHAR}, #{fnClass,jdbcType=VARCHAR}, 
+      #{fnContent,jdbcType=VARCHAR}, #{memo,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.rx.rmip.corebiz.service.modules.freq.allocation.model.FRBTFootnote" >
+    insert into FRBT_FOOTNOTE
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="fnCode != null" >
+        FN_CODE,
+      </if>
+      <if test="fnProperty != null" >
+        FN_PROPERTY,
+      </if>
+      <if test="fnClass != null" >
+        FN_CLASS,
+      </if>
+      <if test="fnContent != null" >
+        FN_CONTENT,
+      </if>
+      <if test="memo != null" >
+        MEMO,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="fnCode != null" >
+        #{fnCode,jdbcType=VARCHAR},
+      </if>
+      <if test="fnProperty != null" >
+        #{fnProperty,jdbcType=VARCHAR},
+      </if>
+      <if test="fnClass != null" >
+        #{fnClass,jdbcType=VARCHAR},
+      </if>
+      <if test="fnContent != null" >
+        #{fnContent,jdbcType=VARCHAR},
+      </if>
+      <if test="memo != null" >
+        #{memo,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.rx.rmip.corebiz.service.modules.freq.allocation.model.FRBTFootnote" >
+    update FRBT_FOOTNOTE
+    <set >
+      <if test="fnProperty != null" >
+        FN_PROPERTY = #{fnProperty,jdbcType=VARCHAR},
+      </if>
+      <if test="fnClass != null" >
+        FN_CLASS = #{fnClass,jdbcType=VARCHAR},
+      </if>
+      <if test="fnContent != null" >
+        FN_CONTENT = #{fnContent,jdbcType=VARCHAR},
+      </if>
+      <if test="memo != null" >
+        MEMO = #{memo,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where FN_CODE = #{fnCode,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.rx.rmip.corebiz.service.modules.freq.allocation.model.FRBTFootnote" >
+    update FRBT_FOOTNOTE
+    set FN_PROPERTY = #{fnProperty,jdbcType=VARCHAR},
+      FN_CLASS = #{fnClass,jdbcType=VARCHAR},
+      FN_CONTENT = #{fnContent,jdbcType=VARCHAR},
+      MEMO = #{memo,jdbcType=VARCHAR}
+    where FN_CODE = #{fnCode,jdbcType=VARCHAR}
+  </update>
+</mapper>

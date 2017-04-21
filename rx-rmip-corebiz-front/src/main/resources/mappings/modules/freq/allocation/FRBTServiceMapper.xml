@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.rx.rmip.corebiz.service.modules.freq.allocation.dao.FRBTServiceMapper" >
+  <resultMap id="BaseResultMap" type="com.rx.rmip.corebiz.service.modules.freq.allocation.model.FRBTService" >
+    <id column="SERV_CODE" property="servCode" jdbcType="VARCHAR" />
+    <result column="SERV_NAME" property="servName" jdbcType="VARCHAR" />
+    <result column="RGB_COLOR" property="rgbColor" jdbcType="DECIMAL" />
+    <result column="ISCUTLINE" property="iscutline" jdbcType="VARCHAR" />
+    <result column="SERV_PARENT" property="servParent" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    SERV_CODE, SERV_NAME, RGB_COLOR, ISCUTLINE, SERV_PARENT
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from FRBT_SERVICE
+    where SERV_CODE = #{servCode,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from FRBT_SERVICE
+    where SERV_CODE = #{servCode,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.rx.rmip.corebiz.service.modules.freq.allocation.model.FRBTService" >
+    insert into FRBT_SERVICE (SERV_CODE, SERV_NAME, RGB_COLOR, 
+      ISCUTLINE, SERV_PARENT)
+    values (#{servCode,jdbcType=VARCHAR}, #{servName,jdbcType=VARCHAR}, #{rgbColor,jdbcType=DECIMAL}, 
+      #{iscutline,jdbcType=VARCHAR}, #{servParent,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.rx.rmip.corebiz.service.modules.freq.allocation.model.FRBTService" >
+    insert into FRBT_SERVICE
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="servCode != null" >
+        SERV_CODE,
+      </if>
+      <if test="servName != null" >
+        SERV_NAME,
+      </if>
+      <if test="rgbColor != null" >
+        RGB_COLOR,
+      </if>
+      <if test="iscutline != null" >
+        ISCUTLINE,
+      </if>
+      <if test="servParent != null" >
+        SERV_PARENT,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="servCode != null" >
+        #{servCode,jdbcType=VARCHAR},
+      </if>
+      <if test="servName != null" >
+        #{servName,jdbcType=VARCHAR},
+      </if>
+      <if test="rgbColor != null" >
+        #{rgbColor,jdbcType=DECIMAL},
+      </if>
+      <if test="iscutline != null" >
+        #{iscutline,jdbcType=VARCHAR},
+      </if>
+      <if test="servParent != null" >
+        #{servParent,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.rx.rmip.corebiz.service.modules.freq.allocation.model.FRBTService" >
+    update FRBT_SERVICE
+    <set >
+      <if test="servName != null" >
+        SERV_NAME = #{servName,jdbcType=VARCHAR},
+      </if>
+      <if test="rgbColor != null" >
+        RGB_COLOR = #{rgbColor,jdbcType=DECIMAL},
+      </if>
+      <if test="iscutline != null" >
+        ISCUTLINE = #{iscutline,jdbcType=VARCHAR},
+      </if>
+      <if test="servParent != null" >
+        SERV_PARENT = #{servParent,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where SERV_CODE = #{servCode,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.rx.rmip.corebiz.service.modules.freq.allocation.model.FRBTService" >
+    update FRBT_SERVICE
+    set SERV_NAME = #{servName,jdbcType=VARCHAR},
+      RGB_COLOR = #{rgbColor,jdbcType=DECIMAL},
+      ISCUTLINE = #{iscutline,jdbcType=VARCHAR},
+      SERV_PARENT = #{servParent,jdbcType=VARCHAR}
+    where SERV_CODE = #{servCode,jdbcType=VARCHAR}
+  </update>
+</mapper>

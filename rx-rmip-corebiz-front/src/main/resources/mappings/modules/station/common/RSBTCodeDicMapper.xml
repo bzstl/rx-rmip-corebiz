@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.rx.rmip.corebiz.service.modules.station.common.dao.RSBTCodeDicMapper" >
+  <resultMap id="BaseResultMap" type="com.rx.rmip.corebiz.service.modules.station.common.model.RSBTCodeDic" >
+    <id column="CO" property="co" jdbcType="DECIMAL" />
+    <result column="CN" property="cn" jdbcType="VARCHAR" />
+    <result column="CODE_CHI_NAME" property="codeChiName" jdbcType="VARCHAR" />
+    <result column="CODE_DATA_TYPE" property="codeDataType" jdbcType="VARCHAR" />
+    <result column="CODE_TYPE_CHI_NAME" property="codeTypeChiName" jdbcType="VARCHAR" />
+    <result column="CODE_DISCN" property="codeDiscn" jdbcType="DECIMAL" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    CO, CN, CODE_CHI_NAME, CODE_DATA_TYPE, CODE_TYPE_CHI_NAME, CODE_DISCN
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.math.BigDecimal" >
+    select 
+    <include refid="Base_Column_List" />
+    from RSBT_CODE_DIC
+    where CO = #{co,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.math.BigDecimal" >
+    delete from RSBT_CODE_DIC
+    where CO = #{co,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="com.rx.rmip.corebiz.service.modules.station.common.model.RSBTCodeDic" >
+    insert into RSBT_CODE_DIC (CO, CN, CODE_CHI_NAME, 
+      CODE_DATA_TYPE, CODE_TYPE_CHI_NAME, CODE_DISCN
+      )
+    values (#{co,jdbcType=DECIMAL}, #{cn,jdbcType=VARCHAR}, #{codeChiName,jdbcType=VARCHAR}, 
+      #{codeDataType,jdbcType=VARCHAR}, #{codeTypeChiName,jdbcType=VARCHAR}, #{codeDiscn,jdbcType=DECIMAL}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.rx.rmip.corebiz.service.modules.station.common.model.RSBTCodeDic" >
+    insert into RSBT_CODE_DIC
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="co != null" >
+        CO,
+      </if>
+      <if test="cn != null" >
+        CN,
+      </if>
+      <if test="codeChiName != null" >
+        CODE_CHI_NAME,
+      </if>
+      <if test="codeDataType != null" >
+        CODE_DATA_TYPE,
+      </if>
+      <if test="codeTypeChiName != null" >
+        CODE_TYPE_CHI_NAME,
+      </if>
+      <if test="codeDiscn != null" >
+        CODE_DISCN,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="co != null" >
+        #{co,jdbcType=DECIMAL},
+      </if>
+      <if test="cn != null" >
+        #{cn,jdbcType=VARCHAR},
+      </if>
+      <if test="codeChiName != null" >
+        #{codeChiName,jdbcType=VARCHAR},
+      </if>
+      <if test="codeDataType != null" >
+        #{codeDataType,jdbcType=VARCHAR},
+      </if>
+      <if test="codeTypeChiName != null" >
+        #{codeTypeChiName,jdbcType=VARCHAR},
+      </if>
+      <if test="codeDiscn != null" >
+        #{codeDiscn,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.rx.rmip.corebiz.service.modules.station.common.model.RSBTCodeDic" >
+    update RSBT_CODE_DIC
+    <set >
+      <if test="cn != null" >
+        CN = #{cn,jdbcType=VARCHAR},
+      </if>
+      <if test="codeChiName != null" >
+        CODE_CHI_NAME = #{codeChiName,jdbcType=VARCHAR},
+      </if>
+      <if test="codeDataType != null" >
+        CODE_DATA_TYPE = #{codeDataType,jdbcType=VARCHAR},
+      </if>
+      <if test="codeTypeChiName != null" >
+        CODE_TYPE_CHI_NAME = #{codeTypeChiName,jdbcType=VARCHAR},
+      </if>
+      <if test="codeDiscn != null" >
+        CODE_DISCN = #{codeDiscn,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where CO = #{co,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.rx.rmip.corebiz.service.modules.station.common.model.RSBTCodeDic" >
+    update RSBT_CODE_DIC
+    set CN = #{cn,jdbcType=VARCHAR},
+      CODE_CHI_NAME = #{codeChiName,jdbcType=VARCHAR},
+      CODE_DATA_TYPE = #{codeDataType,jdbcType=VARCHAR},
+      CODE_TYPE_CHI_NAME = #{codeTypeChiName,jdbcType=VARCHAR},
+      CODE_DISCN = #{codeDiscn,jdbcType=DECIMAL}
+    where CO = #{co,jdbcType=DECIMAL}
+  </update>
+  
+  <select id="selectByCodeDataType" parameterType="java.lang.String" resultType="com.rx.rmip.corebiz.service.modules.station.common.model.RSBTCodeDic">
+  	select * from RSBT_CODE_DIC t where t.code_data_type = #{codeDataType} 
+  </select> 
+  
+</mapper>

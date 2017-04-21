@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.rx.rmip.corebiz.service.modules.station.techdata.dao.RSBTFreqMapper" >
+  <resultMap id="BaseResultMap" type="com.rx.rmip.corebiz.service.modules.station.techdata.model.RSBTFreq" >
+    <id column="GUID" property="guid" jdbcType="VARCHAR" />
+    <result column="STATION_GUID" property="stationGuid" jdbcType="VARCHAR" />
+    <result column="FREQ_TYPE" property="freqType" jdbcType="VARCHAR" />
+    <result column="FREQ_LC" property="freqLc" jdbcType="DECIMAL" />
+    <result column="FREQ_UC" property="freqUc" jdbcType="DECIMAL" />
+    <result column="FREQ_EFB" property="freqEfb" jdbcType="DECIMAL" />
+    <result column="FREQ_EFE" property="freqEfe" jdbcType="DECIMAL" />
+    <result column="FREQ_E_BAND" property="freqEBand" jdbcType="DECIMAL" />
+    <result column="FREQ_RFB" property="freqRfb" jdbcType="DECIMAL" />
+    <result column="FREQ_RFE" property="freqRfe" jdbcType="DECIMAL" />
+    <result column="FREQ_R_BAND" property="freqRBand" jdbcType="DECIMAL" />
+    <result column="FREQ_MOD" property="freqMod" jdbcType="VARCHAR" />
+    <result column="FREQ_MB" property="freqMb" jdbcType="VARCHAR" />
+    <result column="FREQ_CODE" property="freqCode" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    GUID, STATION_GUID, FREQ_TYPE, FREQ_LC, FREQ_UC, FREQ_EFB, FREQ_EFE, FREQ_E_BAND, 
+    FREQ_RFB, FREQ_RFE, FREQ_R_BAND, FREQ_MOD, FREQ_MB, FREQ_CODE
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from RSBT_FREQ
+    where GUID = #{guid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from RSBT_FREQ
+    where GUID = #{guid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.rx.rmip.corebiz.service.modules.station.techdata.model.RSBTFreq" >
+    <!-- 自动生成guid并赋值给 #{guid}-->
+  		<selectKey keyProperty="guid" resultType="String" order="BEFORE">  
+            select sys_guid() from dual  
+        </selectKey> 
+    insert into RSBT_FREQ (GUID, STATION_GUID, FREQ_TYPE, 
+      FREQ_LC, FREQ_UC, FREQ_EFB, 
+      FREQ_EFE, FREQ_E_BAND, FREQ_RFB, 
+      FREQ_RFE, FREQ_R_BAND, FREQ_MOD, 
+      FREQ_MB, FREQ_CODE)
+    values (#{guid,jdbcType=VARCHAR}, #{stationGuid,jdbcType=VARCHAR}, #{freqType,jdbcType=VARCHAR}, 
+      #{freqLc,jdbcType=DECIMAL}, #{freqUc,jdbcType=DECIMAL}, #{freqEfb,jdbcType=DECIMAL}, 
+      #{freqEfe,jdbcType=DECIMAL}, #{freqEBand,jdbcType=DECIMAL}, #{freqRfb,jdbcType=DECIMAL}, 
+      #{freqRfe,jdbcType=DECIMAL}, #{freqRBand,jdbcType=DECIMAL}, #{freqMod,jdbcType=VARCHAR}, 
+      #{freqMb,jdbcType=VARCHAR}, #{freqCode,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.rx.rmip.corebiz.service.modules.station.techdata.model.RSBTFreq" >
+    insert into RSBT_FREQ
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="guid != null" >
+        GUID,
+      </if>
+      <if test="stationGuid != null" >
+        STATION_GUID,
+      </if>
+      <if test="freqType != null" >
+        FREQ_TYPE,
+      </if>
+      <if test="freqLc != null" >
+        FREQ_LC,
+      </if>
+      <if test="freqUc != null" >
+        FREQ_UC,
+      </if>
+      <if test="freqEfb != null" >
+        FREQ_EFB,
+      </if>
+      <if test="freqEfe != null" >
+        FREQ_EFE,
+      </if>
+      <if test="freqEBand != null" >
+        FREQ_E_BAND,
+      </if>
+      <if test="freqRfb != null" >
+        FREQ_RFB,
+      </if>
+      <if test="freqRfe != null" >
+        FREQ_RFE,
+      </if>
+      <if test="freqRBand != null" >
+        FREQ_R_BAND,
+      </if>
+      <if test="freqMod != null" >
+        FREQ_MOD,
+      </if>
+      <if test="freqMb != null" >
+        FREQ_MB,
+      </if>
+      <if test="freqCode != null" >
+        FREQ_CODE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="guid != null" >
+        #{guid,jdbcType=VARCHAR},
+      </if>
+      <if test="stationGuid != null" >
+        #{stationGuid,jdbcType=VARCHAR},
+      </if>
+      <if test="freqType != null" >
+        #{freqType,jdbcType=VARCHAR},
+      </if>
+      <if test="freqLc != null" >
+        #{freqLc,jdbcType=DECIMAL},
+      </if>
+      <if test="freqUc != null" >
+        #{freqUc,jdbcType=DECIMAL},
+      </if>
+      <if test="freqEfb != null" >
+        #{freqEfb,jdbcType=DECIMAL},
+      </if>
+      <if test="freqEfe != null" >
+        #{freqEfe,jdbcType=DECIMAL},
+      </if>
+      <if test="freqEBand != null" >
+        #{freqEBand,jdbcType=DECIMAL},
+      </if>
+      <if test="freqRfb != null" >
+        #{freqRfb,jdbcType=DECIMAL},
+      </if>
+      <if test="freqRfe != null" >
+        #{freqRfe,jdbcType=DECIMAL},
+      </if>
+      <if test="freqRBand != null" >
+        #{freqRBand,jdbcType=DECIMAL},
+      </if>
+      <if test="freqMod != null" >
+        #{freqMod,jdbcType=VARCHAR},
+      </if>
+      <if test="freqMb != null" >
+        #{freqMb,jdbcType=VARCHAR},
+      </if>
+      <if test="freqCode != null" >
+        #{freqCode,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.rx.rmip.corebiz.service.modules.station.techdata.model.RSBTFreq" >
+    update RSBT_FREQ
+    <set >
+      <if test="stationGuid != null" >
+        STATION_GUID = #{stationGuid,jdbcType=VARCHAR},
+      </if>
+      <if test="freqType != null" >
+        FREQ_TYPE = #{freqType,jdbcType=VARCHAR},
+      </if>
+      <if test="freqLc != null" >
+        FREQ_LC = #{freqLc,jdbcType=DECIMAL},
+      </if>
+      <if test="freqUc != null" >
+        FREQ_UC = #{freqUc,jdbcType=DECIMAL},
+      </if>
+      <if test="freqEfb != null" >
+        FREQ_EFB = #{freqEfb,jdbcType=DECIMAL},
+      </if>
+      <if test="freqEfe != null" >
+        FREQ_EFE = #{freqEfe,jdbcType=DECIMAL},
+      </if>
+      <if test="freqEBand != null" >
+        FREQ_E_BAND = #{freqEBand,jdbcType=DECIMAL},
+      </if>
+      <if test="freqRfb != null" >
+        FREQ_RFB = #{freqRfb,jdbcType=DECIMAL},
+      </if>
+      <if test="freqRfe != null" >
+        FREQ_RFE = #{freqRfe,jdbcType=DECIMAL},
+      </if>
+      <if test="freqRBand != null" >
+        FREQ_R_BAND = #{freqRBand,jdbcType=DECIMAL},
+      </if>
+      <if test="freqMod != null" >
+        FREQ_MOD = #{freqMod,jdbcType=VARCHAR},
+      </if>
+      <if test="freqMb != null" >
+        FREQ_MB = #{freqMb,jdbcType=VARCHAR},
+      </if>
+      <if test="freqCode != null" >
+        FREQ_CODE = #{freqCode,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where GUID = #{guid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.rx.rmip.corebiz.service.modules.station.techdata.model.RSBTFreq" >
+    update RSBT_FREQ
+    set STATION_GUID = #{stationGuid,jdbcType=VARCHAR},
+      FREQ_TYPE = #{freqType,jdbcType=VARCHAR},
+      FREQ_LC = #{freqLc,jdbcType=DECIMAL},
+      FREQ_UC = #{freqUc,jdbcType=DECIMAL},
+      FREQ_EFB = #{freqEfb,jdbcType=DECIMAL},
+      FREQ_EFE = #{freqEfe,jdbcType=DECIMAL},
+      FREQ_E_BAND = #{freqEBand,jdbcType=DECIMAL},
+      FREQ_RFB = #{freqRfb,jdbcType=DECIMAL},
+      FREQ_RFE = #{freqRfe,jdbcType=DECIMAL},
+      FREQ_R_BAND = #{freqRBand,jdbcType=DECIMAL},
+      FREQ_MOD = #{freqMod,jdbcType=VARCHAR},
+      FREQ_MB = #{freqMb,jdbcType=VARCHAR},
+      FREQ_CODE = #{freqCode,jdbcType=VARCHAR}
+    where GUID = #{guid,jdbcType=VARCHAR}
+  </update>
+</mapper>

@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.rx.rmip.corebiz.service.modules.station.techdata.dao.RSBTSTCobjMapper" >
+  <resultMap id="BaseResultMap" type="com.rx.rmip.corebiz.service.modules.station.techdata.model.RSBTSTCobj" >
+    <id column="GUID" property="guid" jdbcType="VARCHAR" />
+    <result column="STATION_GUID" property="stationGuid" jdbcType="VARCHAR" />
+    <result column="OBJ_TYPE" property="objType" jdbcType="VARCHAR" />
+    <result column="OBJ_NAME" property="objName" jdbcType="VARCHAR" />
+    <result column="OBJ_TDI" property="objTdi" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    GUID, STATION_GUID, OBJ_TYPE, OBJ_NAME, OBJ_TDI
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from RSBT_ST_COBJ
+    where GUID = #{guid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from RSBT_ST_COBJ
+    where GUID = #{guid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.rx.rmip.corebiz.service.modules.station.techdata.model.RSBTSTCobj" >
+    <!-- 自动生成guid并赋值给 #{guid}-->
+  		<selectKey keyProperty="guid" resultType="String" order="BEFORE">  
+            select sys_guid() from dual  
+        </selectKey> 
+    insert into RSBT_ST_COBJ (GUID, STATION_GUID, OBJ_TYPE, 
+      OBJ_NAME, OBJ_TDI)
+    values (#{guid,jdbcType=VARCHAR}, #{stationGuid,jdbcType=VARCHAR}, #{objType,jdbcType=VARCHAR}, 
+      #{objName,jdbcType=VARCHAR}, #{objTdi,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.rx.rmip.corebiz.service.modules.station.techdata.model.RSBTSTCobj" >
+    insert into RSBT_ST_COBJ
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="guid != null" >
+        GUID,
+      </if>
+      <if test="stationGuid != null" >
+        STATION_GUID,
+      </if>
+      <if test="objType != null" >
+        OBJ_TYPE,
+      </if>
+      <if test="objName != null" >
+        OBJ_NAME,
+      </if>
+      <if test="objTdi != null" >
+        OBJ_TDI,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="guid != null" >
+        #{guid,jdbcType=VARCHAR},
+      </if>
+      <if test="stationGuid != null" >
+        #{stationGuid,jdbcType=VARCHAR},
+      </if>
+      <if test="objType != null" >
+        #{objType,jdbcType=VARCHAR},
+      </if>
+      <if test="objName != null" >
+        #{objName,jdbcType=VARCHAR},
+      </if>
+      <if test="objTdi != null" >
+        #{objTdi,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.rx.rmip.corebiz.service.modules.station.techdata.model.RSBTSTCobj" >
+    update RSBT_ST_COBJ
+    <set >
+      <if test="stationGuid != null" >
+        STATION_GUID = #{stationGuid,jdbcType=VARCHAR},
+      </if>
+      <if test="objType != null" >
+        OBJ_TYPE = #{objType,jdbcType=VARCHAR},
+      </if>
+      <if test="objName != null" >
+        OBJ_NAME = #{objName,jdbcType=VARCHAR},
+      </if>
+      <if test="objTdi != null" >
+        OBJ_TDI = #{objTdi,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where GUID = #{guid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.rx.rmip.corebiz.service.modules.station.techdata.model.RSBTSTCobj" >
+    update RSBT_ST_COBJ
+    set STATION_GUID = #{stationGuid,jdbcType=VARCHAR},
+      OBJ_TYPE = #{objType,jdbcType=VARCHAR},
+      OBJ_NAME = #{objName,jdbcType=VARCHAR},
+      OBJ_TDI = #{objTdi,jdbcType=VARCHAR}
+    where GUID = #{guid,jdbcType=VARCHAR}
+  </update>
+</mapper>

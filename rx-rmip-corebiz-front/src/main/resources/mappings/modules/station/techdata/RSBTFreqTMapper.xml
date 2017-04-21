@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.rx.rmip.corebiz.service.modules.station.techdata.dao.RSBTFreqTMapper" >
+  <resultMap id="BaseResultMap" type="com.rx.rmip.corebiz.service.modules.station.techdata.model.RSBTFreqT" >
+    <id column="GUID" property="guid" jdbcType="VARCHAR" />
+    <result column="FT_FREQ_NO" property="ftFreqNo" jdbcType="VARCHAR" />
+    <result column="FT_FREQ_TIMEB" property="ftFreqTimeb" jdbcType="DATE" />
+    <result column="FT_FREQ_TIMEE" property="ftFreqTimee" jdbcType="DATE" />
+    <result column="FT_FREQ_INFO_TYPE" property="ftFreqInfoType" jdbcType="VARCHAR" />
+    <result column="FT_FREQ_HCL" property="ftFreqHcl" jdbcType="VARCHAR" />
+    <result column="FT_FREQ_TYPE" property="ftFreqType" jdbcType="VARCHAR" />
+    <result column="FT_FREQ_MC" property="ftFreqMc" jdbcType="VARCHAR" />
+    <result column="FT_FREQ_MC1" property="ftFreqMc1" jdbcType="VARCHAR" />
+    <result column="FT_FREQ_MC2" property="ftFreqMc2" jdbcType="VARCHAR" />
+    <result column="FT_FREQ_MC3" property="ftFreqMc3" jdbcType="VARCHAR" />
+    <result column="FT_FREQ_CCODE" property="ftFreqCcode" jdbcType="VARCHAR" />
+    <result column="FT_FREQ_CSGN" property="ftFreqCsgn" jdbcType="VARCHAR" />
+    <result column="FT_FREQ_DUPDN" property="ftFreqDupdn" jdbcType="VARCHAR" />
+    <result column="FT_FREQ_UNIT_TYPE" property="ftFreqUnitType" jdbcType="VARCHAR" />
+    <result column="FT_FREQ_FEP" property="ftFreqFep" jdbcType="VARCHAR" />
+    <result column="FT_FREQ_FRP" property="ftFreqFrp" jdbcType="VARCHAR" />
+    <result column="FT_FREQ_EPOW" property="ftFreqEpow" jdbcType="DECIMAL" />
+    <result column="FT_FREQ_POWFLAG" property="ftFreqPowflag" jdbcType="VARCHAR" />
+    <result column="FT_FREQ_EIRP" property="ftFreqEirp" jdbcType="DECIMAL" />
+    <result column="FT_FREQ_POW_MAX" property="ftFreqPowMax" jdbcType="DECIMAL" />
+    <result column="FT_FREQ_POW_AVG" property="ftFreqPowAvg" jdbcType="DECIMAL" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    GUID, FT_FREQ_NO, FT_FREQ_TIMEB, FT_FREQ_TIMEE, FT_FREQ_INFO_TYPE, FT_FREQ_HCL, FT_FREQ_TYPE, 
+    FT_FREQ_MC, FT_FREQ_MC1, FT_FREQ_MC2, FT_FREQ_MC3, FT_FREQ_CCODE, FT_FREQ_CSGN, FT_FREQ_DUPDN, 
+    FT_FREQ_UNIT_TYPE, FT_FREQ_FEP, FT_FREQ_FRP, FT_FREQ_EPOW, FT_FREQ_POWFLAG, FT_FREQ_EIRP, 
+    FT_FREQ_POW_MAX, FT_FREQ_POW_AVG
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from RSBT_FREQ_T
+    where GUID = #{guid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from RSBT_FREQ_T
+    where GUID = #{guid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.rx.rmip.corebiz.service.modules.station.techdata.model.RSBTFreqT" >
+    insert into RSBT_FREQ_T (GUID, FT_FREQ_NO, FT_FREQ_TIMEB, 
+      FT_FREQ_TIMEE, FT_FREQ_INFO_TYPE, FT_FREQ_HCL, 
+      FT_FREQ_TYPE, FT_FREQ_MC, FT_FREQ_MC1, 
+      FT_FREQ_MC2, FT_FREQ_MC3, FT_FREQ_CCODE, 
+      FT_FREQ_CSGN, FT_FREQ_DUPDN, FT_FREQ_UNIT_TYPE, 
+      FT_FREQ_FEP, FT_FREQ_FRP, FT_FREQ_EPOW, 
+      FT_FREQ_POWFLAG, FT_FREQ_EIRP, FT_FREQ_POW_MAX, 
+      FT_FREQ_POW_AVG)
+    values (#{guid,jdbcType=VARCHAR}, #{ftFreqNo,jdbcType=VARCHAR}, #{ftFreqTimeb,jdbcType=DATE}, 
+      #{ftFreqTimee,jdbcType=DATE}, #{ftFreqInfoType,jdbcType=VARCHAR}, #{ftFreqHcl,jdbcType=VARCHAR}, 
+      #{ftFreqType,jdbcType=VARCHAR}, #{ftFreqMc,jdbcType=VARCHAR}, #{ftFreqMc1,jdbcType=VARCHAR}, 
+      #{ftFreqMc2,jdbcType=VARCHAR}, #{ftFreqMc3,jdbcType=VARCHAR}, #{ftFreqCcode,jdbcType=VARCHAR}, 
+      #{ftFreqCsgn,jdbcType=VARCHAR}, #{ftFreqDupdn,jdbcType=VARCHAR}, #{ftFreqUnitType,jdbcType=VARCHAR}, 
+      #{ftFreqFep,jdbcType=VARCHAR}, #{ftFreqFrp,jdbcType=VARCHAR}, #{ftFreqEpow,jdbcType=DECIMAL}, 
+      #{ftFreqPowflag,jdbcType=VARCHAR}, #{ftFreqEirp,jdbcType=DECIMAL}, #{ftFreqPowMax,jdbcType=DECIMAL}, 
+      #{ftFreqPowAvg,jdbcType=DECIMAL})
+  </insert>
+  <insert id="insertSelective" parameterType="com.rx.rmip.corebiz.service.modules.station.techdata.model.RSBTFreqT" >
+    insert into RSBT_FREQ_T
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="guid != null" >
+        GUID,
+      </if>
+      <if test="ftFreqNo != null" >
+        FT_FREQ_NO,
+      </if>
+      <if test="ftFreqTimeb != null" >
+        FT_FREQ_TIMEB,
+      </if>
+      <if test="ftFreqTimee != null" >
+        FT_FREQ_TIMEE,
+      </if>
+      <if test="ftFreqInfoType != null" >
+        FT_FREQ_INFO_TYPE,
+      </if>
+      <if test="ftFreqHcl != null" >
+        FT_FREQ_HCL,
+      </if>
+      <if test="ftFreqType != null" >
+        FT_FREQ_TYPE,
+      </if>
+      <if test="ftFreqMc != null" >
+        FT_FREQ_MC,
+      </if>
+      <if test="ftFreqMc1 != null" >
+        FT_FREQ_MC1,
+      </if>
+      <if test="ftFreqMc2 != null" >
+        FT_FREQ_MC2,
+      </if>
+      <if test="ftFreqMc3 != null" >
+        FT_FREQ_MC3,
+      </if>
+      <if test="ftFreqCcode != null" >
+        FT_FREQ_CCODE,
+      </if>
+      <if test="ftFreqCsgn != null" >
+        FT_FREQ_CSGN,
+      </if>
+      <if test="ftFreqDupdn != null" >
+        FT_FREQ_DUPDN,
+      </if>
+      <if test="ftFreqUnitType != null" >
+        FT_FREQ_UNIT_TYPE,
+      </if>
+      <if test="ftFreqFep != null" >
+        FT_FREQ_FEP,
+      </if>
+      <if test="ftFreqFrp != null" >
+        FT_FREQ_FRP,
+      </if>
+      <if test="ftFreqEpow != null" >
+        FT_FREQ_EPOW,
+      </if>
+      <if test="ftFreqPowflag != null" >
+        FT_FREQ_POWFLAG,
+      </if>
+      <if test="ftFreqEirp != null" >
+        FT_FREQ_EIRP,
+      </if>
+      <if test="ftFreqPowMax != null" >
+        FT_FREQ_POW_MAX,
+      </if>
+      <if test="ftFreqPowAvg != null" >
+        FT_FREQ_POW_AVG,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="guid != null" >
+        #{guid,jdbcType=VARCHAR},
+      </if>
+      <if test="ftFreqNo != null" >
+        #{ftFreqNo,jdbcType=VARCHAR},
+      </if>
+      <if test="ftFreqTimeb != null" >
+        #{ftFreqTimeb,jdbcType=DATE},
+      </if>
+      <if test="ftFreqTimee != null" >
+        #{ftFreqTimee,jdbcType=DATE},
+      </if>
+      <if test="ftFreqInfoType != null" >
+        #{ftFreqInfoType,jdbcType=VARCHAR},
+      </if>
+      <if test="ftFreqHcl != null" >
+        #{ftFreqHcl,jdbcType=VARCHAR},
+      </if>
+      <if test="ftFreqType != null" >
+        #{ftFreqType,jdbcType=VARCHAR},
+      </if>
+      <if test="ftFreqMc != null" >
+        #{ftFreqMc,jdbcType=VARCHAR},
+      </if>
+      <if test="ftFreqMc1 != null" >
+        #{ftFreqMc1,jdbcType=VARCHAR},
+      </if>
+      <if test="ftFreqMc2 != null" >
+        #{ftFreqMc2,jdbcType=VARCHAR},
+      </if>
+      <if test="ftFreqMc3 != null" >
+        #{ftFreqMc3,jdbcType=VARCHAR},
+      </if>
+      <if test="ftFreqCcode != null" >
+        #{ftFreqCcode,jdbcType=VARCHAR},
+      </if>
+      <if test="ftFreqCsgn != null" >
+        #{ftFreqCsgn,jdbcType=VARCHAR},
+      </if>
+      <if test="ftFreqDupdn != null" >
+        #{ftFreqDupdn,jdbcType=VARCHAR},
+      </if>
+      <if test="ftFreqUnitType != null" >
+        #{ftFreqUnitType,jdbcType=VARCHAR},
+      </if>
+      <if test="ftFreqFep != null" >
+        #{ftFreqFep,jdbcType=VARCHAR},
+      </if>
+      <if test="ftFreqFrp != null" >
+        #{ftFreqFrp,jdbcType=VARCHAR},
+      </if>
+      <if test="ftFreqEpow != null" >
+        #{ftFreqEpow,jdbcType=DECIMAL},
+      </if>
+      <if test="ftFreqPowflag != null" >
+        #{ftFreqPowflag,jdbcType=VARCHAR},
+      </if>
+      <if test="ftFreqEirp != null" >
+        #{ftFreqEirp,jdbcType=DECIMAL},
+      </if>
+      <if test="ftFreqPowMax != null" >
+        #{ftFreqPowMax,jdbcType=DECIMAL},
+      </if>
+      <if test="ftFreqPowAvg != null" >
+        #{ftFreqPowAvg,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.rx.rmip.corebiz.service.modules.station.techdata.model.RSBTFreqT" >
+    update RSBT_FREQ_T
+    <set >
+      <if test="ftFreqNo != null" >
+        FT_FREQ_NO = #{ftFreqNo,jdbcType=VARCHAR},
+      </if>
+      <if test="ftFreqTimeb != null" >
+        FT_FREQ_TIMEB = #{ftFreqTimeb,jdbcType=DATE},
+      </if>
+      <if test="ftFreqTimee != null" >
+        FT_FREQ_TIMEE = #{ftFreqTimee,jdbcType=DATE},
+      </if>
+      <if test="ftFreqInfoType != null" >
+        FT_FREQ_INFO_TYPE = #{ftFreqInfoType,jdbcType=VARCHAR},
+      </if>
+      <if test="ftFreqHcl != null" >
+        FT_FREQ_HCL = #{ftFreqHcl,jdbcType=VARCHAR},
+      </if>
+      <if test="ftFreqType != null" >
+        FT_FREQ_TYPE = #{ftFreqType,jdbcType=VARCHAR},
+      </if>
+      <if test="ftFreqMc != null" >
+        FT_FREQ_MC = #{ftFreqMc,jdbcType=VARCHAR},
+      </if>
+      <if test="ftFreqMc1 != null" >
+        FT_FREQ_MC1 = #{ftFreqMc1,jdbcType=VARCHAR},
+      </if>
+      <if test="ftFreqMc2 != null" >
+        FT_FREQ_MC2 = #{ftFreqMc2,jdbcType=VARCHAR},
+      </if>
+      <if test="ftFreqMc3 != null" >
+        FT_FREQ_MC3 = #{ftFreqMc3,jdbcType=VARCHAR},
+      </if>
+      <if test="ftFreqCcode != null" >
+        FT_FREQ_CCODE = #{ftFreqCcode,jdbcType=VARCHAR},
+      </if>
+      <if test="ftFreqCsgn != null" >
+        FT_FREQ_CSGN = #{ftFreqCsgn,jdbcType=VARCHAR},
+      </if>
+      <if test="ftFreqDupdn != null" >
+        FT_FREQ_DUPDN = #{ftFreqDupdn,jdbcType=VARCHAR},
+      </if>
+      <if test="ftFreqUnitType != null" >
+        FT_FREQ_UNIT_TYPE = #{ftFreqUnitType,jdbcType=VARCHAR},
+      </if>
+      <if test="ftFreqFep != null" >
+        FT_FREQ_FEP = #{ftFreqFep,jdbcType=VARCHAR},
+      </if>
+      <if test="ftFreqFrp != null" >
+        FT_FREQ_FRP = #{ftFreqFrp,jdbcType=VARCHAR},
+      </if>
+      <if test="ftFreqEpow != null" >
+        FT_FREQ_EPOW = #{ftFreqEpow,jdbcType=DECIMAL},
+      </if>
+      <if test="ftFreqPowflag != null" >
+        FT_FREQ_POWFLAG = #{ftFreqPowflag,jdbcType=VARCHAR},
+      </if>
+      <if test="ftFreqEirp != null" >
+        FT_FREQ_EIRP = #{ftFreqEirp,jdbcType=DECIMAL},
+      </if>
+      <if test="ftFreqPowMax != null" >
+        FT_FREQ_POW_MAX = #{ftFreqPowMax,jdbcType=DECIMAL},
+      </if>
+      <if test="ftFreqPowAvg != null" >
+        FT_FREQ_POW_AVG = #{ftFreqPowAvg,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where GUID = #{guid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.rx.rmip.corebiz.service.modules.station.techdata.model.RSBTFreqT" >
+    update RSBT_FREQ_T
+    set FT_FREQ_NO = #{ftFreqNo,jdbcType=VARCHAR},
+      FT_FREQ_TIMEB = #{ftFreqTimeb,jdbcType=DATE},
+      FT_FREQ_TIMEE = #{ftFreqTimee,jdbcType=DATE},
+      FT_FREQ_INFO_TYPE = #{ftFreqInfoType,jdbcType=VARCHAR},
+      FT_FREQ_HCL = #{ftFreqHcl,jdbcType=VARCHAR},
+      FT_FREQ_TYPE = #{ftFreqType,jdbcType=VARCHAR},
+      FT_FREQ_MC = #{ftFreqMc,jdbcType=VARCHAR},
+      FT_FREQ_MC1 = #{ftFreqMc1,jdbcType=VARCHAR},
+      FT_FREQ_MC2 = #{ftFreqMc2,jdbcType=VARCHAR},
+      FT_FREQ_MC3 = #{ftFreqMc3,jdbcType=VARCHAR},
+      FT_FREQ_CCODE = #{ftFreqCcode,jdbcType=VARCHAR},
+      FT_FREQ_CSGN = #{ftFreqCsgn,jdbcType=VARCHAR},
+      FT_FREQ_DUPDN = #{ftFreqDupdn,jdbcType=VARCHAR},
+      FT_FREQ_UNIT_TYPE = #{ftFreqUnitType,jdbcType=VARCHAR},
+      FT_FREQ_FEP = #{ftFreqFep,jdbcType=VARCHAR},
+      FT_FREQ_FRP = #{ftFreqFrp,jdbcType=VARCHAR},
+      FT_FREQ_EPOW = #{ftFreqEpow,jdbcType=DECIMAL},
+      FT_FREQ_POWFLAG = #{ftFreqPowflag,jdbcType=VARCHAR},
+      FT_FREQ_EIRP = #{ftFreqEirp,jdbcType=DECIMAL},
+      FT_FREQ_POW_MAX = #{ftFreqPowMax,jdbcType=DECIMAL},
+      FT_FREQ_POW_AVG = #{ftFreqPowAvg,jdbcType=DECIMAL}
+    where GUID = #{guid,jdbcType=VARCHAR}
+  </update>
+</mapper>

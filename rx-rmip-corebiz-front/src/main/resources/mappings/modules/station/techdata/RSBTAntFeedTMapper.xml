@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.rx.rmip.corebiz.service.modules.station.techdata.dao.RSBTAntFeedTMapper" >
+  <resultMap id="BaseResultMap" type="com.rx.rmip.corebiz.service.modules.station.techdata.model.RSBTAntFeedT" >
+    <id column="GUID" property="guid" jdbcType="VARCHAR" />
+    <result column="AT_ANT_NO" property="atAntNo" jdbcType="VARCHAR" />
+    <result column="AT_SE_B" property="atSeB" jdbcType="DECIMAL" />
+    <result column="AT_SE_E" property="atSeE" jdbcType="DECIMAL" />
+    <result column="AT_ANG_B" property="atAngB" jdbcType="DECIMAL" />
+    <result column="AT_ANG_E" property="atAngE" jdbcType="DECIMAL" />
+    <result column="AT_RNT" property="atRnt" jdbcType="DECIMAL" />
+    <result column="AT_BWID" property="atBwid" jdbcType="DECIMAL" />
+    <result column="AT_LEL" property="atLel" jdbcType="DECIMAL" />
+    <result column="AT_SSPEED" property="atSspeed" jdbcType="DECIMAL" />
+    <result column="AT_CCODE" property="atCcode" jdbcType="VARCHAR" />
+    <result column="AT_3DBE" property="at3dbe" jdbcType="DECIMAL" />
+    <result column="AT_3DBR" property="at3dbr" jdbcType="DECIMAL" />
+    <result column="AT_RANG" property="atRang" jdbcType="DECIMAL" />
+    <result column="AT_EANG" property="atEang" jdbcType="DECIMAL" />
+    <result column="AT_CSGN" property="atCsgn" jdbcType="VARCHAR" />
+    <result column="AT_UPDN" property="atUpdn" jdbcType="VARCHAR" />
+    <result column="AT_SUM" property="atSum" jdbcType="DECIMAL" />
+    <result column="AT_QUA" property="atQua" jdbcType="VARCHAR" />
+    <result column="AT_UNIT_TYPE" property="atUnitType" jdbcType="VARCHAR" />
+    <result column="AT_H_HPIC" property="atHHpic" jdbcType="VARCHAR" />
+    <result column="AT_H_VPIC" property="atHVpic" jdbcType="VARCHAR" />
+    <result column="AT_ANT_UPANG" property="atAntUpang" jdbcType="DECIMAL" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    GUID, AT_ANT_NO, AT_SE_B, AT_SE_E, AT_ANG_B, AT_ANG_E, AT_RNT, AT_BWID, AT_LEL, AT_SSPEED, 
+    AT_CCODE, AT_3DBE, AT_3DBR, AT_RANG, AT_EANG, AT_CSGN, AT_UPDN, AT_SUM, AT_QUA, AT_UNIT_TYPE, 
+    AT_H_HPIC, AT_H_VPIC, AT_ANT_UPANG
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from RSBT_ANTFEED_T
+    where GUID = #{guid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from RSBT_ANTFEED_T
+    where GUID = #{guid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.rx.rmip.corebiz.service.modules.station.techdata.model.RSBTAntFeedT" >
+    insert into RSBT_ANTFEED_T (GUID, AT_ANT_NO, AT_SE_B, 
+      AT_SE_E, AT_ANG_B, AT_ANG_E, 
+      AT_RNT, AT_BWID, AT_LEL, 
+      AT_SSPEED, AT_CCODE, AT_3DBE, 
+      AT_3DBR, AT_RANG, AT_EANG, 
+      AT_CSGN, AT_UPDN, AT_SUM, 
+      AT_QUA, AT_UNIT_TYPE, AT_H_HPIC, 
+      AT_H_VPIC, AT_ANT_UPANG)
+    values (#{guid,jdbcType=VARCHAR}, #{atAntNo,jdbcType=VARCHAR}, #{atSeB,jdbcType=DECIMAL}, 
+      #{atSeE,jdbcType=DECIMAL}, #{atAngB,jdbcType=DECIMAL}, #{atAngE,jdbcType=DECIMAL}, 
+      #{atRnt,jdbcType=DECIMAL}, #{atBwid,jdbcType=DECIMAL}, #{atLel,jdbcType=DECIMAL}, 
+      #{atSspeed,jdbcType=DECIMAL}, #{atCcode,jdbcType=VARCHAR}, #{at3dbe,jdbcType=DECIMAL}, 
+      #{at3dbr,jdbcType=DECIMAL}, #{atRang,jdbcType=DECIMAL}, #{atEang,jdbcType=DECIMAL}, 
+      #{atCsgn,jdbcType=VARCHAR}, #{atUpdn,jdbcType=VARCHAR}, #{atSum,jdbcType=DECIMAL}, 
+      #{atQua,jdbcType=VARCHAR}, #{atUnitType,jdbcType=VARCHAR}, #{atHHpic,jdbcType=VARCHAR}, 
+      #{atHVpic,jdbcType=VARCHAR}, #{atAntUpang,jdbcType=DECIMAL})
+  </insert>
+  <insert id="insertSelective" parameterType="com.rx.rmip.corebiz.service.modules.station.techdata.model.RSBTAntFeedT" >
+    insert into RSBT_ANTFEED_T
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="guid != null" >
+        GUID,
+      </if>
+      <if test="atAntNo != null" >
+        AT_ANT_NO,
+      </if>
+      <if test="atSeB != null" >
+        AT_SE_B,
+      </if>
+      <if test="atSeE != null" >
+        AT_SE_E,
+      </if>
+      <if test="atAngB != null" >
+        AT_ANG_B,
+      </if>
+      <if test="atAngE != null" >
+        AT_ANG_E,
+      </if>
+      <if test="atRnt != null" >
+        AT_RNT,
+      </if>
+      <if test="atBwid != null" >
+        AT_BWID,
+      </if>
+      <if test="atLel != null" >
+        AT_LEL,
+      </if>
+      <if test="atSspeed != null" >
+        AT_SSPEED,
+      </if>
+      <if test="atCcode != null" >
+        AT_CCODE,
+      </if>
+      <if test="at3dbe != null" >
+        AT_3DBE,
+      </if>
+      <if test="at3dbr != null" >
+        AT_3DBR,
+      </if>
+      <if test="atRang != null" >
+        AT_RANG,
+      </if>
+      <if test="atEang != null" >
+        AT_EANG,
+      </if>
+      <if test="atCsgn != null" >
+        AT_CSGN,
+      </if>
+      <if test="atUpdn != null" >
+        AT_UPDN,
+      </if>
+      <if test="atSum != null" >
+        AT_SUM,
+      </if>
+      <if test="atQua != null" >
+        AT_QUA,
+      </if>
+      <if test="atUnitType != null" >
+        AT_UNIT_TYPE,
+      </if>
+      <if test="atHHpic != null" >
+        AT_H_HPIC,
+      </if>
+      <if test="atHVpic != null" >
+        AT_H_VPIC,
+      </if>
+      <if test="atAntUpang != null" >
+        AT_ANT_UPANG,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="guid != null" >
+        #{guid,jdbcType=VARCHAR},
+      </if>
+      <if test="atAntNo != null" >
+        #{atAntNo,jdbcType=VARCHAR},
+      </if>
+      <if test="atSeB != null" >
+        #{atSeB,jdbcType=DECIMAL},
+      </if>
+      <if test="atSeE != null" >
+        #{atSeE,jdbcType=DECIMAL},
+      </if>
+      <if test="atAngB != null" >
+        #{atAngB,jdbcType=DECIMAL},
+      </if>
+      <if test="atAngE != null" >
+        #{atAngE,jdbcType=DECIMAL},
+      </if>
+      <if test="atRnt != null" >
+        #{atRnt,jdbcType=DECIMAL},
+      </if>
+      <if test="atBwid != null" >
+        #{atBwid,jdbcType=DECIMAL},
+      </if>
+      <if test="atLel != null" >
+        #{atLel,jdbcType=DECIMAL},
+      </if>
+      <if test="atSspeed != null" >
+        #{atSspeed,jdbcType=DECIMAL},
+      </if>
+      <if test="atCcode != null" >
+        #{atCcode,jdbcType=VARCHAR},
+      </if>
+      <if test="at3dbe != null" >
+        #{at3dbe,jdbcType=DECIMAL},
+      </if>
+      <if test="at3dbr != null" >
+        #{at3dbr,jdbcType=DECIMAL},
+      </if>
+      <if test="atRang != null" >
+        #{atRang,jdbcType=DECIMAL},
+      </if>
+      <if test="atEang != null" >
+        #{atEang,jdbcType=DECIMAL},
+      </if>
+      <if test="atCsgn != null" >
+        #{atCsgn,jdbcType=VARCHAR},
+      </if>
+      <if test="atUpdn != null" >
+        #{atUpdn,jdbcType=VARCHAR},
+      </if>
+      <if test="atSum != null" >
+        #{atSum,jdbcType=DECIMAL},
+      </if>
+      <if test="atQua != null" >
+        #{atQua,jdbcType=VARCHAR},
+      </if>
+      <if test="atUnitType != null" >
+        #{atUnitType,jdbcType=VARCHAR},
+      </if>
+      <if test="atHHpic != null" >
+        #{atHHpic,jdbcType=VARCHAR},
+      </if>
+      <if test="atHVpic != null" >
+        #{atHVpic,jdbcType=VARCHAR},
+      </if>
+      <if test="atAntUpang != null" >
+        #{atAntUpang,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.rx.rmip.corebiz.service.modules.station.techdata.model.RSBTAntFeedT" >
+    update RSBT_ANTFEED_T
+    <set >
+      <if test="atAntNo != null" >
+        AT_ANT_NO = #{atAntNo,jdbcType=VARCHAR},
+      </if>
+      <if test="atSeB != null" >
+        AT_SE_B = #{atSeB,jdbcType=DECIMAL},
+      </if>
+      <if test="atSeE != null" >
+        AT_SE_E = #{atSeE,jdbcType=DECIMAL},
+      </if>
+      <if test="atAngB != null" >
+        AT_ANG_B = #{atAngB,jdbcType=DECIMAL},
+      </if>
+      <if test="atAngE != null" >
+        AT_ANG_E = #{atAngE,jdbcType=DECIMAL},
+      </if>
+      <if test="atRnt != null" >
+        AT_RNT = #{atRnt,jdbcType=DECIMAL},
+      </if>
+      <if test="atBwid != null" >
+        AT_BWID = #{atBwid,jdbcType=DECIMAL},
+      </if>
+      <if test="atLel != null" >
+        AT_LEL = #{atLel,jdbcType=DECIMAL},
+      </if>
+      <if test="atSspeed != null" >
+        AT_SSPEED = #{atSspeed,jdbcType=DECIMAL},
+      </if>
+      <if test="atCcode != null" >
+        AT_CCODE = #{atCcode,jdbcType=VARCHAR},
+      </if>
+      <if test="at3dbe != null" >
+        AT_3DBE = #{at3dbe,jdbcType=DECIMAL},
+      </if>
+      <if test="at3dbr != null" >
+        AT_3DBR = #{at3dbr,jdbcType=DECIMAL},
+      </if>
+      <if test="atRang != null" >
+        AT_RANG = #{atRang,jdbcType=DECIMAL},
+      </if>
+      <if test="atEang != null" >
+        AT_EANG = #{atEang,jdbcType=DECIMAL},
+      </if>
+      <if test="atCsgn != null" >
+        AT_CSGN = #{atCsgn,jdbcType=VARCHAR},
+      </if>
+      <if test="atUpdn != null" >
+        AT_UPDN = #{atUpdn,jdbcType=VARCHAR},
+      </if>
+      <if test="atSum != null" >
+        AT_SUM = #{atSum,jdbcType=DECIMAL},
+      </if>
+      <if test="atQua != null" >
+        AT_QUA = #{atQua,jdbcType=VARCHAR},
+      </if>
+      <if test="atUnitType != null" >
+        AT_UNIT_TYPE = #{atUnitType,jdbcType=VARCHAR},
+      </if>
+      <if test="atHHpic != null" >
+        AT_H_HPIC = #{atHHpic,jdbcType=VARCHAR},
+      </if>
+      <if test="atHVpic != null" >
+        AT_H_VPIC = #{atHVpic,jdbcType=VARCHAR},
+      </if>
+      <if test="atAntUpang != null" >
+        AT_ANT_UPANG = #{atAntUpang,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where GUID = #{guid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.rx.rmip.corebiz.service.modules.station.techdata.model.RSBTAntFeedT" >
+    update RSBT_ANTFEED_T
+    set AT_ANT_NO = #{atAntNo,jdbcType=VARCHAR},
+      AT_SE_B = #{atSeB,jdbcType=DECIMAL},
+      AT_SE_E = #{atSeE,jdbcType=DECIMAL},
+      AT_ANG_B = #{atAngB,jdbcType=DECIMAL},
+      AT_ANG_E = #{atAngE,jdbcType=DECIMAL},
+      AT_RNT = #{atRnt,jdbcType=DECIMAL},
+      AT_BWID = #{atBwid,jdbcType=DECIMAL},
+      AT_LEL = #{atLel,jdbcType=DECIMAL},
+      AT_SSPEED = #{atSspeed,jdbcType=DECIMAL},
+      AT_CCODE = #{atCcode,jdbcType=VARCHAR},
+      AT_3DBE = #{at3dbe,jdbcType=DECIMAL},
+      AT_3DBR = #{at3dbr,jdbcType=DECIMAL},
+      AT_RANG = #{atRang,jdbcType=DECIMAL},
+      AT_EANG = #{atEang,jdbcType=DECIMAL},
+      AT_CSGN = #{atCsgn,jdbcType=VARCHAR},
+      AT_UPDN = #{atUpdn,jdbcType=VARCHAR},
+      AT_SUM = #{atSum,jdbcType=DECIMAL},
+      AT_QUA = #{atQua,jdbcType=VARCHAR},
+      AT_UNIT_TYPE = #{atUnitType,jdbcType=VARCHAR},
+      AT_H_HPIC = #{atHHpic,jdbcType=VARCHAR},
+      AT_H_VPIC = #{atHVpic,jdbcType=VARCHAR},
+      AT_ANT_UPANG = #{atAntUpang,jdbcType=DECIMAL}
+    where GUID = #{guid,jdbcType=VARCHAR}
+  </update>
+</mapper>

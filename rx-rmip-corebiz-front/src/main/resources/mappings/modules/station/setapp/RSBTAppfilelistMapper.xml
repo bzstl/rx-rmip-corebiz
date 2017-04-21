@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.rx.rmip.corebiz.service.modules.station.settingapply.dao.RSBTAppfilelistMapper" >
+  <resultMap id="BaseResultMap" type="com.rx.rmip.corebiz.service.modules.station.settingapply.model.RSBTAppfilelist" >
+    <id column="GUID" property="guid" jdbcType="VARCHAR" />
+    <result column="APP_GUID" property="appGuid" jdbcType="VARCHAR" />
+    <result column="APP_CODE" property="appCode" jdbcType="VARCHAR" />
+    <result column="APP_FILE_NO" property="appFileNo" jdbcType="VARCHAR" />
+    <result column="APP_ATTACHMENT" property="appAttachment" jdbcType="VARCHAR" />
+    <result column="APP_FILE_URL" property="appFileUrl" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    GUID, APP_GUID, APP_CODE, APP_FILE_NO, APP_ATTACHMENT, APP_FILE_URL
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from RSBT_APPFILELIST
+    where GUID = #{guid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from RSBT_APPFILELIST
+    where GUID = #{guid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.rx.rmip.corebiz.service.modules.station.settingapply.model.RSBTAppfilelist" >
+    <!-- 自动生成guid并赋值给 #{guid}-->
+  		<selectKey keyProperty="guid" resultType="String" order="BEFORE">  
+            select sys_guid() from dual  
+        </selectKey> 
+    insert into RSBT_APPFILELIST (GUID, APP_GUID, APP_CODE, 
+      APP_FILE_NO, APP_ATTACHMENT, APP_FILE_URL
+      )
+    values (#{guid,jdbcType=VARCHAR}, #{appGuid,jdbcType=VARCHAR}, #{appCode,jdbcType=VARCHAR}, 
+      #{appFileNo,jdbcType=VARCHAR}, #{appAttachment,jdbcType=VARCHAR}, #{appFileUrl,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.rx.rmip.corebiz.service.modules.station.settingapply.model.RSBTAppfilelist" >
+    insert into RSBT_APPFILELIST
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="guid != null" >
+        GUID,
+      </if>
+      <if test="appGuid != null" >
+        APP_GUID,
+      </if>
+      <if test="appCode != null" >
+        APP_CODE,
+      </if>
+      <if test="appFileNo != null" >
+        APP_FILE_NO,
+      </if>
+      <if test="appAttachment != null" >
+        APP_ATTACHMENT,
+      </if>
+      <if test="appFileUrl != null" >
+        APP_FILE_URL,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="guid != null" >
+        #{guid,jdbcType=VARCHAR},
+      </if>
+      <if test="appGuid != null" >
+        #{appGuid,jdbcType=VARCHAR},
+      </if>
+      <if test="appCode != null" >
+        #{appCode,jdbcType=VARCHAR},
+      </if>
+      <if test="appFileNo != null" >
+        #{appFileNo,jdbcType=VARCHAR},
+      </if>
+      <if test="appAttachment != null" >
+        #{appAttachment,jdbcType=VARCHAR},
+      </if>
+      <if test="appFileUrl != null" >
+        #{appFileUrl,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.rx.rmip.corebiz.service.modules.station.settingapply.model.RSBTAppfilelist" >
+    update RSBT_APPFILELIST
+    <set >
+      <if test="appGuid != null" >
+        APP_GUID = #{appGuid,jdbcType=VARCHAR},
+      </if>
+      <if test="appCode != null" >
+        APP_CODE = #{appCode,jdbcType=VARCHAR},
+      </if>
+      <if test="appFileNo != null" >
+        APP_FILE_NO = #{appFileNo,jdbcType=VARCHAR},
+      </if>
+      <if test="appAttachment != null" >
+        APP_ATTACHMENT = #{appAttachment,jdbcType=VARCHAR},
+      </if>
+      <if test="appFileUrl != null" >
+        APP_FILE_URL = #{appFileUrl,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where GUID = #{guid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.rx.rmip.corebiz.service.modules.station.settingapply.model.RSBTAppfilelist" >
+    update RSBT_APPFILELIST
+    set APP_GUID = #{appGuid,jdbcType=VARCHAR},
+      APP_CODE = #{appCode,jdbcType=VARCHAR},
+      APP_FILE_NO = #{appFileNo,jdbcType=VARCHAR},
+      APP_ATTACHMENT = #{appAttachment,jdbcType=VARCHAR},
+      APP_FILE_URL = #{appFileUrl,jdbcType=VARCHAR}
+    where GUID = #{guid,jdbcType=VARCHAR}
+  </update>
+</mapper>

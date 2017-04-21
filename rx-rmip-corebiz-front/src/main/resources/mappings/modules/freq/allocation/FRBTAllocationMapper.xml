@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.rx.rmip.corebiz.service.modules.freq.allocation.dao.FRBTAllocationMapper" >
+  <resultMap id="BaseResultMap" type="com.rx.rmip.corebiz.service.modules.freq.allocation.model.FRBTAllocation" >
+    <id column="GUID" property="guid" jdbcType="VARCHAR" />
+    <result column="VER_CODE" property="verCode" jdbcType="VARCHAR" />
+    <result column="AREA_CODE" property="areaCode" jdbcType="VARCHAR" />
+    <result column="BAND_B" property="bandB" jdbcType="DECIMAL" />
+    <result column="BAND_E" property="bandE" jdbcType="DECIMAL" />
+    <result column="FN_CODE" property="fnCode" jdbcType="VARCHAR" />
+  </resultMap>
+  
+  <!-- 频率划分对比-查询所有频率划分数据resultMap -->
+  <resultMap type="com.rx.rmip.corebiz.service.modules.freq.allocation.model.FRBTAllocation" id="SelectAllocAllMap">
+  	<!-- 频率划分主表 -->
+  	<id column="GUID" property="guid"/>
+  	<result column="AREA_CODE" property="areaCode"/>
+  	<result column="BAND_B" property="bandB"/>
+  	<result column="BAND_E" property="bandE"/>
+  	<result column="ALLOC_FN_CODE" property="fnCode"/>
+  	<!-- 频率划分无线电业务配置表 -->
+  	<collection property="allocServiceList" ofType="com.rx.rmip.corebiz.service.modules.freq.allocation.model.FRBTAllocationService">
+  		<id column="SERVICE_GUID" property="guid"/>
+  		<result column="SERV_CODE" property="servCode"/>
+  		<result column="SERV_TYPE" property="servType"/>
+  		<result column="ADDI_INFO" property="addiInfo"/>
+  		<result column="SERV_FN_CODE" property="fnCode"/>
+  		<!-- 无线电业务表 -->
+  		<association property="service" javaType="com.rx.rmip.corebiz.service.modules.freq.allocation.model.FRBTService">
+  			<result column="SERV_NAME" property="servName"/>
+  		</association>
+  	</collection>
+  </resultMap>
+  <!-- 频率划分对比-根据区域查询频率划分数据mapper -->
+  <select id="selectByAreaCodeAndBand" resultMap="SelectAllocAllMap" parameterType="java.lang.String">
+  	select 
+	  t1.guid, 
+	  t1.area_code, 
+	  t1.band_b, 
+	  t1.band_e, 
+	  t1.fn_code alloc_fn_code, 
+	  t2.guid service_guid,
+	  t2.serv_code, 
+	  t3.serv_name, 
+	  t2.serv_type, 
+	  t2.addi_info, 
+	  t2.fn_code serv_fn_code 
+	from 
+	  frbt_allocation t1, 
+	  frbt_allocation_service t2, 
+	  frbt_service t3 
+	where 
+	  t2.alloc_guid = t1.guid 
+	  and t2.serv_code = t3.serv_code 
+	  and t1.area_code = #{areaCode} 
+	order by 
+	  t1.band_b asc, 
+	  cast(t2.serv_type as int) desc, 
+	  cast(t2.serv_code as int) asc
+  </select>
+  
+  <sql id="Base_Column_List" >
+    GUID, VER_CODE, AREA_CODE, BAND_B, BAND_E, FN_CODE
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from FRBT_ALLOCATION
+    where GUID = #{guid,jdbcType=VARCHAR}
+  </select>
+  
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from FRBT_ALLOCATION
+    where GUID = #{guid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.rx.rmip.corebiz.service.modules.freq.allocation.model.FRBTAllocation" >
+    insert into FRBT_ALLOCATION (GUID, VER_CODE, AREA_CODE, 
+      BAND_B, BAND_E, FN_CODE
+      )
+    values (#{guid,jdbcType=VARCHAR}, #{verCode,jdbcType=VARCHAR}, #{areaCode,jdbcType=VARCHAR}, 
+      #{bandB,jdbcType=DECIMAL}, #{bandE,jdbcType=DECIMAL}, #{fnCode,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.rx.rmip.corebiz.service.modules.freq.allocation.model.FRBTAllocation" >
+    insert into FRBT_ALLOCATION
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="guid != null" >
+        GUID,
+      </if>
+      <if test="verCode != null" >
+        VER_CODE,
+      </if>
+      <if test="areaCode != null" >
+        AREA_CODE,
+      </if>
+      <if test="bandB != null" >
+        BAND_B,
+      </if>
+      <if test="bandE != null" >
+        BAND_E,
+      </if>
+      <if test="fnCode != null" >
+        FN_CODE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="guid != null" >
+        #{guid,jdbcType=VARCHAR},
+      </if>
+      <if test="verCode != null" >
+        #{verCode,jdbcType=VARCHAR},
+      </if>
+      <if test="areaCode != null" >
+        #{areaCode,jdbcType=VARCHAR},
+      </if>
+      <if test="bandB != null" >
+        #{bandB,jdbcType=DECIMAL},
+      </if>
+      <if test="bandE != null" >
+        #{bandE,jdbcType=DECIMAL},
+      </if>
+      <if test="fnCode != null" >
+        #{fnCode,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.rx.rmip.corebiz.service.modules.freq.allocation.model.FRBTAllocation" >
+    update FRBT_ALLOCATION
+    <set >
+      <if test="verCode != null" >
+        VER_CODE = #{verCode,jdbcType=VARCHAR},
+      </if>
+      <if test="areaCode != null" >
+        AREA_CODE = #{areaCode,jdbcType=VARCHAR},
+      </if>
+      <if test="bandB != null" >
+        BAND_B = #{bandB,jdbcType=DECIMAL},
+      </if>
+      <if test="bandE != null" >
+        BAND_E = #{bandE,jdbcType=DECIMAL},
+      </if>
+      <if test="fnCode != null" >
+        FN_CODE = #{fnCode,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where GUID = #{guid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.rx.rmip.corebiz.service.modules.freq.allocation.model.FRBTAllocation" >
+    update FRBT_ALLOCATION
+    set VER_CODE = #{verCode,jdbcType=VARCHAR},
+      AREA_CODE = #{areaCode,jdbcType=VARCHAR},
+      BAND_B = #{bandB,jdbcType=DECIMAL},
+      BAND_E = #{bandE,jdbcType=DECIMAL},
+      FN_CODE = #{fnCode,jdbcType=VARCHAR}
+    where GUID = #{guid,jdbcType=VARCHAR}
+  </update>
+</mapper>

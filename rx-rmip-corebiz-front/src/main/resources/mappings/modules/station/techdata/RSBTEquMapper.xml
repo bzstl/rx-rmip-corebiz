@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.rx.rmip.corebiz.service.modules.station.techdata.dao.RSBTEquMapper" >
+  <resultMap id="BaseResultMap" type="com.rx.rmip.corebiz.service.modules.station.techdata.model.RSBTEqu" >
+    <id column="GUID" property="guid" jdbcType="VARCHAR" />
+    <result column="STATION_GUID" property="stationGuid" jdbcType="VARCHAR" />
+    <result column="EQU_TYPE" property="equType" jdbcType="VARCHAR" />
+    <result column="EQU_MODEL" property="equModel" jdbcType="VARCHAR" />
+    <result column="EQU_AUTH" property="equAuth" jdbcType="VARCHAR" />
+    <result column="EQU_MENU" property="equMenu" jdbcType="VARCHAR" />
+    <result column="EQU_CODE" property="equCode" jdbcType="VARCHAR" />
+    <result column="EQU_PF" property="equPf" jdbcType="VARCHAR" />
+    <result column="EQU_POW" property="equPow" jdbcType="DECIMAL" />
+    <result column="EQU_MB" property="equMb" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    GUID, STATION_GUID, EQU_TYPE, EQU_MODEL, EQU_AUTH, EQU_MENU, EQU_CODE, EQU_PF, EQU_POW, 
+    EQU_MB
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from RSBT_EQU
+    where GUID = #{guid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from RSBT_EQU
+    where GUID = #{guid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.rx.rmip.corebiz.service.modules.station.techdata.model.RSBTEqu" >
+    <!-- 自动生成guid并赋值给 #{guid}-->
+  		<selectKey keyProperty="guid" resultType="String" order="BEFORE">  
+            select sys_guid() from dual  
+        </selectKey> 
+    insert into RSBT_EQU (GUID, STATION_GUID, EQU_TYPE, 
+      EQU_MODEL, EQU_AUTH, EQU_MENU, 
+      EQU_CODE, EQU_PF, EQU_POW, 
+      EQU_MB)
+    values (#{guid,jdbcType=VARCHAR}, #{stationGuid,jdbcType=VARCHAR}, #{equType,jdbcType=VARCHAR}, 
+      #{equModel,jdbcType=VARCHAR}, #{equAuth,jdbcType=VARCHAR}, #{equMenu,jdbcType=VARCHAR}, 
+      #{equCode,jdbcType=VARCHAR}, #{equPf,jdbcType=VARCHAR}, #{equPow,jdbcType=DECIMAL}, 
+      #{equMb,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.rx.rmip.corebiz.service.modules.station.techdata.model.RSBTEqu" >
+    insert into RSBT_EQU
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="guid != null" >
+        GUID,
+      </if>
+      <if test="stationGuid != null" >
+        STATION_GUID,
+      </if>
+      <if test="equType != null" >
+        EQU_TYPE,
+      </if>
+      <if test="equModel != null" >
+        EQU_MODEL,
+      </if>
+      <if test="equAuth != null" >
+        EQU_AUTH,
+      </if>
+      <if test="equMenu != null" >
+        EQU_MENU,
+      </if>
+      <if test="equCode != null" >
+        EQU_CODE,
+      </if>
+      <if test="equPf != null" >
+        EQU_PF,
+      </if>
+      <if test="equPow != null" >
+        EQU_POW,
+      </if>
+      <if test="equMb != null" >
+        EQU_MB,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="guid != null" >
+        #{guid,jdbcType=VARCHAR},
+      </if>
+      <if test="stationGuid != null" >
+        #{stationGuid,jdbcType=VARCHAR},
+      </if>
+      <if test="equType != null" >
+        #{equType,jdbcType=VARCHAR},
+      </if>
+      <if test="equModel != null" >
+        #{equModel,jdbcType=VARCHAR},
+      </if>
+      <if test="equAuth != null" >
+        #{equAuth,jdbcType=VARCHAR},
+      </if>
+      <if test="equMenu != null" >
+        #{equMenu,jdbcType=VARCHAR},
+      </if>
+      <if test="equCode != null" >
+        #{equCode,jdbcType=VARCHAR},
+      </if>
+      <if test="equPf != null" >
+        #{equPf,jdbcType=VARCHAR},
+      </if>
+      <if test="equPow != null" >
+        #{equPow,jdbcType=DECIMAL},
+      </if>
+      <if test="equMb != null" >
+        #{equMb,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.rx.rmip.corebiz.service.modules.station.techdata.model.RSBTEqu" >
+    update RSBT_EQU
+    <set >
+      <if test="stationGuid != null" >
+        STATION_GUID = #{stationGuid,jdbcType=VARCHAR},
+      </if>
+      <if test="equType != null" >
+        EQU_TYPE = #{equType,jdbcType=VARCHAR},
+      </if>
+      <if test="equModel != null" >
+        EQU_MODEL = #{equModel,jdbcType=VARCHAR},
+      </if>
+      <if test="equAuth != null" >
+        EQU_AUTH = #{equAuth,jdbcType=VARCHAR},
+      </if>
+      <if test="equMenu != null" >
+        EQU_MENU = #{equMenu,jdbcType=VARCHAR},
+      </if>
+      <if test="equCode != null" >
+        EQU_CODE = #{equCode,jdbcType=VARCHAR},
+      </if>
+      <if test="equPf != null" >
+        EQU_PF = #{equPf,jdbcType=VARCHAR},
+      </if>
+      <if test="equPow != null" >
+        EQU_POW = #{equPow,jdbcType=DECIMAL},
+      </if>
+      <if test="equMb != null" >
+        EQU_MB = #{equMb,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where GUID = #{guid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.rx.rmip.corebiz.service.modules.station.techdata.model.RSBTEqu" >
+    update RSBT_EQU
+    set STATION_GUID = #{stationGuid,jdbcType=VARCHAR},
+      EQU_TYPE = #{equType,jdbcType=VARCHAR},
+      EQU_MODEL = #{equModel,jdbcType=VARCHAR},
+      EQU_AUTH = #{equAuth,jdbcType=VARCHAR},
+      EQU_MENU = #{equMenu,jdbcType=VARCHAR},
+      EQU_CODE = #{equCode,jdbcType=VARCHAR},
+      EQU_PF = #{equPf,jdbcType=VARCHAR},
+      EQU_POW = #{equPow,jdbcType=DECIMAL},
+      EQU_MB = #{equMb,jdbcType=VARCHAR}
+    where GUID = #{guid,jdbcType=VARCHAR}
+  </update>
+</mapper>

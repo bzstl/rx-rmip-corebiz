@@ -1,0 +1,14 @@
+.combobox-item-hover{
+        background:#B46F3C;
+}
+
+.combobox-text
+{
+    width:100%;
+    height:20px;
+    border:1px;
+    color:Black;
+    vertical-align:middle;
+    text-align:left;
+    padding:0;
+}	
