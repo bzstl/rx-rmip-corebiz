@@ -4,7 +4,7 @@
 <!-- 引入 ECharts 文件 -->
 									<script src="${ctx }assets/js/echarts/echarts.js"></script>
 										<div class="input-group" style="width: 300px">
-											<input type="text" class="form-control" name="keywords" placeholder="Look within results" />
+											<input type="text" value="单位名称" class="form-control" name="keywords" placeholder="Look within results" />
 											<div class="input-group-btn">
 												<button type="button" class="btn btn-default no-border btn-sm">
 													<i class="ace-icon fa fa-search icon-on-right bigger-110"></i>
@@ -22,18 +22,16 @@
 										        // 指定图表的配置项和数据
 										        var option = {
 										        		    tooltip: {},
-										        		    legend: {
-										        		        data: ['受理', '通过','注销']
-										        		    },
+										        		   
 										        		    radar: {
 										        		        // shape: 'circle',
 										        		        indicator: [
-										        		           { name: '频率', max: 6500},
-										        		           { name: '台站', max: 16000},
-										        		           { name: '呼号', max: 30000},
-										        		           { name: '进关核准', max: 38000},
-										        		           { name: '卫星地球站', max: 52000},
-										        		           { name: '型号核准', max: 35000}
+										        		           { name: '频率', max: 100},
+										        		           { name: '台站', max: 100},
+										        		           { name: '呼号', max: 100},
+										        		           { name: '进关核准', max: 100},
+										        		           { name: '卫星地球站', max: 100},
+										        		           { name: '型号核准', max: 100}
 										        		        ]
 										        		    },
 										        		    series: [{
@@ -42,32 +40,7 @@
 										        		        // areaStyle: {normal: {}},
 										        		        data : [
 										        		            {
-										        		                value : [4300, 10000, 28000, 35000, 50000, 19000],
-										        		                name : '受理',
-										        		                label: {
-										        	                        normal: {
-										        	                            show: true,
-										        	                            formatter:function(params) {
-										        	                                return params.value;
-										        	                            }
-										        	                        }
-										        	                    }
-										        		            },
-										        		            {
-										        		                value : [5000, 14000, 28000, 31000, 42000, 21000],
-										        		                name : '通过',
-										        		                label: {
-										        	                        normal: {
-										        	                            show: true,
-										        	                            formatter:function(params) {
-										        	                                return params.value;
-										        	                            }
-										        	                        }
-										        	                    }
-										        		            },
-										        		            {
-										        		                value : [4000, 1200, 27000, 32000, 30000, 29000],
-										        		                name : '注销',
+										        		                value : [23, 29, 87, 50, 9, 40],
 										        		                label: {
 										        	                        normal: {
 										        	                            show: true,
@@ -84,3 +57,62 @@
 										        // 使用刚指定的配置项和数据显示图表。
 										        myChart.setOption(option);
 										    </script>
+										    
+										    
+										    
+										      	<!-- div.dataTables_borderWrap -->
+										<div>
+											<table id="dynamic-table" class="table table-striped table-bordered table-hover">
+												<thead>
+													<tr>
+														<th>审批类型</th>
+														<th>单位名称</th>
+														<th>行政许可号</th>
+														<th class="hidden-480">具体信息</th>
+													</tr>
+												</thead>
+
+												<tbody>
+													<tr>
+
+														<td>
+															频率新申
+														</td>
+														<td>上海移动</td>
+														<td>陆地移动业务</td>
+														<td class="hidden-480">****</td>
+														
+													</tr>
+													<tr>
+
+														<td>
+															频率新申
+														</td>
+														<td>上海移动</td>
+														<td>陆地移动业务</td>
+														<td class="hidden-480">******</td>
+													</tr>
+													
+													<tr>
+
+														<td>
+															频率新申
+														</td>
+														<td>上海移动</td>
+														<td>陆地移动业务</td>
+														<td class="hidden-480">******</td>
+													</tr>
+													<tr>
+
+														<td>
+															频率新申
+														</td>
+														<td>上海移动</td>
+														<td>陆地移动业务</td>
+														<td class="hidden-480">******</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+									</div>
+								</div>

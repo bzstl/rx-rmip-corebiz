@@ -4,7 +4,7 @@
 <!-- 引入 ECharts 文件 -->
 <script src="${ctx }assets/js/echarts/echarts.js"></script>
 				<div class="input-group" style="width: 300px">
-					<input type="text" class="form-control" name="keywords" placeholder="Look within results" />
+					<input type="text" value="年度" class="form-control" name="keywords" placeholder="Look within results" />
 					<div class="input-group-btn">
 						<button type="button" class="btn btn-default no-border btn-sm">
 							<i class="ace-icon fa fa-search icon-on-right bigger-110"></i>

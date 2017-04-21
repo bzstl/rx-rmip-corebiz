@@ -36,3 +36,61 @@
         // 使用刚指定的配置项和数据显示图表。
         myChart.setOption(option);
     </script>		
+    
+    
+    	<!-- div.dataTables_borderWrap -->
+										<div>
+											<table id="dynamic-table" class="table table-striped table-bordered table-hover">
+												<thead>
+													<tr>
+														<th>审批类型</th>
+														<th>单位名称</th>
+														<th>业务类型</th>
+														<th class="hidden-480">频率数量</th>
+													</tr>
+												</thead>
+
+												<tbody>
+													<tr>
+
+														<td>
+															频率新申
+														</td>
+														<td>上海移动</td>
+														<td>陆地移动业务</td>
+														<td class="hidden-480">****</td>
+														
+													</tr>
+													<tr>
+
+														<td>
+															频率新申
+														</td>
+														<td>上海移动</td>
+														<td>陆地移动业务</td>
+														<td class="hidden-480">******</td>
+													</tr>
+													
+													<tr>
+
+														<td>
+															频率新申
+														</td>
+														<td>上海移动</td>
+														<td>陆地移动业务</td>
+														<td class="hidden-480">******</td>
+													</tr>
+													<tr>
+
+														<td>
+															频率新申
+														</td>
+														<td>上海移动</td>
+														<td>陆地移动业务</td>
+														<td class="hidden-480">******</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+									</div>
+								</div>

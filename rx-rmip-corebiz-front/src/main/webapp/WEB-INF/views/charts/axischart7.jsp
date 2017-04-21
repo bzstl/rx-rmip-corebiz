@@ -197,3 +197,53 @@
         myChart.setOption(option);
     </script>
     
+    
+     <!-- 区县投诉统计 -->
+<div id="chart3" style="width: 1200px;height:600px;margin:0 auto ;margin-top: 50px;"></div>
+<script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('chart3'));
+
+        // 指定图表的配置项和数据
+		var option = {
+			tooltip : {
+				trigger: 'axis',
+				axisPointer : {            // 坐标轴指示器，坐标轴触发有效
+					type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+				}
+			},
+			title: {
+		        text: '投诉来源统计'
+		    },
+			grid: {
+				left: '3%',
+				right: '4%',
+				bottom: '3%',
+				containLabel: true
+			},
+			xAxis : [
+				{
+					type : 'category',
+					data : ['静安区','黄埔区','徐汇区','长宁区','普陀区']
+				}
+			],
+			yAxis : [
+				{
+					type : 'value'
+				}
+			],
+			series : [
+				{
+					name:'已处理',
+					type:'bar',
+					data:[320, 332, 301, 334, 390]
+				}
+				
+				
+			]
+		};
+
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+    </script>
+    

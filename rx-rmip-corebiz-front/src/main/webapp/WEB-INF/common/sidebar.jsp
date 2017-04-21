@@ -354,7 +354,7 @@
 						</li>
 					</ul>
 				</li>
-				<li class="">
+				<li class="" onclick="ok('charts/table10');">
 					<a href="form-elements.jsp" class="dropdown-toggle">
 						<i class="menu-icon fa fa-caret-right"></i>
 						日常事务
